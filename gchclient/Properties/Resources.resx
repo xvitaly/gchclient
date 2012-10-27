@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Blacklisted" xml:space="preserve">
+    <value>Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="APIURI" xml:space="preserve">
+    <value>{0}check.team-fortress.ru/api.php?action={1}&amp;token={2}&amp;id={3}</value>
+  </data>
+  <data name="URLAdmList" xml:space="preserve">
+    <value>http://www.team-fortress.ru/forum/index.php</value>
+  </data>
+  <data name="URLBlList" xml:space="preserve">
+    <value>https://check.team-fortress.ru/personal</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="srchfr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\srchfr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppNoTokensErr" xml:space="preserve">
+    <value>Не заданы токены авторизации в настройках. Проверка невозможна. Задайте их и повторите попытку!</value>
+  </data>
+  <data name="AppSettEmptyS" xml:space="preserve">
+    <value>Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="VCStatusNormal" xml:space="preserve">
+    <value>чист</value>
+  </data>
+  <data name="TFStaff" xml:space="preserve">
+    <value>Является сотрудником сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="AppUpdateAvailable" xml:space="preserve">
+    <value>Доступно обновление программы до версии {0}. Нажмите на это сообщение для обновления.</value>
+  </data>
+  <data name="URLAucList" xml:space="preserve">
+    <value>http://www.team-fortress.ru/forum/viewtopic.php?t=25536</value>
+  </data>
+  <data name="NotGarant" xml:space="preserve">
+    <value>НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="BlackAucMsg" xml:space="preserve">
+    <value>Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="ErrXML" xml:space="preserve">
+    <value>Файл не существует! Проверьте права доступа к временному каталогу.</value>
+  </data>
+  <data name="AppBlPrefix" xml:space="preserve">
+    <value>Причина добавления в ЧС: {0}</value>
+  </data>
+  <data name="ListBlackName" xml:space="preserve">
+    <value>ЧС</value>
+  </data>
+  <data name="TradeST" xml:space="preserve">
+    <value>Статус торговли: {0}.</value>
+  </data>
+  <data name="message" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="URLGarantList" xml:space="preserve">
+    <value>https://check.team-fortress.ru/middle</value>
+  </data>
+  <data name="VCStatusBanned" xml:space="preserve">
+    <value>забанен</value>
+  </data>
+  <data name="ListWhiteName" xml:space="preserve">
+    <value>БС</value>
+  </data>
+  <data name="GenericMsg" xml:space="preserve">
+    <value>Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="AppNoUpdater" xml:space="preserve">
+    <value>Не обнаружен модуль обновления! Возможно, программа установлена не полностью. Загрузите новую версию самостоятельно с официального сайта.</value>
+  </data>
+  <data name="AppStartFailure" xml:space="preserve">
+    <value>Произошла ошибка при вызове Интернет-браузера. Переустановите его, либо назначьте браузер по умолчанию!</value>
+  </data>
+  <data name="AppNoURLStr" xml:space="preserve">
+    <value>Ошибка во время перехода по ссылке!</value>
+  </data>
+  <data name="AppAlrRun" xml:space="preserve">
+    <value>Комбинация клавиш, необходимых для работы программы, уже зарегистрирована в системе. Работа данного экземпляра будет прекращена!</value>
+  </data>
+  <data name="iconInventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconInventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IncorrectURL" xml:space="preserve">
+    <value>В буфере обмена находится неверный URL! Проверка не будет выполнена.</value>
+  </data>
+  <data name="AppBlAucPrefix" xml:space="preserve">
+    <value>Причина добавления в ЧС аукциона: {0}</value>
+  </data>
+  <data name="F2PAccTextStatus" xml:space="preserve">
+    <value>Бесплатный аккаунт.</value>
+  </data>
+  <data name="AppMSGLnkCopClipb" xml:space="preserve">
+    <value>Постоянная ссылка на аккаунт пользователя была успешно скопирована в буфер обмена!</value>
+  </data>
+  <data name="WhiteListed" xml:space="preserve">
+    <value>Этот пользователь находится в белом списке сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="VCStatusA" xml:space="preserve">
+    <value>Статус VAC: {0}.</value>
+  </data>
+  <data name="AppMsgNicknClipb" xml:space="preserve">
+    <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
+  </data>
+  <data name="UpdateURL" xml:space="preserve">
+    <value>http://www.easycoding.org/files/gchclient.txt</value>
+  </data>
+  <data name="TradeNormal" xml:space="preserve">
+    <value>без ограничений</value>
+  </data>
+  <data name="AppFieldEmpty" xml:space="preserve">
+    <value>Вы не ввели ссылку, либо ID для проверки. Проверка невозможна. Введите условие и повторите попытку.</value>
+  </data>
+  <data name="ListBlAucName" xml:space="preserve">
+    <value>ЧС аук</value>
+  </data>
+  <data name="TradeBanned" xml:space="preserve">
+    <value>отключена</value>
+  </data>
+  <data name="ErrNotExists" xml:space="preserve">
+    <value>Профиль запрошенного пользователя не существует!</value>
+  </data>
+  <data name="URLWhiteList" xml:space="preserve">
+    <value>https://check.team-fortress.ru/white</value>
+  </data>
+  <data name="GarantMsg" xml:space="preserve">
+    <value>Для безопасности сделок все гаранты используют только сервис Обмен Steam.</value>
+  </data>
+  <data name="AppFrErr" xml:space="preserve">
+    <value>Данный профиль скрыт, либо имеет статус "Только для друзей". Отображение списка друзей для него недоступно.</value>
+  </data>
+  <data name="TFStaffMsg" xml:space="preserve">
+    <value>Дополнительная информация об этом пользователе недоступна!</value>
+  </data>
+  <data name="CustInfoNone" xml:space="preserve">
+    <value>Кастомное описание и дополнительная информация для этого пользователя отсутствуют.</value>
+  </data>
+  <data name="AppAlrLaunched" xml:space="preserve">
+    <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
+  </data>
+  <data name="AppURIStartFail" xml:space="preserve">
+    <value>Произошла ошибка при вызове обработчика протокола. Убедитесь в корректной установке клиента Steam.</value>
+  </data>
+  <data name="AppHideTray" xml:space="preserve">
+    <value>Программа была свёрнута в трей, но продолжает работу. Дважды щёлкните по значку для восстановления окна. Для выхода нажмите правой кнопкой и Выход.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Служба проверки пользователей</value>
+  </data>
+  <data name="null_avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\null_avatar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconAddFriend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconAddFriend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garant" xml:space="preserve">
+    <value>Является гарантом сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="ListNoneName" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="AppMsgSiDClipb" xml:space="preserve">
+    <value>SteamID пользователя {0} был успешно помещён в буфер обмена Windows!</value>
+  </data>
+  <data name="ListStaffName" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="AppStaffPrefix" xml:space="preserve">
+    <value>Особые полномочия: {0}</value>
+  </data>
+  <data name="TradeIsp" xml:space="preserve">
+    <value>на испытательном сроке</value>
+  </data>
+  <data name="AppNicknameUnknown" xml:space="preserve">
+    <value>UNKNOWN</value>
+  </data>
+  <data name="ListGarantName" xml:space="preserve">
+    <value>Гаранты</value>
+  </data>
+  <data name="AppSettSaved" xml:space="preserve">
+    <value>Настройки успешно сохранены!</value>
+  </data>
+  <data name="avatarholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avatarholder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ListPremName" xml:space="preserve">
+    <value>Премиум</value>
+  </data>
+  <data name="PremiumUser" xml:space="preserve">
+    <value>Это премиум-пользователь чекера гарантов сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="UnknownGroup" xml:space="preserve">
+    <value>Не удалось установить принадлежность этого пользователя. Обновите клиент!</value>
+  </data>
+  <data name="URLPremiumList" xml:space="preserve">
+    <value>http://www.team-fortress.ru/forum/viewtopic.php?t=26538</value>
+  </data>
+  <data name="BadUserTr" xml:space="preserve">
+    <value>Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="AppNotTrPrefix" xml:space="preserve">
+    <value>Причина ненадёжности: {0}</value>
+  </data>
+  <data name="ListNotTrName" xml:space="preserve">
+    <value>Ненадёжные</value>
+  </data>
+  <data name="AppErrTokenInfo" xml:space="preserve">
+    <value>Произошла ошибка при получении информации о вашем токене доступа. Повторите попытку позднее!</value>
+  </data>
+  <data name="AppIncorrectTokens" xml:space="preserve">
+    <value>Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.RU.</value>
+  </data>
+  <data name="AppSBBuilding" xml:space="preserve">
+    <value>Построение списка...</value>
+  </data>
+  <data name="AppSBReady" xml:space="preserve">
+    <value>Готов.</value>
+  </data>
+  <data name="AppSBReceiving" xml:space="preserve">
+    <value>Получение информации с сервера...</value>
+  </data>
+  <data name="AppWorkerBusy" xml:space="preserve">
+    <value>Программа уже занята обработкой предыдущего запроса. Пожалуйста, повторите попытку позднее.</value>
+  </data>
+  <data name="AppUserAgent" xml:space="preserve">
+    <value>Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7</value>
+  </data>
+  <data name="AppChkRegEx" xml:space="preserve">
+    <value>^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/</value>
+  </data>
+  <data name="AppIgnClipbErr" xml:space="preserve">
+    <value>Ошибка при вставке из буфера обмена!</value>
+  </data>
+  <data name="AppIgnLDlEx" xml:space="preserve">
+    <value>Запрещено удалять элементы, созданные не лично вами!</value>
+  </data>
+  <data name="AppIgnLDMsg" xml:space="preserve">
+    <value>Очистить окно редактора?</value>
+  </data>
+</root>

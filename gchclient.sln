@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchclient", "gchclient\gchclient.csproj", "{28BA1744-2920-4D31-B87F-FBC648F86BEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchupdater", "gchupdater\gchupdater.csproj", "{48FD0830-1889-4886-8F6C-329190EA7A0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28BA1744-2920-4D31-B87F-FBC648F86BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BA1744-2920-4D31-B87F-FBC648F86BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BA1744-2920-4D31-B87F-FBC648F86BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BA1744-2920-4D31-B87F-FBC648F86BEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
