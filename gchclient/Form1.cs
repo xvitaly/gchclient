@@ -409,7 +409,7 @@ namespace gchclient
             RV_CheckFriends.Visible = Properties.Settings.Default.ShowQuickBtns;
             RV_AddFriend.Visible = Properties.Settings.Default.ShowQuickBtns;
             RV_ViewBackPack.Visible = Properties.Settings.Default.ShowQuickBtns;
-            RV_SendMessage.Visible = Properties.Settings.Default.ShowQuickBtns;
+            RV_Report.Visible = Properties.Settings.Default.ShowQuickBtns;
             // Проверим наличие обновлений программы (если разрешено в настройках)...
             if (Properties.Settings.Default.EnableAutoUpdate && (Properties.Settings.Default.LastUpdateTime != null)) { if (!BW_UpdChk.IsBusy) { BW_UpdChk.RunWorkerAsync(); } }
         }
@@ -647,8 +647,8 @@ namespace gchclient
 
         private void RV_SteamID_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(UsrSteamID);
-            TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, UsrSteamID), ToolTipIcon.Info);
+            string Sid = Control.ModifierKeys != Keys.Shift ? UsrSteamID : SID64;
+            try { Clipboard.SetText(Sid); TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Sid), ToolTipIcon.Info); } catch { }
         }
 
         private void RV_AddFriend_Click(object sender, EventArgs e)
@@ -675,18 +675,6 @@ namespace gchclient
             }
         }
 
-        private void RV_SendMessage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Process.Start(String.Format("steam://friends/message/{0}", SID64));
-            }
-            catch
-            {
-                MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void CM_Settings_Click(object sender, EventArgs e)
         {
             frmOptions FRMOPT = new frmOptions();
@@ -697,6 +685,12 @@ namespace gchclient
         {
             frmTokenInfo FrmTInfo = new frmTokenInfo();
             FrmTInfo.ShowDialog();
+        }
+
+        private void RV_Report_Click(object sender, EventArgs e)
+        {
+            frmReportU FrmRep = new frmReportU(RV_SteamID.Text);
+            FrmRep.ShowDialog();
         }
         #endregion
     }
