@@ -647,8 +647,8 @@ namespace gchclient
 
         private void RV_SteamID_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(UsrSteamID);
-            TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, UsrSteamID), ToolTipIcon.Info);
+            string Sid = Control.ModifierKeys != Keys.Shift ? UsrSteamID : SID64;
+            try { Clipboard.SetText(Sid); TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Sid), ToolTipIcon.Info); } catch { }
         }
 
         private void RV_AddFriend_Click(object sender, EventArgs e)

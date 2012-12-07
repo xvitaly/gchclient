@@ -207,7 +207,7 @@
             this.RV_Report.Size = new System.Drawing.Size(29, 24);
             this.RV_Report.TabIndex = 4;
             this.RV_Report.TabStop = false;
-            this.ToolTipCtr.SetToolTip(this.RV_Report, "Отправить сообщение");
+            this.ToolTipCtr.SetToolTip(this.RV_Report, "Отправить жалобу");
             this.RV_Report.UseVisualStyleBackColor = true;
             this.RV_Report.Click += new System.EventHandler(this.RV_Report_Click);
             // 
