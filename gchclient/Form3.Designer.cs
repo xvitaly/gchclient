@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFrChk));
             this.DVList = new System.Windows.Forms.DataGridView();
             this.DV_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DV_sid32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DV_LastNick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DV_List = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SV_FrSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DV_Link = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -58,7 +58,7 @@
             this.DVList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DVList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DV_Number,
-            this.DV_sid32,
+            this.DV_LastNick,
             this.DV_List,
             this.SV_FrSince,
             this.DV_Link});
@@ -78,12 +78,12 @@
             this.DV_Number.ReadOnly = true;
             this.DV_Number.Width = 30;
             // 
-            // DV_sid32
+            // DV_LastNick
             // 
-            this.DV_sid32.HeaderText = "SteamID";
-            this.DV_sid32.Name = "DV_sid32";
-            this.DV_sid32.ReadOnly = true;
-            this.DV_sid32.Width = 125;
+            this.DV_LastNick.HeaderText = "Последний ник";
+            this.DV_LastNick.Name = "DV_LastNick";
+            this.DV_LastNick.ReadOnly = true;
+            this.DV_LastNick.Width = 125;
             // 
             // DV_List
             // 
@@ -160,13 +160,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DVList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DV_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DV_sid32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DV_List;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SV_FrSince;
-        private System.Windows.Forms.DataGridViewLinkColumn DV_Link;
         private System.ComponentModel.BackgroundWorker BW_Rcv;
         private System.Windows.Forms.StatusStrip SB_Main;
         private System.Windows.Forms.ToolStripStatusLabel SB_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DV_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DV_LastNick;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DV_List;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SV_FrSince;
+        private System.Windows.Forms.DataGridViewLinkColumn DV_Link;
     }
 }

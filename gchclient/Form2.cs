@@ -101,6 +101,7 @@ namespace gchclient
                             Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
                             Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
                             Properties.Settings.Default.AllowClipbCheck = Opt_ClipbInt.Checked;
+                            Properties.Settings.Default.ChkDescFontAuto = Opt_AutoCustDescrR.Checked;
                             try { if (Opt_Autorun.Checked) { Autorun.Enable("gchclient"); } else { Autorun.Disable("gchclient"); } } catch { }
                             try
                             {

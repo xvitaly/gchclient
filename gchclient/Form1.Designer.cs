@@ -42,7 +42,7 @@
             this.InpStr = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.ResultView = new System.Windows.Forms.Panel();
-            this.RV_SendMessage = new System.Windows.Forms.Button();
+            this.RV_Report = new System.Windows.Forms.Button();
             this.RV_ViewBackPack = new System.Windows.Forms.Button();
             this.RV_AddFriend = new System.Windows.Forms.Button();
             this.RV_CheckFriends = new System.Windows.Forms.Button();
@@ -177,7 +177,7 @@
             // ResultView
             // 
             this.ResultView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ResultView.Controls.Add(this.RV_SendMessage);
+            this.ResultView.Controls.Add(this.RV_Report);
             this.ResultView.Controls.Add(this.RV_ViewBackPack);
             this.ResultView.Controls.Add(this.RV_AddFriend);
             this.ResultView.Controls.Add(this.RV_CheckFriends);
@@ -199,17 +199,17 @@
             this.ResultView.TabIndex = 5;
             this.ResultView.Visible = false;
             // 
-            // RV_SendMessage
+            // RV_Report
             // 
-            this.RV_SendMessage.Image = global::gchclient.Properties.Resources.message;
-            this.RV_SendMessage.Location = new System.Drawing.Point(619, 21);
-            this.RV_SendMessage.Name = "RV_SendMessage";
-            this.RV_SendMessage.Size = new System.Drawing.Size(29, 24);
-            this.RV_SendMessage.TabIndex = 4;
-            this.RV_SendMessage.TabStop = false;
-            this.ToolTipCtr.SetToolTip(this.RV_SendMessage, "Отправить сообщение");
-            this.RV_SendMessage.UseVisualStyleBackColor = true;
-            this.RV_SendMessage.Click += new System.EventHandler(this.RV_SendMessage_Click);
+            this.RV_Report.Image = global::gchclient.Properties.Resources.iconReport;
+            this.RV_Report.Location = new System.Drawing.Point(625, 21);
+            this.RV_Report.Name = "RV_Report";
+            this.RV_Report.Size = new System.Drawing.Size(29, 24);
+            this.RV_Report.TabIndex = 4;
+            this.RV_Report.TabStop = false;
+            this.ToolTipCtr.SetToolTip(this.RV_Report, "Отправить сообщение");
+            this.RV_Report.UseVisualStyleBackColor = true;
+            this.RV_Report.Click += new System.EventHandler(this.RV_Report_Click);
             // 
             // RV_ViewBackPack
             // 
@@ -226,7 +226,7 @@
             // RV_AddFriend
             // 
             this.RV_AddFriend.Image = global::gchclient.Properties.Resources.iconAddFriend;
-            this.RV_AddFriend.Location = new System.Drawing.Point(584, 21);
+            this.RV_AddFriend.Location = new System.Drawing.Point(595, 21);
             this.RV_AddFriend.Name = "RV_AddFriend";
             this.RV_AddFriend.Size = new System.Drawing.Size(29, 24);
             this.RV_AddFriend.TabIndex = 3;
@@ -238,7 +238,7 @@
             // RV_CheckFriends
             // 
             this.RV_CheckFriends.Image = global::gchclient.Properties.Resources.srchfr;
-            this.RV_CheckFriends.Location = new System.Drawing.Point(549, 21);
+            this.RV_CheckFriends.Location = new System.Drawing.Point(565, 21);
             this.RV_CheckFriends.Name = "RV_CheckFriends";
             this.RV_CheckFriends.Size = new System.Drawing.Size(29, 24);
             this.RV_CheckFriends.TabIndex = 2;
@@ -525,7 +525,7 @@
         private System.Windows.Forms.Button RV_CheckFriends;
         private System.Windows.Forms.Button RV_AddFriend;
         private System.Windows.Forms.Button RV_ViewBackPack;
-        private System.Windows.Forms.Button RV_SendMessage;
+        private System.Windows.Forms.Button RV_Report;
         private System.Windows.Forms.PictureBox RV_AvatarHolder;
         private System.Windows.Forms.ToolTip ToolTipCtr;
         private System.Windows.Forms.ToolStripMenuItem CM_TokenInfo;
