@@ -26,7 +26,7 @@ namespace gchclient
         [STAThread]
         static void Main()
         {
-            using (Mutex Mtx = new Mutex(false, "gchclient"))
+            using (Mutex Mtx = new Mutex(false, Properties.Resources.AppIntName))
             {
                 if (Mtx.WaitOne(0, false))
                 {

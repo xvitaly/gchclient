@@ -196,6 +196,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to gchk.
+        /// </summary>
+        internal static string AppIntName {
+            get {
+                return ResourceManager.GetString("AppIntName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Постоянная ссылка на аккаунт пользователя была успешно скопирована в буфер обмена!.
         /// </summary>
         internal static string AppMSGLnkCopClipb {

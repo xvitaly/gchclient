@@ -32,7 +32,7 @@ namespace gchclient
     public partial class frmMain : Form
     {
         #region Internal Variables
-        private string AVTDir = Path.Combine(Path.GetTempPath(), "gchk");
+        private string AVTDir = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
         private string AppPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
         private string PrevURL = "";

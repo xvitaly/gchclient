@@ -376,4 +376,7 @@
   <data name="RepEmptyField" xml:space="preserve">
     <value>Не заполнены требуемые поля. Заполните и повторите попытку!</value>
   </data>
+  <data name="AppIntName" xml:space="preserve">
+    <value>gchk</value>
+  </data>
 </root>
