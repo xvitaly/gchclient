@@ -13,10 +13,8 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using System.Diagnostics;
+using System.Threading;
 
 namespace gchclient
 {
@@ -28,16 +26,19 @@ namespace gchclient
         [STAThread]
         static void Main()
         {
-            if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
+            using (Mutex Mtx = new Mutex(false, "gchclient"))
             {
-                MessageBox.Show(Properties.Resources.AppAlrLaunched, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Environment.Exit(78);
-            }
-            else
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmMain());
+                if (Mtx.WaitOne(0, false))
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new frmMain());
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.AppAlrLaunched, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Environment.Exit(78);
+                }
             }
         }
     }
