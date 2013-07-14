@@ -133,7 +133,7 @@
     <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
   </data>
   <data name="URLAucList" xml:space="preserve">
-    <value>http://www.team-fortress.ru/forum/viewtopic.php?t=25536</value>
+    <value>http://forum.team-fortress.su/</value>
   </data>
   <data name="TradeIsp" xml:space="preserve">
     <value>на испытательном сроке</value>
@@ -239,7 +239,7 @@
     <value>Получение информации с сервера...</value>
   </data>
   <data name="URLAdmList" xml:space="preserve">
-    <value>http://www.team-fortress.ru/forum/index.php</value>
+    <value>http://forum.team-fortress.su/</value>
   </data>
   <data name="AppHideTray" xml:space="preserve">
     <value>Программа была свёрнута в трей, но продолжает работу. Дважды щёлкните по значку для восстановления окна. Для выхода нажмите правой кнопкой и Выход.</value>
@@ -272,7 +272,7 @@
     <value>Построение списка...</value>
   </data>
   <data name="URLWhiteList" xml:space="preserve">
-    <value>https://check.team-fortress.ru/white</value>
+    <value>http://check.team-fortress.su/white</value>
   </data>
   <data name="TradeBanned" xml:space="preserve">
     <value>отключена</value>
@@ -284,7 +284,7 @@
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
   </data>
   <data name="URLGarantList" xml:space="preserve">
-    <value>https://check.team-fortress.ru/middle</value>
+    <value>http://check.team-fortress.su/middle</value>
   </data>
   <data name="UpdateURL" xml:space="preserve">
     <value>http://www.easycoding.org/files/gchclient.txt</value>
@@ -323,10 +323,10 @@
     <value>Причина добавления в ЧС: {0}</value>
   </data>
   <data name="APIURI" xml:space="preserve">
-    <value>{0}check.team-fortress.ru/api.php?action={1}&amp;token={2}&amp;id={3}</value>
+    <value>{0}check.team-fortress.su/api.php?action={1}&amp;token={2}&amp;id={3}</value>
   </data>
   <data name="URLPremiumList" xml:space="preserve">
-    <value>http://www.team-fortress.ru/forum/viewtopic.php?t=26538</value>
+    <value>http://forum.team-fortress.su/</value>
   </data>
   <data name="AppNicknameUnknown" xml:space="preserve">
     <value>UNKNOWN</value>
@@ -362,7 +362,7 @@
     <value>..\Resources\iconReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="APIRepURL" xml:space="preserve">
-    <value>{0}check.team-fortress.ru/personal</value>
+    <value>{0}check.team-fortress.su/personal</value>
   </data>
   <data name="RepError" xml:space="preserve">
     <value>Произошла ошибка при отправке сообщения. Повторите попытку позднее!</value>
