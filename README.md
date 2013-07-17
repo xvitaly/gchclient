@@ -1,10 +1,12 @@
 <h1>Краткая информация о проекте</h1>
 
-<b>Garant Checker Offline</b> (служба проверки пользователей) — клиент, демонстрирующий работу с <a href="http://www.easycoding.org/projects/gchecker/api" target="_blank">API</a> проекта <a href="http://www.easycoding.org/projects/gchecker" target="_blank">PHP Garant Checker</a>. Программа написана исключительно for fun для гарантов и пользователей <a href="http://www.team-fortress.ru/forum/" target="_blank">форума team-fortress.ru</a>.
+<b>Garant Checker Offline</b> (служба проверки пользователей) — клиент, демонстрирующий работу с <a href="http://www.easycoding.org/projects/gchecker/api" target="_blank">API</a> проекта <a href="http://www.easycoding.org/projects/gchecker" target="_blank">PHP Garant Checker</a>. Программа написана исключительно for fun для гарантов и пользователей <a href="http://forum.team-fortress.su/" target="_blank">форума team-fortress.su</a>.
 
 Данное приложение предназначено для гарантов и пользователей, которые вынуждены проверять десятки или даже сотни пользовательских профилей Steam на наличие в чёрном/белом списках, гарантах и т.д.
 
-<b>Постоянная ссылка для загрузки</b>: <a href="http://www.team-fortress.ru/downloads/gchclient.zip">http://www.team-fortress.ru/downloads/gchclient.zip</a>.
+<b>Постоянная ссылка для загрузки</b>: <a href="http://www.team-fortress.su/downloads/gchclient.zip">http://www.team-fortress.su/downloads/gchclient.zip</a>.
+
+Сообщить об ошибке в программе, а также предложить новую функцию можно здесь: <a href="http://bugs.easycoding.org/bug_report_page.php?project_id=2">баг-трекер ECTeam</a> (требуется регистрация).
 
 <b>Лицензия</b>: модифицированная BSD.
 
