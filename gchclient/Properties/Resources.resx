@@ -121,13 +121,13 @@
     <value>https://check.team-fortress.ru/personal</value>
   </data>
   <data name="WhiteListed" xml:space="preserve">
-    <value>Этот пользователь находится в белом списке сайта TEAM-FORTRESS.RU.</value>
+    <value>Этот пользователь находится в белом списке сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListNotTrName" xml:space="preserve">
     <value>Ненадёжные</value>
   </data>
   <data name="AppIncorrectTokens" xml:space="preserve">
-    <value>Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.RU.</value>
+    <value>Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.SU.</value>
   </data>
   <data name="AppAlrLaunched" xml:space="preserve">
     <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
@@ -139,7 +139,7 @@
     <value>на испытательном сроке</value>
   </data>
   <data name="BlackAucMsg" xml:space="preserve">
-    <value>Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.RU.</value>
+    <value>Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="IncorrectURL" xml:space="preserve">
     <value>В буфере обмена находится неверный URL! Проверка не будет выполнена.</value>
@@ -164,13 +164,13 @@
     <value>^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/</value>
   </data>
   <data name="TFStaff" xml:space="preserve">
-    <value>Является сотрудником сайта TEAM-FORTRESS.RU.</value>
+    <value>Является сотрудником сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="AppURIStartFail" xml:space="preserve">
     <value>Произошла ошибка при вызове обработчика протокола. Убедитесь в корректной установке клиента Steam.</value>
   </data>
   <data name="GenericMsg" xml:space="preserve">
-    <value>Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.RU.</value>
+    <value>Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.SU.</value>
   </data>
   <data name="TradeNormal" xml:space="preserve">
     <value>без ограничений</value>
@@ -200,13 +200,13 @@
     <value>Не удалось установить принадлежность этого пользователя. Обновите клиент!</value>
   </data>
   <data name="BadUserTr" xml:space="preserve">
-    <value>Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.RU.</value>
+    <value>Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="AppSBReady" xml:space="preserve">
     <value>Готов.</value>
   </data>
   <data name="NotGarant" xml:space="preserve">
-    <value>НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.RU.</value>
+    <value>НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListGarantName" xml:space="preserve">
     <value>Гаранты</value>
@@ -278,7 +278,7 @@
     <value>отключена</value>
   </data>
   <data name="Blacklisted" xml:space="preserve">
-    <value>Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.RU.</value>
+    <value>Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
@@ -302,7 +302,7 @@
     <value>Ошибка во время перехода по ссылке!</value>
   </data>
   <data name="Garant" xml:space="preserve">
-    <value>Является гарантом сайта TEAM-FORTRESS.RU.</value>
+    <value>Является гарантом сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListWhiteName" xml:space="preserve">
     <value>БС</value>
@@ -311,7 +311,7 @@
     <value>..\Resources\message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AppSettEmptyS" xml:space="preserve">
-    <value>Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.RU.</value>
+    <value>Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListStaffName" xml:space="preserve">
     <value>Staff</value>
@@ -335,7 +335,7 @@
     <value>забанен</value>
   </data>
   <data name="PremiumUser" xml:space="preserve">
-    <value>Это премиум-пользователь чекера гарантов сайта TEAM-FORTRESS.RU.</value>
+    <value>Это премиум-пользователь сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="F2PAccTextStatus" xml:space="preserve">
     <value>Бесплатный аккаунт.</value>

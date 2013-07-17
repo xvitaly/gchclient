@@ -187,7 +187,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.SU..
         /// </summary>
         internal static string AppIncorrectTokens {
             get {
@@ -313,7 +313,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.SU..
         /// </summary>
         internal static string AppSettEmptyS {
             get {
@@ -392,7 +392,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string BadUserTr {
             get {
@@ -401,7 +401,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string BlackAucMsg {
             get {
@@ -410,7 +410,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string Blacklisted {
             get {
@@ -455,7 +455,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Является гарантом сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Является гарантом сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string Garant {
             get {
@@ -473,7 +473,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.SU..
         /// </summary>
         internal static string GenericMsg {
             get {
@@ -591,7 +591,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string NotGarant {
             get {
@@ -607,7 +607,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Это премиум-пользователь чекера гарантов сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Это премиум-пользователь сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string PremiumUser {
             get {
@@ -666,7 +666,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Является сотрудником сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Является сотрудником сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string TFStaff {
             get {
@@ -819,7 +819,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в белом списке сайта TEAM-FORTRESS.RU..
+        ///   Looks up a localized string similar to Этот пользователь находится в белом списке сайта TEAM-FORTRESS.SU..
         /// </summary>
         internal static string WhiteListed {
             get {
