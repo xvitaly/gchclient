@@ -430,7 +430,7 @@
             this.L_LegalInfo.Name = "L_LegalInfo";
             this.L_LegalInfo.Size = new System.Drawing.Size(702, 17);
             this.L_LegalInfo.TabIndex = 6;
-            this.L_LegalInfo.Text = "(c) 2005 - 2012 EasyCoding Team и TEAM-FORTRESS.RU. Все права защищены.";
+            this.L_LegalInfo.Text = "(c) 2005 - 2013 EasyCoding Team и TEAM-FORTRESS.SU. Все права защищены.";
             this.L_LegalInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.L_LegalInfo.Click += new System.EventHandler(this.L_LegalInfo_Click);
             // 
@@ -472,7 +472,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Служба проверки пользователей TEAM-FORTRESS.RU (версия {0})";
+            this.Text = "Служба проверки пользователей TEAM-FORTRESS.SU (версия {0})";
             this.Activated += new System.EventHandler(this.frmMain_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
