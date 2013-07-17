@@ -1,8 +1,8 @@
 ﻿/*
  * Модуль обновления приложения Garant Checker Offline.
  * 
- * Copyright 2012 EasyCoding Team (ECTeam).
- * Copyright 2005 - 2012 EasyCoding Team.
+ * Copyright 2012 - 2013 EasyCoding Team (ECTeam).
+ * Copyright 2005 - 2013 EasyCoding Team.
  * 
  * Лицензия кода: модифицированная лицензия BSD.
  * Лицензия контента: Creative Commons 3.0 BY.
@@ -99,14 +99,14 @@ namespace gchupdater
 
             // Выведем приветствие...
             Console.WriteLine("###########################################################################");
-            Console.WriteLine("#           WELCOME TO TEAM-FORTRESS.RU OFFLINE CHECKER UPDATER           #");
+            Console.WriteLine("#           WELCOME TO TEAM-FORTRESS.SU OFFLINE CHECKER UPDATER           #");
             Console.WriteLine("# This console program will update offline checker to the latest version. #");
             Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#        (C) 2005 - 2012 EasyCoding Team. All rights reserved.            #");
+            Console.WriteLine("#        (C) 2005 - 2013 EasyCoding Team. All rights reserved.            #");
             Console.WriteLine("#    Original author: V1TSK (vitaly@easycoding.org). ICQ: 298024135.      #");
             Console.WriteLine("#                                                                         #");
             Console.WriteLine("#     Official site: http://www.easycoding.org/projects/gchclient         #");
-            Console.WriteLine("#             Part of offline checker for TEAM-FORTRESS.RU.               #");
+            Console.WriteLine("#             Part of offline checker for TEAM-FORTRESS.SU.               #");
             Console.WriteLine("###########################################################################");
             Console.WriteLine();
 

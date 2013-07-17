@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TEAM-FORTRESS.RU offline checker updater")]
-[assembly: AssemblyDescription("TEAM-FORTRESS.RU offline checker updater")]
+[assembly: AssemblyTitle("TEAM-FORTRESS.SU offline checker updater")]
+[assembly: AssemblyDescription("TEAM-FORTRESS.SU offline checker updater")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EasyCoding Team")]
-[assembly: AssemblyProduct("TEAM-FORTRESS.RU offline checker updater")]
-[assembly: AssemblyCopyright("(c) 2005-2012 EasyCoding Team. All rights reserved.")]
+[assembly: AssemblyProduct("TEAM-FORTRESS.SU offline checker updater")]
+[assembly: AssemblyCopyright("(c) 2005-2013 EasyCoding Team. All rights reserved.")]
 [assembly: AssemblyTrademark("EasyCoding, EasyCoding Software Group and EasyCoding Team are trademarks of EasyCoding Team.")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.1.29")]
-[assembly: AssemblyFileVersion("0.1.1.29")]
+[assembly: AssemblyVersion("0.1.2.37")]
+[assembly: AssemblyFileVersion("0.1.2.37")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

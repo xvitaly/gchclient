@@ -160,7 +160,7 @@
     <value>Starting updater...</value>
   </data>
   <data name="ConTitle" xml:space="preserve">
-    <value>TEAM-FORTRESS.RU OFFLINE CHECKER UPDATER</value>
+    <value>TEAM-FORTRESS.SU OFFLINE CHECKER UPDATER</value>
   </data>
   <data name="ConUpdateAvail" xml:space="preserve">
     <value>Update available. Will download and install now.</value>
