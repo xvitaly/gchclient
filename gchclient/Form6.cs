@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*
+ * Форма сообщения о мошеннике Garant Checker Offline.
+ * 
+ * Copyright 2012 - 2013 EasyCoding Team (ECTeam).
+ * Copyright 2005 - 2013 EasyCoding Team.
+ * 
+ * Лицензия кода: модифицированная лицензия BSD.
+ * Лицензия контента: Creative Commons 3.0 BY.
+ * 
+ * Полный текст лицензии находится в файле LICENSE.TXT.
+ * 
+ * Официальный блог EasyCoding Team: http://www.easycoding.org/
+ * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

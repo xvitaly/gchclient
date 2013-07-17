@@ -1,8 +1,8 @@
 ﻿/*
  * Форма чекера друзей приложения Garant Checker Offline.
  * 
- * Copyright 2012 EasyCoding Team (ECTeam).
- * Copyright 2005 - 2012 EasyCoding Team.
+ * Copyright 2012 - 2013 EasyCoding Team (ECTeam).
+ * Copyright 2005 - 2013 EasyCoding Team.
  * 
  * Лицензия кода: модифицированная лицензия BSD.
  * Лицензия контента: Creative Commons 3.0 BY.
