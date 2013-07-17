@@ -7,11 +7,11 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Служба проверки пользователей")]
-[assembly: AssemblyDescription("Служба проверки пользователей сайта TEAM-FORTRESS.RU")]
+[assembly: AssemblyDescription("Служба проверки пользователей сайта TEAM-FORTRESS.SU")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EasyCoding Team")]
 [assembly: AssemblyProduct("Garant Checker Offline")]
-[assembly: AssemblyCopyright("(c) 2005-2012 EasyCoding Team. All rights reserved.")]
+[assembly: AssemblyCopyright("(c) 2005-2013 EasyCoding Team. All rights reserved.")]
 [assembly: AssemblyTrademark("EasyCoding, EasyCoding Software Group and EasyCoding Team are trademarks of EasyCoding Team.")]
 [assembly: AssemblyCulture("")]
 
