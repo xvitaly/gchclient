@@ -43,7 +43,7 @@
             // 
             // WLabel
             // 
-            this.WLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WLabel.Location = new System.Drawing.Point(12, 9);
             this.WLabel.Name = "WLabel";
             this.WLabel.Size = new System.Drawing.Size(445, 47);
