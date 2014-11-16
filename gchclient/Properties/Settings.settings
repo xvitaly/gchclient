@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="PrimKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">public</Value>
     </Setting>
     <Setting Name="SecKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">public</Value>
     </Setting>
     <Setting Name="CallUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
