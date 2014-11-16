@@ -37,6 +37,7 @@ namespace gchclient
         public string ErrMsg;
         public string TradeStatus;
         public string SteamID64;
+        public string SteamIDv3;
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
             string XMLFileName = Path.GetTempFileName();
@@ -66,6 +67,7 @@ namespace gchclient
                                     Result = true;
                                     try { Nickname = XMLD.GetElementsByTagName("nickname")[i].InnerText; if (Nickname.Length > 25) { Nickname = Nickname.Substring(0, 25); } } catch { Nickname = Properties.Resources.AppNicknameUnknown; }
                                     SteamID = XMLD.GetElementsByTagName("steamID")[i].InnerText;
+                                    SteamIDv3 = XMLD.GetElementsByTagName("steamIDv3")[i].InnerText;
                                     SteamID64 = XMLD.GetElementsByTagName("steamID64")[i].InnerText;
                                     AvatarURL = XMLD.GetElementsByTagName("avatar")[i].InnerText;
                                     SiteStatus = XMLD.GetElementsByTagName("sitestatus")[i].InnerText;
