@@ -67,6 +67,7 @@
             this.DVList.Name = "DVList";
             this.DVList.ReadOnly = true;
             this.DVList.RowHeadersVisible = false;
+            this.DVList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DVList.Size = new System.Drawing.Size(636, 382);
             this.DVList.TabIndex = 0;
             this.DVList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DVList_CellMouseClick);
