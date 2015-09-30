@@ -71,6 +71,7 @@
             this.DVList.Size = new System.Drawing.Size(636, 382);
             this.DVList.TabIndex = 0;
             this.DVList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DVList_CellMouseClick);
+            this.DVList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DVList_KeyDown);
             // 
             // DV_Number
             // 
