@@ -39,6 +39,31 @@ namespace gchclient
             DVList.Columns[0].ValueType = typeof(int);
         }
 
+        private List<String> ExportDgvToList()
+        {
+            // Инициализируем массив...
+            List<String> Dv = new List<String>();
+            
+            // Обойдём все строки...
+            foreach (DataGridViewRow Row in DVList.Rows)
+            {
+                // Инициализируем ещё один массив...
+                List<String> Bx = new List<String>();
+
+                // Обойдём все столбцы выбранной строки...
+                foreach (DataGridViewCell Cell in Row.Cells)
+                {
+                    Bx.Add(Cell.Value.ToString());
+                }
+
+                // Сохраняем результат...
+                Dv.Add(String.Join<String>(" - ", Bx));
+            }
+
+            // Возвращаем результат...
+            return Dv;
+        }
+
         private void frmFrChk_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок окна формы...
