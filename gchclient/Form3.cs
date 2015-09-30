@@ -64,6 +64,22 @@ namespace gchclient
             return Dv;
         }
 
+        private void ExportDgvToFile(string FileName)
+        {
+            try
+            {
+                // Проверим существование файла и если он есть, удалим...
+                if (File.Exists(FileName)) { File.Delete(FileName); }
+
+                // Сохраняем нашу таблицу в файл...
+                File.WriteAllLines(FileName, ExportDgvToList());
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void frmFrChk_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок окна формы...
@@ -182,6 +198,11 @@ namespace gchclient
             // Нажата комбинация Ctrl+S. Начнём сохранение содержимого таблицы в файл...
             if (e.Control && e.KeyCode == Keys.S)
             {
+                // Выведем диалог сохранения файла...
+                if (SV_SaveDlg.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDgvToFile(SV_SaveDlg.FileName);
+                }
             }
         }
     }

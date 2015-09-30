@@ -39,6 +39,7 @@
             this.BW_Rcv = new System.ComponentModel.BackgroundWorker();
             this.SB_Main = new System.Windows.Forms.StatusStrip();
             this.SB_Status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SV_SaveDlg = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DVList)).BeginInit();
             this.SB_Main.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +133,12 @@
             this.SB_Status.Text = "Готов.";
             this.SB_Status.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // SV_SaveDlg
+            // 
+            this.SV_SaveDlg.DefaultExt = "txt";
+            this.SV_SaveDlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
+            this.SV_SaveDlg.Title = "Сохранение списка друзей";
+            // 
             // frmFrChk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DV_List;
         private System.Windows.Forms.DataGridViewTextBoxColumn SV_FrSince;
         private System.Windows.Forms.DataGridViewLinkColumn DV_Link;
+        private System.Windows.Forms.SaveFileDialog SV_SaveDlg;
     }
 }
