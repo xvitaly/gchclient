@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EasyCoding Team")]
 [assembly: AssemblyProduct("TEAM-FORTRESS.SU offline checker updater")]
-[assembly: AssemblyCopyright("(c) 2005-2013 EasyCoding Team. All rights reserved.")]
+[assembly: AssemblyCopyright("(c) 2005-2015 EasyCoding Team. All rights reserved.")]
 [assembly: AssemblyTrademark("EasyCoding, EasyCoding Software Group and EasyCoding Team are trademarks of EasyCoding Team.")]
 [assembly: AssemblyCulture("")]
 
