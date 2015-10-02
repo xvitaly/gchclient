@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.TrayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TrayIcon = new System.Windows.Forms.NotifyIcon();
+            this.TrayMenu = new System.Windows.Forms.ContextMenuStrip();
             this.CM_About = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_TokenInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Settings = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,10 +50,10 @@
             this.RV_F2P = new System.Windows.Forms.Label();
             this.RV_VCStatusA = new System.Windows.Forms.Label();
             this.RV_CustDescr = new System.Windows.Forms.Label();
-            this.CustMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CustMenu = new System.Windows.Forms.ContextMenuStrip();
             this.LNK_CustClipB = new System.Windows.Forms.ToolStripMenuItem();
             this.RV_PermaLink = new System.Windows.Forms.Label();
-            this.LnkMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.LnkMenu = new System.Windows.Forms.ContextMenuStrip();
             this.LNK_Go = new System.Windows.Forms.ToolStripMenuItem();
             this.LNK_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.LNK_ValFriends = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,8 +64,8 @@
             this.RV_Avatar = new System.Windows.Forms.PictureBox();
             this.RV_AvatarHolder = new System.Windows.Forms.PictureBox();
             this.L_LegalInfo = new System.Windows.Forms.Label();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.ToolTipCtr = new System.Windows.Forms.ToolTip(this.components);
+            this.Timer = new System.Windows.Forms.Timer();
+            this.ToolTipCtr = new System.Windows.Forms.ToolTip();
             this.BW_Chk = new System.ComponentModel.BackgroundWorker();
             this.BW_UpdChk = new System.ComponentModel.BackgroundWorker();
             this.BW_HwGet = new System.ComponentModel.BackgroundWorker();
@@ -430,7 +429,7 @@
             this.L_LegalInfo.Name = "L_LegalInfo";
             this.L_LegalInfo.Size = new System.Drawing.Size(702, 17);
             this.L_LegalInfo.TabIndex = 6;
-            this.L_LegalInfo.Text = "(c) 2005 - 2013 EasyCoding Team и TEAM-FORTRESS.SU. Все права защищены.";
+            this.L_LegalInfo.Text = "(c) 2005 - 2015 EasyCoding Team и TEAM-FORTRESS.SU. Все права защищены.";
             this.L_LegalInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.L_LegalInfo.Click += new System.EventHandler(this.L_LegalInfo_Click);
             // 
