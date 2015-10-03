@@ -41,6 +41,7 @@
             this.SB_Main = new System.Windows.Forms.StatusStrip();
             this.SB_Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.SV_SaveDlg = new System.Windows.Forms.SaveFileDialog();
+            this.SV_OpenDlg = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DVList)).BeginInit();
             this.SB_Main.SuspendLayout();
             this.SuspendLayout();
@@ -146,7 +147,13 @@
             // 
             this.SV_SaveDlg.DefaultExt = "txt";
             this.SV_SaveDlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
-            this.SV_SaveDlg.Title = "Сохранение списка друзей";
+            this.SV_SaveDlg.Title = "Сохранение дампа списка друзей";
+            // 
+            // SV_OpenDlg
+            // 
+            this.SV_OpenDlg.DefaultExt = "txt";
+            this.SV_OpenDlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
+            this.SV_OpenDlg.Title = "Открытие дампа списка друзей";
             // 
             // frmFrChk
             // 
@@ -188,5 +195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SV_FrSince;
         private System.Windows.Forms.DataGridViewLinkColumn DV_Link;
         private System.Windows.Forms.DataGridViewTextBoxColumn DV_Status;
+        private System.Windows.Forms.OpenFileDialog SV_OpenDlg;
     }
 }
