@@ -82,7 +82,15 @@ namespace gchclient
 
         private void CompareTableWithDump(string FileName)
         {
-            //
+            // Создаём массив...
+            List<String> Dump = new List<String>(File.ReadAllLines(FileName));
+
+            // Обходим нашу базу таблицу в цикле...
+            foreach (DataGridViewRow Row in DVList.Rows)
+            {
+                // Проверяем есть ли такая ссылка на профиль в дампе...
+                Row.Cells[5].Value = Dump.Any(l => l.Contains(Row.Cells[4].Value.ToString())) ? "=" : "+";
+            }
         }
 
         private void frmFrChk_Load(object sender, EventArgs e)
@@ -155,7 +163,7 @@ namespace gchclient
                                 default: friendlystat = Properties.Resources.ListNoneName;
                                     break;
                             }
-                            this.Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText)); });
+                            this.Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), "n/a"); });
                         }
                         XMLFS.Close();
                     }
