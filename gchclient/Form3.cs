@@ -84,12 +84,29 @@ namespace gchclient
         {
             // Создаём массив...
             List<String> Dump = new List<String>(File.ReadAllLines(FileName));
+            
+            // Создаём переменную для индекса...
+            int BufIndex;
 
             // Обходим нашу базу таблицу в цикле...
             foreach (DataGridViewRow Row in DVList.Rows)
             {
                 // Проверяем есть ли такая ссылка на профиль в дампе...
-                Row.Cells[5].Value = Dump.Any(l => l.Contains(Row.Cells[4].Value.ToString())) ? "=" : "+";
+                BufIndex = Dump.FindIndex(x => x.Contains(Row.Cells[4].Value.ToString()));
+                if (BufIndex >= 0) { Row.Cells[5].Value = "="; Dump.RemoveAt(BufIndex); } else { Row.Cells[5].Value = "+"; }
+            }
+
+            // Проверим оставшееся содержимое загруженного дампа...
+            if (Dump.Count() > 0)
+            {
+                // В файле что-то есть, поэтому обойдём его построчно...
+                foreach (string Str in Dump)
+                {
+                    // Разбираем строку по разделителю...
+                    string[] PrX = Str.Split('-');
+                    // Вставляем запись в таблицу...
+                    try { DVList.Rows.Add(DVList.Rows.Count + 1, PrX[1].Trim(), PrX[2].Trim(), DateTime.Parse(PrX[3].Trim()), PrX[4].Trim(), "-"); } catch { /* Do nothing. */ }
+                }
             }
         }
 
