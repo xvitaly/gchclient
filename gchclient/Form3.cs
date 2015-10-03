@@ -80,6 +80,11 @@ namespace gchclient
             }
         }
 
+        private void CompareTableWithDump(string FileName)
+        {
+            //
+        }
+
         private void frmFrChk_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок окна формы...
@@ -203,6 +208,11 @@ namespace gchclient
             // Нажата комбинация Ctrl+O. Откроем дамп списка друзей и начнём сравнение...
             if (e.Control && e.KeyCode == Keys.O)
             {
+                // Выведем диалог открытия файла...
+                if (SV_OpenDlg.ShowDialog() == DialogResult.OK)
+                {
+                    CompareTableWithDump(SV_OpenDlg.FileName);
+                }
             }
         }
     }
