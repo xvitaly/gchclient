@@ -379,4 +379,19 @@
   <data name="AppIntName" xml:space="preserve">
     <value>gchk</value>
   </data>
+  <data name="SCAdded" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="SCDeleted" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="SCDelim" xml:space="preserve">
+    <value>@@#</value>
+  </data>
+  <data name="SCEqual" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="SCUnknown" xml:space="preserve">
+    <value>n/a</value>
+  </data>
 </root>

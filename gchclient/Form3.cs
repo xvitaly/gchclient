@@ -57,7 +57,7 @@ namespace gchclient
                 }
 
                 // Сохраняем результат...
-                Dv.Add(String.Join<String>(" - ", Bx));
+                Dv.Add(String.Join<String>(Properties.Resources.SCDelim, Bx));
             }
 
             // Возвращаем результат...
@@ -93,7 +93,7 @@ namespace gchclient
             {
                 // Проверяем есть ли такая ссылка на профиль в дампе...
                 BufIndex = Dump.FindIndex(x => x.Contains(Row.Cells[4].Value.ToString()));
-                if (BufIndex >= 0) { Row.Cells[5].Value = "="; Dump.RemoveAt(BufIndex); } else { Row.Cells[5].Value = "+"; }
+                if (BufIndex >= 0) { Row.Cells[5].Value = Properties.Resources.SCEqual; Dump.RemoveAt(BufIndex); } else { Row.Cells[5].Value = Properties.Resources.SCAdded; }
             }
 
             // Проверим оставшееся содержимое загруженного дампа...
@@ -103,9 +103,9 @@ namespace gchclient
                 foreach (string Str in Dump)
                 {
                     // Разбираем строку по разделителю...
-                    string[] PrX = Str.Split('-');
+                    string[] PrX = Str.Split(new string[] { Properties.Resources.SCDelim }, StringSplitOptions.RemoveEmptyEntries);
                     // Вставляем запись в таблицу...
-                    try { DVList.Rows.Add(DVList.Rows.Count + 1, PrX[1].Trim(), PrX[2].Trim(), DateTime.Parse(PrX[3].Trim()), PrX[4].Trim(), "-"); } catch { /* Do nothing. */ }
+                    try { DVList.Rows.Add(DVList.Rows.Count + 1, PrX[1].Trim(), PrX[2].Trim(), DateTime.Parse(PrX[3].Trim()), PrX[4].Trim(), Properties.Resources.SCDeleted); } catch { /* Do nothing. */ }
                 }
             }
         }
@@ -180,7 +180,7 @@ namespace gchclient
                                 default: friendlystat = Properties.Resources.ListNoneName;
                                     break;
                             }
-                            this.Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), "n/a"); });
+                            this.Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), Properties.Resources.SCUnknown); });
                         }
                         XMLFS.Close();
                     }
