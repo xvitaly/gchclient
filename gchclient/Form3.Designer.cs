@@ -36,6 +36,7 @@
             this.DV_List = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SV_FrSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DV_Link = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DV_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BW_Rcv = new System.ComponentModel.BackgroundWorker();
             this.SB_Main = new System.Windows.Forms.StatusStrip();
             this.SB_Status = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,14 +63,15 @@
             this.DV_LastNick,
             this.DV_List,
             this.SV_FrSince,
-            this.DV_Link});
+            this.DV_Link,
+            this.DV_Status});
             this.DVList.Location = new System.Drawing.Point(-1, -1);
             this.DVList.MultiSelect = false;
             this.DVList.Name = "DVList";
             this.DVList.ReadOnly = true;
             this.DVList.RowHeadersVisible = false;
             this.DVList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DVList.Size = new System.Drawing.Size(636, 382);
+            this.DVList.Size = new System.Drawing.Size(664, 382);
             this.DVList.TabIndex = 0;
             this.DVList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DVList_CellMouseClick);
             this.DVList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DVList_KeyDown);
@@ -110,6 +112,13 @@
             this.DV_Link.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DV_Link.Width = 305;
             // 
+            // DV_Status
+            // 
+            this.DV_Status.HeaderText = "Рез";
+            this.DV_Status.Name = "DV_Status";
+            this.DV_Status.ReadOnly = true;
+            this.DV_Status.Width = 30;
+            // 
             // BW_Rcv
             // 
             this.BW_Rcv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_Rcv_DoWork);
@@ -121,7 +130,7 @@
             this.SB_Status});
             this.SB_Main.Location = new System.Drawing.Point(0, 381);
             this.SB_Main.Name = "SB_Main";
-            this.SB_Main.Size = new System.Drawing.Size(635, 22);
+            this.SB_Main.Size = new System.Drawing.Size(663, 22);
             this.SB_Main.TabIndex = 1;
             this.SB_Main.Text = "statusStrip1";
             // 
@@ -143,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 403);
+            this.ClientSize = new System.Drawing.Size(663, 403);
             this.Controls.Add(this.SB_Main);
             this.Controls.Add(this.DVList);
             this.DoubleBuffered = true;
@@ -172,11 +181,12 @@
         private System.ComponentModel.BackgroundWorker BW_Rcv;
         private System.Windows.Forms.StatusStrip SB_Main;
         private System.Windows.Forms.ToolStripStatusLabel SB_Status;
+        private System.Windows.Forms.SaveFileDialog SV_SaveDlg;
         private System.Windows.Forms.DataGridViewTextBoxColumn DV_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn DV_LastNick;
         private System.Windows.Forms.DataGridViewTextBoxColumn DV_List;
         private System.Windows.Forms.DataGridViewTextBoxColumn SV_FrSince;
         private System.Windows.Forms.DataGridViewLinkColumn DV_Link;
-        private System.Windows.Forms.SaveFileDialog SV_SaveDlg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DV_Status;
     }
 }
