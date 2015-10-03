@@ -199,6 +199,11 @@ namespace gchclient
                     ExportDgvToFile(SV_SaveDlg.FileName);
                 }
             }
+
+            // Нажата комбинация Ctrl+O. Откроем дамп списка друзей и начнём сравнение...
+            if (e.Control && e.KeyCode == Keys.O)
+            {
+            }
         }
     }
 }
