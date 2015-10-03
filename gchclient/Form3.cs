@@ -190,11 +190,6 @@ namespace gchclient
 
         private void DVList_KeyDown(object sender, KeyEventArgs e)
         {
-            // Нажата комбинация Ctrl+C. Скопируем строку в буфер обмена...
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-            }
-
             // Нажата комбинация Ctrl+S. Начнём сохранение содержимого таблицы в файл...
             if (e.Control && e.KeyCode == Keys.S)
             {
