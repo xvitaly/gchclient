@@ -93,6 +93,8 @@ namespace gchclient
             {
                 // Проверяем есть ли такая ссылка на профиль в дампе...
                 BufIndex = Dump.FindIndex(x => x.Contains(Row.Cells[4].Value.ToString()));
+                
+                // Переключаем флаг в таблице...
                 if (BufIndex >= 0) { Row.Cells[5].Value = Properties.Resources.SCEqual; Dump.RemoveAt(BufIndex); } else { Row.Cells[5].Value = Properties.Resources.SCAdded; }
             }
 
@@ -104,6 +106,7 @@ namespace gchclient
                 {
                     // Разбираем строку по разделителю...
                     string[] PrX = Str.Split(new string[] { Properties.Resources.SCDelim }, StringSplitOptions.RemoveEmptyEntries);
+                    
                     // Вставляем запись в таблицу...
                     try { DVList.Rows.Add(DVList.Rows.Count + 1, PrX[1].Trim(), PrX[2].Trim(), DateTime.Parse(PrX[3].Trim()), PrX[4].Trim(), Properties.Resources.SCDeleted); } catch { /* Do nothing. */ }
                 }
