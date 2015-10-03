@@ -66,18 +66,11 @@ namespace gchclient
 
         private void ExportDgvToFile(string FileName)
         {
-            try
-            {
-                // Проверим существование файла и если он есть, удалим...
-                if (File.Exists(FileName)) { File.Delete(FileName); }
+            // Проверим существование файла и если он есть, удалим...
+            if (File.Exists(FileName)) { File.Delete(FileName); }
 
-                // Сохраняем нашу таблицу в файл...
-                File.WriteAllLines(FileName, ExportDgvToList());
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Сохраняем нашу таблицу в файл...
+            File.WriteAllLines(FileName, ExportDgvToList());
         }
 
         private void CompareTableWithDump(string FileName)
@@ -229,7 +222,7 @@ namespace gchclient
                 // Выведем диалог сохранения файла...
                 if (SV_SaveDlg.ShowDialog() == DialogResult.OK)
                 {
-                    ExportDgvToFile(SV_SaveDlg.FileName);
+                    try { ExportDgvToFile(SV_SaveDlg.FileName); } catch (Exception Ex) { MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
 
@@ -239,7 +232,7 @@ namespace gchclient
                 // Выведем диалог открытия файла...
                 if (SV_OpenDlg.ShowDialog() == DialogResult.OK)
                 {
-                    CompareTableWithDump(SV_OpenDlg.FileName);
+                    try { CompareTableWithDump(SV_OpenDlg.FileName); } catch (Exception Ex) { MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }
