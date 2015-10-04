@@ -370,7 +370,13 @@
   <data name="TemplateTFSUWhite" xml:space="preserve">
     <value>в белом списке</value>
   </data>
+  <data name="TemplateGameBansYes" xml:space="preserve">
+    <value>есть - {0}</value>
+  </data>
   <data name="TemplateGameBans" xml:space="preserve">
-    <value>Игровых банов: {0}.</value>
+    <value>Игровые баны: {0}.</value>
+  </data>
+  <data name="TemplateGameBansNo" xml:space="preserve">
+    <value>отсутствуют</value>
   </data>
 </root>

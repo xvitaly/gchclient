@@ -239,7 +239,22 @@ namespace gchclient
                         }
                         break;
                 }
-                this.Invoke((MethodInvoker)delegate() { RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Chk.GameBans); });
+                if (Chk.GameBans == "0")
+                {
+                    this.Invoke((MethodInvoker)delegate()
+                    {
+                        RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Properties.Resources.TemplateGameBansNo);
+                        RV_GameBans.ForeColor = Color.Black;
+                    });
+                }
+                else
+                {
+                    this.Invoke((MethodInvoker)delegate()
+                    {
+                        RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, String.Format(Properties.Resources.TemplateGameBansYes, Chk.GameBans));
+                        RV_GameBans.ForeColor = Color.Red;
+                    });
+                }
             }
         }
         #endregion

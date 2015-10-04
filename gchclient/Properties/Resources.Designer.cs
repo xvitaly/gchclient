@@ -603,11 +603,29 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Игровых банов: {0}..
+        ///   Looks up a localized string similar to Игровые баны: {0}..
         /// </summary>
         internal static string TemplateGameBans {
             get {
                 return ResourceManager.GetString("TemplateGameBans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to отсутствуют.
+        /// </summary>
+        internal static string TemplateGameBansNo {
+            get {
+                return ResourceManager.GetString("TemplateGameBansNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to есть - {0}.
+        /// </summary>
+        internal static string TemplateGameBansYes {
+            get {
+                return ResourceManager.GetString("TemplateGameBansYes", resourceCulture);
             }
         }
         
