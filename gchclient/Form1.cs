@@ -543,7 +543,7 @@ namespace gchclient
             }
         }
 
-        private void RV_CustDescr_DoubleClick(object sender, EventArgs e)
+        private void CDM_OpenLnk_Click(object sender, EventArgs e)
         {
             Regex urlRx = new Regex(@"(?<url>((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*)", RegexOptions.IgnoreCase);
             MatchCollection MCol = urlRx.Matches(RV_CustDescr.Text);

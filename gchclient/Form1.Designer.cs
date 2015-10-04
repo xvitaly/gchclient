@@ -44,6 +44,8 @@
             this.ResultView = new System.Windows.Forms.Panel();
             this.L_CustDescr = new System.Windows.Forms.Label();
             this.RV_CustDescr = new System.Windows.Forms.TextBox();
+            this.ContextDscrM = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CDM_OpenLnk = new System.Windows.Forms.ToolStripMenuItem();
             this.RV_Report = new System.Windows.Forms.Button();
             this.RV_ViewBackPack = new System.Windows.Forms.Button();
             this.RV_AddFriend = new System.Windows.Forms.Button();
@@ -73,6 +75,7 @@
             this.BW_HwGet = new System.ComponentModel.BackgroundWorker();
             this.TrayMenu.SuspendLayout();
             this.ResultView.SuspendLayout();
+            this.ContextDscrM.SuspendLayout();
             this.LnkMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RV_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RV_AvatarHolder)).BeginInit();
@@ -212,6 +215,7 @@
             // 
             // RV_CustDescr
             // 
+            this.RV_CustDescr.ContextMenuStrip = this.ContextDscrM;
             this.RV_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RV_CustDescr.Location = new System.Drawing.Point(227, 135);
             this.RV_CustDescr.Multiline = true;
@@ -223,7 +227,20 @@
             this.RV_CustDescr.TabIndex = 9;
             this.ToolTipCtr.SetToolTip(this.RV_CustDescr, "Содержит дополнительную информацию о проверяемом пользователе по данным сайта TEA" +
         "M-FORTRESS.SU");
-            this.RV_CustDescr.DoubleClick += new System.EventHandler(this.RV_CustDescr_DoubleClick);
+            // 
+            // ContextDscrM
+            // 
+            this.ContextDscrM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CDM_OpenLnk});
+            this.ContextDscrM.Name = "ContextDscrM";
+            this.ContextDscrM.Size = new System.Drawing.Size(207, 26);
+            // 
+            // CDM_OpenLnk
+            // 
+            this.CDM_OpenLnk.Name = "CDM_OpenLnk";
+            this.CDM_OpenLnk.Size = new System.Drawing.Size(206, 22);
+            this.CDM_OpenLnk.Text = "Обработать все ссылки";
+            this.CDM_OpenLnk.Click += new System.EventHandler(this.CDM_OpenLnk_Click);
             // 
             // RV_Report
             // 
@@ -491,6 +508,7 @@
             this.TrayMenu.ResumeLayout(false);
             this.ResultView.ResumeLayout(false);
             this.ResultView.PerformLayout();
+            this.ContextDscrM.ResumeLayout(false);
             this.LnkMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RV_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RV_AvatarHolder)).EndInit();
@@ -543,6 +561,8 @@
         private System.ComponentModel.BackgroundWorker BW_HwGet;
         private System.Windows.Forms.TextBox RV_CustDescr;
         private System.Windows.Forms.Label L_CustDescr;
+        private System.Windows.Forms.ContextMenuStrip ContextDscrM;
+        private System.Windows.Forms.ToolStripMenuItem CDM_OpenLnk;
     }
 }
 
