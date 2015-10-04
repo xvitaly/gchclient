@@ -223,6 +223,7 @@
             this.RV_CustDescr.TabIndex = 9;
             this.ToolTipCtr.SetToolTip(this.RV_CustDescr, "Содержит дополнительную информацию о проверяемом пользователе по данным сайта TEA" +
         "M-FORTRESS.SU");
+            this.RV_CustDescr.DoubleClick += new System.EventHandler(this.RV_CustDescr_DoubleClick);
             // 
             // RV_Report
             // 
