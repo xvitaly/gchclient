@@ -171,7 +171,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(42, 38);
             this.SearchBtn.TabIndex = 4;
-            this.ToolTipCtr.SetToolTip(this.SearchBtn, "Запустить проверку по базе T-F.RU");
+            this.ToolTipCtr.SetToolTip(this.SearchBtn, "Запустить проверку указанного профиля по базам");
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
@@ -204,7 +204,7 @@
             // L_CustDescr
             // 
             this.L_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.L_CustDescr.Location = new System.Drawing.Point(224, 105);
+            this.L_CustDescr.Location = new System.Drawing.Point(224, 106);
             this.L_CustDescr.Name = "L_CustDescr";
             this.L_CustDescr.Size = new System.Drawing.Size(459, 24);
             this.L_CustDescr.TabIndex = 8;
@@ -213,7 +213,7 @@
             // RV_CustDescr
             // 
             this.RV_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_CustDescr.Location = new System.Drawing.Point(227, 134);
+            this.RV_CustDescr.Location = new System.Drawing.Point(227, 135);
             this.RV_CustDescr.Multiline = true;
             this.RV_CustDescr.Name = "RV_CustDescr";
             this.RV_CustDescr.ReadOnly = true;
@@ -289,7 +289,7 @@
             // RV_TradeStatus
             // 
             this.RV_TradeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_TradeStatus.Location = new System.Drawing.Point(223, 229);
+            this.RV_TradeStatus.Location = new System.Drawing.Point(223, 231);
             this.RV_TradeStatus.Name = "RV_TradeStatus";
             this.RV_TradeStatus.Size = new System.Drawing.Size(460, 20);
             this.RV_TradeStatus.TabIndex = 12;
@@ -299,7 +299,7 @@
             // RV_F2P
             // 
             this.RV_F2P.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_F2P.Location = new System.Drawing.Point(448, 203);
+            this.RV_F2P.Location = new System.Drawing.Point(448, 205);
             this.RV_F2P.Name = "RV_F2P";
             this.RV_F2P.Size = new System.Drawing.Size(235, 20);
             this.RV_F2P.TabIndex = 11;
@@ -308,7 +308,7 @@
             // RV_VCStatusA
             // 
             this.RV_VCStatusA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_VCStatusA.Location = new System.Drawing.Point(223, 204);
+            this.RV_VCStatusA.Location = new System.Drawing.Point(223, 206);
             this.RV_VCStatusA.Name = "RV_VCStatusA";
             this.RV_VCStatusA.Size = new System.Drawing.Size(218, 20);
             this.RV_VCStatusA.TabIndex = 10;
@@ -373,7 +373,7 @@
             // RV_AdvStatus
             // 
             this.RV_AdvStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_AdvStatus.Location = new System.Drawing.Point(223, 80);
+            this.RV_AdvStatus.Location = new System.Drawing.Point(223, 81);
             this.RV_AdvStatus.Name = "RV_AdvStatus";
             this.RV_AdvStatus.Size = new System.Drawing.Size(460, 20);
             this.RV_AdvStatus.TabIndex = 7;

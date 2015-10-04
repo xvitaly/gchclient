@@ -338,7 +338,7 @@
     <value>n/a</value>
   </data>
   <data name="TemplateInternal" xml:space="preserve">
-    <value>Статус TEAM-FORTRESS.SU: {0}.</value>
+    <value>Статус на сайте: {0}.</value>
   </data>
   <data name="TemplateSteamRep" xml:space="preserve">
     <value>Статус SteamRep: {0}.</value>
@@ -362,7 +362,7 @@
     <value>премиум-пользователь</value>
   </data>
   <data name="TemplateTFSUStaff" xml:space="preserve">
-    <value>сотрудник сайта</value>
+    <value>сотрудник</value>
   </data>
   <data name="TemplateTFSUUnknown" xml:space="preserve">
     <value>НЕВЕРНЫЙКОД</value>

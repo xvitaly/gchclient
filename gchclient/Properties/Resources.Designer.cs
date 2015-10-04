@@ -603,7 +603,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Статус TEAM-FORTRESS.SU: {0}..
+        ///   Looks up a localized string similar to Статус на сайте: {0}..
         /// </summary>
         internal static string TemplateInternal {
             get {
@@ -675,7 +675,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to сотрудник сайта.
+        ///   Looks up a localized string similar to сотрудник.
         /// </summary>
         internal static string TemplateTFSUStaff {
             get {
