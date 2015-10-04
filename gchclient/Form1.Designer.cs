@@ -203,10 +203,10 @@
             // 
             // L_CustDescr
             // 
-            this.L_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.L_CustDescr.Location = new System.Drawing.Point(224, 110);
+            this.L_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.L_CustDescr.Location = new System.Drawing.Point(224, 105);
             this.L_CustDescr.Name = "L_CustDescr";
-            this.L_CustDescr.Size = new System.Drawing.Size(459, 20);
+            this.L_CustDescr.Size = new System.Drawing.Size(459, 24);
             this.L_CustDescr.TabIndex = 8;
             this.L_CustDescr.Text = "Дополнительная информация:";
             // 
