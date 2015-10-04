@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="URLBlList" xml:space="preserve">
-    <value>https://check.team-fortress.ru/personal</value>
-  </data>
   <data name="ListNotTrName" xml:space="preserve">
     <value>Ненадёжные</value>
   </data>
@@ -128,9 +125,6 @@
   </data>
   <data name="AppAlrLaunched" xml:space="preserve">
     <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
-  </data>
-  <data name="URLAucList" xml:space="preserve">
-    <value>http://forum.team-fortress.su/</value>
   </data>
   <data name="TradeIsp" xml:space="preserve">
     <value>на испытательном сроке</value>
@@ -217,9 +211,6 @@
   <data name="AppSBReceiving" xml:space="preserve">
     <value>Получение информации с сервера...</value>
   </data>
-  <data name="URLAdmList" xml:space="preserve">
-    <value>http://forum.team-fortress.su/</value>
-  </data>
   <data name="AppHideTray" xml:space="preserve">
     <value>Программа была свёрнута в трей, но продолжает работу. Дважды щёлкните по значку для восстановления окна. Для выхода нажмите правой кнопкой и Выход.</value>
   </data>
@@ -250,17 +241,11 @@
   <data name="AppSBBuilding" xml:space="preserve">
     <value>Построение списка...</value>
   </data>
-  <data name="URLWhiteList" xml:space="preserve">
-    <value>http://check.team-fortress.su/white</value>
-  </data>
   <data name="TradeBanned" xml:space="preserve">
     <value>отключена</value>
   </data>
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
-  </data>
-  <data name="URLGarantList" xml:space="preserve">
-    <value>http://check.team-fortress.su/middle</value>
   </data>
   <data name="UpdateURL" xml:space="preserve">
     <value>http://www.easycoding.org/files/gchclient.txt</value>
@@ -291,9 +276,6 @@
   </data>
   <data name="APIURI" xml:space="preserve">
     <value>{0}check.team-fortress.su/api.php?action={1}&amp;token={2}&amp;id={3}</value>
-  </data>
-  <data name="URLPremiumList" xml:space="preserve">
-    <value>http://forum.team-fortress.su/</value>
   </data>
   <data name="AppNicknameUnknown" xml:space="preserve">
     <value>UNKNOWN</value>

@@ -774,60 +774,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://forum.team-fortress.su/.
-        /// </summary>
-        internal static string URLAdmList {
-            get {
-                return ResourceManager.GetString("URLAdmList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://forum.team-fortress.su/.
-        /// </summary>
-        internal static string URLAucList {
-            get {
-                return ResourceManager.GetString("URLAucList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://check.team-fortress.ru/personal.
-        /// </summary>
-        internal static string URLBlList {
-            get {
-                return ResourceManager.GetString("URLBlList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://check.team-fortress.su/middle.
-        /// </summary>
-        internal static string URLGarantList {
-            get {
-                return ResourceManager.GetString("URLGarantList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://forum.team-fortress.su/.
-        /// </summary>
-        internal static string URLPremiumList {
-            get {
-                return ResourceManager.GetString("URLPremiumList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://check.team-fortress.su/white.
-        /// </summary>
-        internal static string URLWhiteList {
-            get {
-                return ResourceManager.GetString("URLWhiteList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Статус VAC: {0}..
         /// </summary>
         internal static string VCStatusA {
