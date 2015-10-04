@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.TrayIcon = new System.Windows.Forms.NotifyIcon();
-            this.TrayMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TrayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CM_About = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_TokenInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.CM_Settings = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,8 @@
             this.InpStr = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.ResultView = new System.Windows.Forms.Panel();
+            this.L_CustDescr = new System.Windows.Forms.Label();
+            this.RV_CustDescr = new System.Windows.Forms.TextBox();
             this.RV_Report = new System.Windows.Forms.Button();
             this.RV_ViewBackPack = new System.Windows.Forms.Button();
             this.RV_AddFriend = new System.Windows.Forms.Button();
@@ -49,11 +52,8 @@
             this.RV_TradeStatus = new System.Windows.Forms.Label();
             this.RV_F2P = new System.Windows.Forms.Label();
             this.RV_VCStatusA = new System.Windows.Forms.Label();
-            this.RV_CustDescr = new System.Windows.Forms.Label();
-            this.CustMenu = new System.Windows.Forms.ContextMenuStrip();
-            this.LNK_CustClipB = new System.Windows.Forms.ToolStripMenuItem();
             this.RV_PermaLink = new System.Windows.Forms.Label();
-            this.LnkMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.LnkMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.LNK_Go = new System.Windows.Forms.ToolStripMenuItem();
             this.LNK_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.LNK_ValFriends = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,18 +63,20 @@
             this.RV_Nick = new System.Windows.Forms.Label();
             this.RV_Avatar = new System.Windows.Forms.PictureBox();
             this.RV_AvatarHolder = new System.Windows.Forms.PictureBox();
+            this.CustMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.LNK_CustClipB = new System.Windows.Forms.ToolStripMenuItem();
             this.L_LegalInfo = new System.Windows.Forms.Label();
-            this.Timer = new System.Windows.Forms.Timer();
-            this.ToolTipCtr = new System.Windows.Forms.ToolTip();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.ToolTipCtr = new System.Windows.Forms.ToolTip(this.components);
             this.BW_Chk = new System.ComponentModel.BackgroundWorker();
             this.BW_UpdChk = new System.ComponentModel.BackgroundWorker();
             this.BW_HwGet = new System.ComponentModel.BackgroundWorker();
             this.TrayMenu.SuspendLayout();
             this.ResultView.SuspendLayout();
-            this.CustMenu.SuspendLayout();
             this.LnkMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RV_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RV_AvatarHolder)).BeginInit();
+            this.CustMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // TrayIcon
@@ -176,6 +178,8 @@
             // ResultView
             // 
             this.ResultView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ResultView.Controls.Add(this.L_CustDescr);
+            this.ResultView.Controls.Add(this.RV_CustDescr);
             this.ResultView.Controls.Add(this.RV_Report);
             this.ResultView.Controls.Add(this.RV_ViewBackPack);
             this.ResultView.Controls.Add(this.RV_AddFriend);
@@ -184,7 +188,6 @@
             this.ResultView.Controls.Add(this.RV_TradeStatus);
             this.ResultView.Controls.Add(this.RV_F2P);
             this.ResultView.Controls.Add(this.RV_VCStatusA);
-            this.ResultView.Controls.Add(this.RV_CustDescr);
             this.ResultView.Controls.Add(this.RV_PermaLink);
             this.ResultView.Controls.Add(this.L_PLink);
             this.ResultView.Controls.Add(this.RV_AdvStatus);
@@ -197,6 +200,29 @@
             this.ResultView.Size = new System.Drawing.Size(702, 320);
             this.ResultView.TabIndex = 5;
             this.ResultView.Visible = false;
+            // 
+            // L_CustDescr
+            // 
+            this.L_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.L_CustDescr.Location = new System.Drawing.Point(224, 110);
+            this.L_CustDescr.Name = "L_CustDescr";
+            this.L_CustDescr.Size = new System.Drawing.Size(459, 20);
+            this.L_CustDescr.TabIndex = 8;
+            this.L_CustDescr.Text = "Дополнительная информация:";
+            // 
+            // RV_CustDescr
+            // 
+            this.RV_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RV_CustDescr.Location = new System.Drawing.Point(227, 134);
+            this.RV_CustDescr.Multiline = true;
+            this.RV_CustDescr.Name = "RV_CustDescr";
+            this.RV_CustDescr.ReadOnly = true;
+            this.RV_CustDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.RV_CustDescr.ShortcutsEnabled = false;
+            this.RV_CustDescr.Size = new System.Drawing.Size(456, 64);
+            this.RV_CustDescr.TabIndex = 9;
+            this.ToolTipCtr.SetToolTip(this.RV_CustDescr, "Содержит дополнительную информацию о проверяемом пользователе по данным сайта TEA" +
+        "M-FORTRESS.SU");
             // 
             // RV_Report
             // 
@@ -262,58 +288,31 @@
             // RV_TradeStatus
             // 
             this.RV_TradeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_TradeStatus.Location = new System.Drawing.Point(223, 214);
+            this.RV_TradeStatus.Location = new System.Drawing.Point(223, 229);
             this.RV_TradeStatus.Name = "RV_TradeStatus";
-            this.RV_TradeStatus.Size = new System.Drawing.Size(460, 23);
-            this.RV_TradeStatus.TabIndex = 11;
+            this.RV_TradeStatus.Size = new System.Drawing.Size(460, 20);
+            this.RV_TradeStatus.TabIndex = 12;
             this.RV_TradeStatus.Text = "%СТАТУС ТОРГОВЛИ%";
             this.ToolTipCtr.SetToolTip(this.RV_TradeStatus, "Статус торговли");
             // 
             // RV_F2P
             // 
             this.RV_F2P.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_F2P.Location = new System.Drawing.Point(448, 181);
+            this.RV_F2P.Location = new System.Drawing.Point(448, 203);
             this.RV_F2P.Name = "RV_F2P";
-            this.RV_F2P.Size = new System.Drawing.Size(235, 23);
-            this.RV_F2P.TabIndex = 10;
+            this.RV_F2P.Size = new System.Drawing.Size(235, 20);
+            this.RV_F2P.TabIndex = 11;
             this.RV_F2P.Text = "%ФРИТУПЛЕЙ АКК%";
             // 
             // RV_VCStatusA
             // 
             this.RV_VCStatusA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_VCStatusA.Location = new System.Drawing.Point(223, 182);
+            this.RV_VCStatusA.Location = new System.Drawing.Point(223, 204);
             this.RV_VCStatusA.Name = "RV_VCStatusA";
-            this.RV_VCStatusA.Size = new System.Drawing.Size(218, 23);
-            this.RV_VCStatusA.TabIndex = 9;
+            this.RV_VCStatusA.Size = new System.Drawing.Size(218, 20);
+            this.RV_VCStatusA.TabIndex = 10;
             this.RV_VCStatusA.Text = "%СТАТУС ВАК%";
             this.ToolTipCtr.SetToolTip(this.RV_VCStatusA, "Статус VAC");
-            // 
-            // RV_CustDescr
-            // 
-            this.RV_CustDescr.ContextMenuStrip = this.CustMenu;
-            this.RV_CustDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_CustDescr.Location = new System.Drawing.Point(224, 123);
-            this.RV_CustDescr.Name = "RV_CustDescr";
-            this.RV_CustDescr.Size = new System.Drawing.Size(459, 55);
-            this.RV_CustDescr.TabIndex = 8;
-            this.RV_CustDescr.Text = "%КАСТОМНОЕ ОПИСАНИЕ, СТАТУС VAC И ПРОЧЕЕ%";
-            this.RV_CustDescr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToolTipCtr.SetToolTip(this.RV_CustDescr, "Кастомное описание пользователя");
-            this.RV_CustDescr.Click += new System.EventHandler(this.RV_CustDescr_Click);
-            // 
-            // CustMenu
-            // 
-            this.CustMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LNK_CustClipB});
-            this.CustMenu.Name = "CustMenu";
-            this.CustMenu.Size = new System.Drawing.Size(236, 26);
-            // 
-            // LNK_CustClipB
-            // 
-            this.LNK_CustClipB.Name = "LNK_CustClipB";
-            this.LNK_CustClipB.Size = new System.Drawing.Size(235, 22);
-            this.LNK_CustClipB.Text = "Скопировать в буфер обмена";
-            this.LNK_CustClipB.Click += new System.EventHandler(this.LNK_CustClipB_Click);
             // 
             // RV_PermaLink
             // 
@@ -322,10 +321,10 @@
             this.RV_PermaLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RV_PermaLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RV_PermaLink.ForeColor = System.Drawing.Color.Blue;
-            this.RV_PermaLink.Location = new System.Drawing.Point(224, 278);
+            this.RV_PermaLink.Location = new System.Drawing.Point(224, 284);
             this.RV_PermaLink.Name = "RV_PermaLink";
             this.RV_PermaLink.Size = new System.Drawing.Size(180, 16);
-            this.RV_PermaLink.TabIndex = 13;
+            this.RV_PermaLink.TabIndex = 14;
             this.RV_PermaLink.Text = "%ССЫЛКА НА ПРОФИЛЬ%";
             this.ToolTipCtr.SetToolTip(this.RV_PermaLink, "Постоянная ссылка на профиль (щёлкните для перехода)");
             this.RV_PermaLink.Click += new System.EventHandler(this.RV_PermaLink_Click);
@@ -364,34 +363,31 @@
             // 
             this.L_PLink.AutoSize = true;
             this.L_PLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.L_PLink.Location = new System.Drawing.Point(223, 250);
+            this.L_PLink.Location = new System.Drawing.Point(223, 256);
             this.L_PLink.Name = "L_PLink";
             this.L_PLink.Size = new System.Drawing.Size(299, 24);
-            this.L_PLink.TabIndex = 12;
+            this.L_PLink.TabIndex = 13;
             this.L_PLink.Text = "Постоянная ссылка на профиль:";
             // 
             // RV_AdvStatus
             // 
-            this.RV_AdvStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RV_AdvStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_AdvStatus.Location = new System.Drawing.Point(223, 83);
+            this.RV_AdvStatus.Location = new System.Drawing.Point(223, 80);
             this.RV_AdvStatus.Name = "RV_AdvStatus";
-            this.RV_AdvStatus.Size = new System.Drawing.Size(460, 40);
+            this.RV_AdvStatus.Size = new System.Drawing.Size(460, 20);
             this.RV_AdvStatus.TabIndex = 7;
-            this.RV_AdvStatus.Text = "%ИНФОРМАЦИЯ О ПРИСУТСТВИИ В ЧЁРНОМ ИЛИ БЕЛОМ СПИСКАХ САЙТА%";
-            this.ToolTipCtr.SetToolTip(this.RV_AdvStatus, "Дополнительная информация");
-            this.RV_AdvStatus.Click += new System.EventHandler(this.RV_AdvStatus_Click);
+            this.RV_AdvStatus.Text = "%ПРОВЕРКА ПО БАЗЕ STEAMREP%";
+            this.ToolTipCtr.SetToolTip(this.RV_AdvStatus, "Результат проверки профиля по базе SteamRep");
             // 
             // RV_SiteStatus
             // 
-            this.RV_SiteStatus.AutoSize = true;
             this.RV_SiteStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RV_SiteStatus.Location = new System.Drawing.Point(223, 54);
             this.RV_SiteStatus.Name = "RV_SiteStatus";
-            this.RV_SiteStatus.Size = new System.Drawing.Size(325, 20);
+            this.RV_SiteStatus.Size = new System.Drawing.Size(460, 20);
             this.RV_SiteStatus.TabIndex = 6;
-            this.RV_SiteStatus.Text = "%ИНФОРМАЦИЯ О СТАТУСЕ ГАРАНТА%";
-            this.ToolTipCtr.SetToolTip(this.RV_SiteStatus, "Информация о статусе на сайте");
+            this.RV_SiteStatus.Text = "%ПРОВЕРКА ПО НАШЕЙ БАЗЕ%";
+            this.ToolTipCtr.SetToolTip(this.RV_SiteStatus, "Результат проверки профиля по базе TEAM-FORTRESS.SU");
             // 
             // RV_Nick
             // 
@@ -422,6 +418,20 @@
             this.RV_AvatarHolder.Size = new System.Drawing.Size(192, 192);
             this.RV_AvatarHolder.TabIndex = 14;
             this.RV_AvatarHolder.TabStop = false;
+            // 
+            // CustMenu
+            // 
+            this.CustMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LNK_CustClipB});
+            this.CustMenu.Name = "CustMenu";
+            this.CustMenu.Size = new System.Drawing.Size(236, 26);
+            // 
+            // LNK_CustClipB
+            // 
+            this.LNK_CustClipB.Name = "LNK_CustClipB";
+            this.LNK_CustClipB.Size = new System.Drawing.Size(235, 22);
+            this.LNK_CustClipB.Text = "Скопировать в буфер обмена";
+            this.LNK_CustClipB.Click += new System.EventHandler(this.LNK_CustClipB_Click);
             // 
             // L_LegalInfo
             // 
@@ -480,10 +490,10 @@
             this.TrayMenu.ResumeLayout(false);
             this.ResultView.ResumeLayout(false);
             this.ResultView.PerformLayout();
-            this.CustMenu.ResumeLayout(false);
             this.LnkMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RV_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RV_AvatarHolder)).EndInit();
+            this.CustMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,7 +519,6 @@
         private System.Windows.Forms.Label L_PLink;
         private System.Windows.Forms.Label RV_AdvStatus;
         private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.Label RV_CustDescr;
         private System.Windows.Forms.Label RV_VCStatusA;
         private System.Windows.Forms.Label RV_F2P;
         private System.Windows.Forms.ContextMenuStrip LnkMenu;
@@ -531,6 +540,8 @@
         private System.ComponentModel.BackgroundWorker BW_Chk;
         private System.ComponentModel.BackgroundWorker BW_UpdChk;
         private System.ComponentModel.BackgroundWorker BW_HwGet;
+        private System.Windows.Forms.TextBox RV_CustDescr;
+        private System.Windows.Forms.Label L_CustDescr;
     }
 }
 

@@ -38,7 +38,6 @@ namespace gchclient
         private string PrevURL = "";
         private string UsrSteamID = "";
         private string SID64 = "";
-        private string SpecialNumber;
         private string AvatarImage;
         private bool UpdateAvailable;
         private bool LastStatus;
@@ -90,17 +89,14 @@ namespace gchclient
                 {
                     SetAvatar(AvatarImage);
                 }
-                SpecialNumber = Chk.SiteStatus;
                 switch (Chk.SiteStatus)
                 {
                     case "1": // Гарант...
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.Garant;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUMiddle);
                                 RV_SiteStatus.ForeColor = Color.Green;
-                                RV_AdvStatus.Text = Properties.Resources.GarantMsg;
-                                RV_AdvStatus.ForeColor = Color.Black;
                             });
                         }
                         break;
@@ -108,10 +104,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
-                                RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.WhiteListed;
-                                RV_AdvStatus.ForeColor = Color.Green;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUWhite);
+                                RV_SiteStatus.ForeColor = Color.Green;
                             });
                         }
                         break;
@@ -119,10 +113,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlack);
                                 RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.Blacklisted;
-                                RV_AdvStatus.ForeColor = Color.Red;
                             });
                         }
                         break;
@@ -130,10 +122,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
-                                RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.GenericMsg;
-                                RV_AdvStatus.ForeColor = Color.Black;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUNeutral);
+                                RV_SiteStatus.ForeColor = Color.Black;
                             });
                         }
                         break;
@@ -141,10 +131,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlackAuc);
                                 RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.BlackAucMsg;
-                                RV_AdvStatus.ForeColor = Color.Purple;
                             });
                         }
                         break;
@@ -152,10 +140,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.TFStaff;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUStaff);
                                 RV_SiteStatus.ForeColor = Color.Blue;
-                                RV_AdvStatus.Text = Properties.Resources.TFStaffMsg;
-                                RV_AdvStatus.ForeColor = Color.Black;
                             });
                         }
                         break;
@@ -163,10 +149,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
-                                RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.PremiumUser;
-                                RV_AdvStatus.ForeColor = Color.DarkViolet;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUPrem);
+                                RV_SiteStatus.ForeColor = Color.DarkViolet;
                             });
                         }
                         break;
@@ -174,10 +158,8 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
-                                RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.BadUserTr;
-                                RV_AdvStatus.ForeColor = Color.Purple;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUGray);
+                                RV_SiteStatus.ForeColor = Color.Purple;
                             });
                         }
                         break;
@@ -185,14 +167,13 @@ namespace gchclient
                         {
                             this.Invoke((MethodInvoker)delegate()
                             {
-                                RV_SiteStatus.Text = Properties.Resources.NotGarant;
-                                RV_SiteStatus.ForeColor = Color.Red;
-                                RV_AdvStatus.Text = Properties.Resources.UnknownGroup;
-                                RV_AdvStatus.ForeColor = Color.Black;
+                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUUnknown);
+                                RV_SiteStatus.ForeColor = Color.Black;
                             });
                         }
                         break;
                 }
+                this.Invoke((MethodInvoker)delegate() { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); });
                 this.Invoke((MethodInvoker)delegate() { RV_PermaLink.Text = Chk.Permalink; });
                 SID64 = Chk.SteamID64;
                 if (Chk.VCStatus == "0")
@@ -227,20 +208,7 @@ namespace gchclient
                         RV_F2P.BackColor = Control.DefaultBackColor;
                     });
                 }
-                switch (Chk.SiteStatus)
-                {
-                    case "3": this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? String.Format(Properties.Resources.AppBlPrefix, Chk.CustomText) : Properties.Resources.CustInfoNone; });
-                        break;
-                    case "5": this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? String.Format(Properties.Resources.AppBlAucPrefix, Chk.CustomText) : Properties.Resources.CustInfoNone; });
-                        break;
-                    case "6": this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? String.Format(Properties.Resources.AppStaffPrefix, Chk.CustomText) : Properties.Resources.CustInfoNone; });
-                        break;
-                    case "8": this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? String.Format(Properties.Resources.AppNotTrPrefix, Chk.CustomText) : Properties.Resources.CustInfoNone; });
-                        break;
-                    default: this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = String.IsNullOrWhiteSpace(Chk.CustomText) ? Properties.Resources.CustInfoNone : Chk.CustomText; });
-                        break;
-                }
-                this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Font = (Properties.Settings.Default.ChkDescFontAuto && (RV_CustDescr.Text.Length <= 85)) ? new Font(RV_CustDescr.Font.Name, 12, FontStyle.Regular) : new Font(RV_CustDescr.Font.Name, 10, FontStyle.Regular); });
+                this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? Chk.CustomText : Properties.Resources.CustInfoNone; });
                 switch (Chk.TradeStatus)
                 {
                     case "0":
@@ -552,25 +520,6 @@ namespace gchclient
         private void frmMain_Activated(object sender, EventArgs e)
         {
             Timer.Enabled = !BW_HwGet.IsBusy && Properties.Settings.Default.AllowClipbCheck && !this.Focused;
-        }
-
-        private void RV_AdvStatus_Click(object sender, EventArgs e)
-        {
-            switch (SpecialNumber)
-            {
-                case "1": Process.Start(Properties.Resources.URLGarantList);
-                    break;
-                case "2": Process.Start(Properties.Resources.URLWhiteList);
-                    break;
-                case "5": Process.Start(Properties.Resources.URLAucList);
-                    break;
-                case "6": Process.Start(Properties.Resources.URLAdmList);
-                    break;
-                case "7": Process.Start(Properties.Resources.URLPremiumList);
-                    break;
-                default: Process.Start(Properties.Resources.URLBlList);
-                    break;
-            }
         }
 
         private void LNK_Go_Click(object sender, EventArgs e)

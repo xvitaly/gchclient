@@ -38,6 +38,7 @@ namespace gchclient
         public string TradeStatus;
         public string SteamID64;
         public string SteamIDv3;
+        public string SRStatus;
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
             string XMLFileName = Path.GetTempFileName();
@@ -75,6 +76,7 @@ namespace gchclient
                                     VCStatus = XMLD.GetElementsByTagName("isbanned")[i].InnerText;
                                     Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[i].InnerText;
                                     TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
+                                    SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
                                     try
                                     {
                                         CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, @"<(.|\n)*?>", " ");

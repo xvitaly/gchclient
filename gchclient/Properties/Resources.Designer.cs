@@ -97,24 +97,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Причина добавления в ЧС аукциона: {0}.
-        /// </summary>
-        internal static string AppBlAucPrefix {
-            get {
-                return ResourceManager.GetString("AppBlAucPrefix", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Причина добавления в ЧС: {0}.
-        /// </summary>
-        internal static string AppBlPrefix {
-            get {
-                return ResourceManager.GetString("AppBlPrefix", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/.
         /// </summary>
         internal static string AppChkRegEx {
@@ -259,15 +241,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Причина ненадёжности: {0}.
-        /// </summary>
-        internal static string AppNotTrPrefix {
-            get {
-                return ResourceManager.GetString("AppNotTrPrefix", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Не обнаружен модуль обновления! Возможно, программа установлена не полностью. Загрузите новую версию самостоятельно с официального сайта..
         /// </summary>
         internal static string AppNoUpdater {
@@ -331,15 +304,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Особые полномочия: {0}.
-        /// </summary>
-        internal static string AppStaffPrefix {
-            get {
-                return ResourceManager.GetString("AppStaffPrefix", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка при вызове Интернет-браузера. Переустановите его, либо назначьте браузер по умолчанию!.
         /// </summary>
         internal static string AppStartFailure {
@@ -392,33 +356,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string BadUserTr {
-            get {
-                return ResourceManager.GetString("BadUserTr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string BlackAucMsg {
-            get {
-                return ResourceManager.GetString("BlackAucMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string Blacklisted {
-            get {
-                return ResourceManager.GetString("Blacklisted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Кастомное описание и дополнительная информация для этого пользователя отсутствуют..
         /// </summary>
         internal static string CustInfoNone {
@@ -451,33 +388,6 @@ namespace gchclient.Properties {
         internal static string F2PAccTextStatus {
             get {
                 return ResourceManager.GetString("F2PAccTextStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Является гарантом сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string Garant {
-            get {
-                return ResourceManager.GetString("Garant", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Для безопасности сделок все гаранты используют только сервис Обмен Steam..
-        /// </summary>
-        internal static string GarantMsg {
-            get {
-                return ResourceManager.GetString("GarantMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string GenericMsg {
-            get {
-                return ResourceManager.GetString("GenericMsg", resourceCulture);
             }
         }
         
@@ -590,28 +500,10 @@ namespace gchclient.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string NotGarant {
-            get {
-                return ResourceManager.GetString("NotGarant", resourceCulture);
-            }
-        }
-        
         internal static System.Drawing.Bitmap null_avatar {
             get {
                 object obj = ResourceManager.GetObject("null_avatar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Это премиум-пользователь сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string PremiumUser {
-            get {
-                return ResourceManager.GetString("PremiumUser", resourceCulture);
             }
         }
         
@@ -707,6 +599,105 @@ namespace gchclient.Properties {
             get {
                 object obj = ResourceManager.GetObject("srchfr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус TEAM-FORTRESS.SU: {0}..
+        /// </summary>
+        internal static string TemplateInternal {
+            get {
+                return ResourceManager.GetString("TemplateInternal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус SteamRep: {0}..
+        /// </summary>
+        internal static string TemplateSteamRep {
+            get {
+                return ResourceManager.GetString("TemplateSteamRep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to мошенник.
+        /// </summary>
+        internal static string TemplateTFSUBlack {
+            get {
+                return ResourceManager.GetString("TemplateTFSUBlack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ЧС аукциона.
+        /// </summary>
+        internal static string TemplateTFSUBlackAuc {
+            get {
+                return ResourceManager.GetString("TemplateTFSUBlackAuc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ненадёжный.
+        /// </summary>
+        internal static string TemplateTFSUGray {
+            get {
+                return ResourceManager.GetString("TemplateTFSUGray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to гарант.
+        /// </summary>
+        internal static string TemplateTFSUMiddle {
+            get {
+                return ResourceManager.GetString("TemplateTFSUMiddle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to нет в базе.
+        /// </summary>
+        internal static string TemplateTFSUNeutral {
+            get {
+                return ResourceManager.GetString("TemplateTFSUNeutral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to премиум-пользователь.
+        /// </summary>
+        internal static string TemplateTFSUPrem {
+            get {
+                return ResourceManager.GetString("TemplateTFSUPrem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to сотрудник сайта.
+        /// </summary>
+        internal static string TemplateTFSUStaff {
+            get {
+                return ResourceManager.GetString("TemplateTFSUStaff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to НЕВЕРНЫЙКОД.
+        /// </summary>
+        internal static string TemplateTFSUUnknown {
+            get {
+                return ResourceManager.GetString("TemplateTFSUUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to в белом списке.
+        /// </summary>
+        internal static string TemplateTFSUWhite {
+            get {
+                return ResourceManager.GetString("TemplateTFSUWhite", resourceCulture);
             }
         }
         
@@ -860,15 +851,6 @@ namespace gchclient.Properties {
         internal static string VCStatusNormal {
             get {
                 return ResourceManager.GetString("VCStatusNormal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Этот пользователь находится в белом списке сайта TEAM-FORTRESS.SU..
-        /// </summary>
-        internal static string WhiteListed {
-            get {
-                return ResourceManager.GetString("WhiteListed", resourceCulture);
             }
         }
     }

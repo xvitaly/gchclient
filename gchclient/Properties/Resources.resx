@@ -120,9 +120,6 @@
   <data name="URLBlList" xml:space="preserve">
     <value>https://check.team-fortress.ru/personal</value>
   </data>
-  <data name="WhiteListed" xml:space="preserve">
-    <value>Этот пользователь находится в белом списке сайта TEAM-FORTRESS.SU.</value>
-  </data>
   <data name="ListNotTrName" xml:space="preserve">
     <value>Ненадёжные</value>
   </data>
@@ -137,9 +134,6 @@
   </data>
   <data name="TradeIsp" xml:space="preserve">
     <value>на испытательном сроке</value>
-  </data>
-  <data name="BlackAucMsg" xml:space="preserve">
-    <value>Данный пользователь находится в чёрном списке аукциона сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="IncorrectURL" xml:space="preserve">
     <value>В буфере обмена находится неверный URL! Проверка не будет выполнена.</value>
@@ -169,9 +163,6 @@
   <data name="AppURIStartFail" xml:space="preserve">
     <value>Произошла ошибка при вызове обработчика протокола. Убедитесь в корректной установке клиента Steam.</value>
   </data>
-  <data name="GenericMsg" xml:space="preserve">
-    <value>Вас пытаются ввести в заблуждение? Напишите об этом в «черный список» на форуме TEAM-FORTRESS.SU.</value>
-  </data>
   <data name="TradeNormal" xml:space="preserve">
     <value>без ограничений</value>
   </data>
@@ -199,14 +190,8 @@
   <data name="UnknownGroup" xml:space="preserve">
     <value>Не удалось установить принадлежность этого пользователя. Обновите клиент!</value>
   </data>
-  <data name="BadUserTr" xml:space="preserve">
-    <value>Этот пользователь находится в списке ненадёжных сайта TEAM-FORTRESS.SU.</value>
-  </data>
   <data name="AppSBReady" xml:space="preserve">
     <value>Готов.</value>
-  </data>
-  <data name="NotGarant" xml:space="preserve">
-    <value>НЕ ЯВЛЯЕТСЯ гарантом сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListGarantName" xml:space="preserve">
     <value>Гаранты</value>
@@ -217,17 +202,11 @@
   <data name="AppUpdateAvailable" xml:space="preserve">
     <value>Доступно обновление программы до версии {0}. Нажмите на это сообщение для обновления.</value>
   </data>
-  <data name="AppStaffPrefix" xml:space="preserve">
-    <value>Особые полномочия: {0}</value>
-  </data>
   <data name="AppMsgSiDClipb" xml:space="preserve">
     <value>SteamID пользователя {0} был успешно помещён в буфер обмена Windows!</value>
   </data>
   <data name="ListBlAucName" xml:space="preserve">
     <value>ЧС аук</value>
-  </data>
-  <data name="AppNotTrPrefix" xml:space="preserve">
-    <value>Причина ненадёжности: {0}</value>
   </data>
   <data name="AppIgnLDlEx" xml:space="preserve">
     <value>Запрещено удалять элементы, созданные не лично вами!</value>
@@ -277,9 +256,6 @@
   <data name="TradeBanned" xml:space="preserve">
     <value>отключена</value>
   </data>
-  <data name="Blacklisted" xml:space="preserve">
-    <value>Этот пользователь находится в чёрном списке сайта TEAM-FORTRESS.SU.</value>
-  </data>
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
   </data>
@@ -295,14 +271,8 @@
   <data name="AppWorkerBusy" xml:space="preserve">
     <value>Программа уже занята обработкой предыдущего запроса. Пожалуйста, повторите попытку позднее.</value>
   </data>
-  <data name="GarantMsg" xml:space="preserve">
-    <value>Для безопасности сделок все гаранты используют только сервис Обмен Steam.</value>
-  </data>
   <data name="AppNoURLStr" xml:space="preserve">
     <value>Ошибка во время перехода по ссылке!</value>
-  </data>
-  <data name="Garant" xml:space="preserve">
-    <value>Является гарантом сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="ListWhiteName" xml:space="preserve">
     <value>БС</value>
@@ -319,9 +289,6 @@
   <data name="AppIgnClipbErr" xml:space="preserve">
     <value>Ошибка при вставке из буфера обмена!</value>
   </data>
-  <data name="AppBlPrefix" xml:space="preserve">
-    <value>Причина добавления в ЧС: {0}</value>
-  </data>
   <data name="APIURI" xml:space="preserve">
     <value>{0}check.team-fortress.su/api.php?action={1}&amp;token={2}&amp;id={3}</value>
   </data>
@@ -334,17 +301,11 @@
   <data name="VCStatusBanned" xml:space="preserve">
     <value>забанен</value>
   </data>
-  <data name="PremiumUser" xml:space="preserve">
-    <value>Это премиум-пользователь сайта TEAM-FORTRESS.SU.</value>
-  </data>
   <data name="F2PAccTextStatus" xml:space="preserve">
     <value>Бесплатный аккаунт.</value>
   </data>
   <data name="AppNoUpdater" xml:space="preserve">
     <value>Не обнаружен модуль обновления! Возможно, программа установлена не полностью. Загрузите новую версию самостоятельно с официального сайта.</value>
-  </data>
-  <data name="AppBlAucPrefix" xml:space="preserve">
-    <value>Причина добавления в ЧС аукциона: {0}</value>
   </data>
   <data name="ListPremName" xml:space="preserve">
     <value>Премиум</value>
@@ -393,5 +354,38 @@
   </data>
   <data name="SCUnknown" xml:space="preserve">
     <value>n/a</value>
+  </data>
+  <data name="TemplateInternal" xml:space="preserve">
+    <value>Статус TEAM-FORTRESS.SU: {0}.</value>
+  </data>
+  <data name="TemplateSteamRep" xml:space="preserve">
+    <value>Статус SteamRep: {0}.</value>
+  </data>
+  <data name="TemplateTFSUBlack" xml:space="preserve">
+    <value>мошенник</value>
+  </data>
+  <data name="TemplateTFSUBlackAuc" xml:space="preserve">
+    <value>ЧС аукциона</value>
+  </data>
+  <data name="TemplateTFSUGray" xml:space="preserve">
+    <value>ненадёжный</value>
+  </data>
+  <data name="TemplateTFSUMiddle" xml:space="preserve">
+    <value>гарант</value>
+  </data>
+  <data name="TemplateTFSUNeutral" xml:space="preserve">
+    <value>нет в базе</value>
+  </data>
+  <data name="TemplateTFSUPrem" xml:space="preserve">
+    <value>премиум-пользователь</value>
+  </data>
+  <data name="TemplateTFSUStaff" xml:space="preserve">
+    <value>сотрудник сайта</value>
+  </data>
+  <data name="TemplateTFSUUnknown" xml:space="preserve">
+    <value>НЕВЕРНЫЙКОД</value>
+  </data>
+  <data name="TemplateTFSUWhite" xml:space="preserve">
+    <value>в белом списке</value>
   </data>
 </root>
