@@ -239,6 +239,7 @@ namespace gchclient
                         }
                         break;
                 }
+                this.Invoke((MethodInvoker)delegate() { RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Chk.GameBans); });
             }
         }
         #endregion

@@ -603,6 +603,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Игровых банов: {0}..
+        /// </summary>
+        internal static string TemplateGameBans {
+            get {
+                return ResourceManager.GetString("TemplateGameBans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус на сайте: {0}..
         /// </summary>
         internal static string TemplateInternal {
@@ -720,7 +729,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to отключена.
+        ///   Looks up a localized string similar to отключён.
         /// </summary>
         internal static string TradeBanned {
             get {
@@ -729,7 +738,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to на испытательном сроке.
+        ///   Looks up a localized string similar to испытат. срок.
         /// </summary>
         internal static string TradeIsp {
             get {
@@ -747,7 +756,7 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Статус торговли: {0}..
+        ///   Looks up a localized string similar to Трейд: {0}..
         /// </summary>
         internal static string TradeST {
             get {

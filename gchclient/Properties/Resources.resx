@@ -127,7 +127,7 @@
     <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
   </data>
   <data name="TradeIsp" xml:space="preserve">
-    <value>на испытательном сроке</value>
+    <value>испытат. срок</value>
   </data>
   <data name="IncorrectURL" xml:space="preserve">
     <value>В буфере обмена находится неверный URL! Проверка не будет выполнена.</value>
@@ -206,7 +206,7 @@
     <value>Запрещено удалять элементы, созданные не лично вами!</value>
   </data>
   <data name="TradeST" xml:space="preserve">
-    <value>Статус торговли: {0}.</value>
+    <value>Трейд: {0}.</value>
   </data>
   <data name="AppSBReceiving" xml:space="preserve">
     <value>Получение информации с сервера...</value>
@@ -242,7 +242,7 @@
     <value>Построение списка...</value>
   </data>
   <data name="TradeBanned" xml:space="preserve">
-    <value>отключена</value>
+    <value>отключён</value>
   </data>
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
@@ -369,5 +369,8 @@
   </data>
   <data name="TemplateTFSUWhite" xml:space="preserve">
     <value>в белом списке</value>
+  </data>
+  <data name="TemplateGameBans" xml:space="preserve">
+    <value>Игровых банов: {0}.</value>
   </data>
 </root>

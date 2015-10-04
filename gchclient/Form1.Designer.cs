@@ -42,6 +42,7 @@
             this.InpStr = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.ResultView = new System.Windows.Forms.Panel();
+            this.RV_GameBans = new System.Windows.Forms.Label();
             this.L_CustDescr = new System.Windows.Forms.Label();
             this.RV_CustDescr = new System.Windows.Forms.TextBox();
             this.ContextDscrM = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -181,6 +182,7 @@
             // ResultView
             // 
             this.ResultView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ResultView.Controls.Add(this.RV_GameBans);
             this.ResultView.Controls.Add(this.L_CustDescr);
             this.ResultView.Controls.Add(this.RV_CustDescr);
             this.ResultView.Controls.Add(this.RV_Report);
@@ -203,6 +205,16 @@
             this.ResultView.Size = new System.Drawing.Size(702, 320);
             this.ResultView.TabIndex = 5;
             this.ResultView.Visible = false;
+            // 
+            // RV_GameBans
+            // 
+            this.RV_GameBans.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RV_GameBans.Location = new System.Drawing.Point(448, 205);
+            this.RV_GameBans.Name = "RV_GameBans";
+            this.RV_GameBans.Size = new System.Drawing.Size(235, 20);
+            this.RV_GameBans.TabIndex = 11;
+            this.RV_GameBans.Text = "%ИГРОВЫЕ БАНЫ%";
+            this.ToolTipCtr.SetToolTip(this.RV_GameBans, "Выводит количество игровых банов");
             // 
             // L_CustDescr
             // 
@@ -308,7 +320,7 @@
             this.RV_TradeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RV_TradeStatus.Location = new System.Drawing.Point(223, 231);
             this.RV_TradeStatus.Name = "RV_TradeStatus";
-            this.RV_TradeStatus.Size = new System.Drawing.Size(460, 20);
+            this.RV_TradeStatus.Size = new System.Drawing.Size(218, 20);
             this.RV_TradeStatus.TabIndex = 12;
             this.RV_TradeStatus.Text = "%СТАТУС ТОРГОВЛИ%";
             this.ToolTipCtr.SetToolTip(this.RV_TradeStatus, "Статус торговли");
@@ -316,10 +328,10 @@
             // RV_F2P
             // 
             this.RV_F2P.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RV_F2P.Location = new System.Drawing.Point(448, 205);
+            this.RV_F2P.Location = new System.Drawing.Point(448, 231);
             this.RV_F2P.Name = "RV_F2P";
             this.RV_F2P.Size = new System.Drawing.Size(235, 20);
-            this.RV_F2P.TabIndex = 11;
+            this.RV_F2P.TabIndex = 13;
             this.RV_F2P.Text = "%ФРИТУПЛЕЙ АКК%";
             // 
             // RV_VCStatusA
@@ -329,7 +341,7 @@
             this.RV_VCStatusA.Name = "RV_VCStatusA";
             this.RV_VCStatusA.Size = new System.Drawing.Size(218, 20);
             this.RV_VCStatusA.TabIndex = 10;
-            this.RV_VCStatusA.Text = "%СТАТУС ВАК%";
+            this.RV_VCStatusA.Text = "%СТАТУС VAC%";
             this.ToolTipCtr.SetToolTip(this.RV_VCStatusA, "Статус VAC");
             // 
             // RV_PermaLink
@@ -342,7 +354,7 @@
             this.RV_PermaLink.Location = new System.Drawing.Point(224, 284);
             this.RV_PermaLink.Name = "RV_PermaLink";
             this.RV_PermaLink.Size = new System.Drawing.Size(180, 16);
-            this.RV_PermaLink.TabIndex = 14;
+            this.RV_PermaLink.TabIndex = 15;
             this.RV_PermaLink.Text = "%ССЫЛКА НА ПРОФИЛЬ%";
             this.ToolTipCtr.SetToolTip(this.RV_PermaLink, "Постоянная ссылка на профиль (щёлкните для перехода)");
             this.RV_PermaLink.Click += new System.EventHandler(this.RV_PermaLink_Click);
@@ -384,7 +396,7 @@
             this.L_PLink.Location = new System.Drawing.Point(223, 256);
             this.L_PLink.Name = "L_PLink";
             this.L_PLink.Size = new System.Drawing.Size(299, 24);
-            this.L_PLink.TabIndex = 13;
+            this.L_PLink.TabIndex = 14;
             this.L_PLink.Text = "Постоянная ссылка на профиль:";
             // 
             // RV_AdvStatus
@@ -563,6 +575,7 @@
         private System.Windows.Forms.Label L_CustDescr;
         private System.Windows.Forms.ContextMenuStrip ContextDscrM;
         private System.Windows.Forms.ToolStripMenuItem CDM_OpenLnk;
+        private System.Windows.Forms.Label RV_GameBans;
     }
 }
 
