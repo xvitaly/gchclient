@@ -47,7 +47,7 @@
             this.Opt_ClipbInt = new System.Windows.Forms.CheckBox();
             this.Opt_Hotkey = new System.Windows.Forms.ComboBox();
             this.Opt_EnableHotKey = new System.Windows.Forms.CheckBox();
-            this.Opt_AutoCustDescrR = new System.Windows.Forms.CheckBox();
+            this.Opt_UseNewSteamIDFormat = new System.Windows.Forms.CheckBox();
             this.Opt_AutoUpdate = new System.Windows.Forms.CheckBox();
             this.Opt_CpSidName = new System.Windows.Forms.CheckBox();
             this.Opt_FrWQbnts = new System.Windows.Forms.CheckBox();
@@ -228,7 +228,7 @@
             this.GB_Settings.Controls.Add(this.Opt_ClipbInt);
             this.GB_Settings.Controls.Add(this.Opt_Hotkey);
             this.GB_Settings.Controls.Add(this.Opt_EnableHotKey);
-            this.GB_Settings.Controls.Add(this.Opt_AutoCustDescrR);
+            this.GB_Settings.Controls.Add(this.Opt_UseNewSteamIDFormat);
             this.GB_Settings.Controls.Add(this.Opt_AutoUpdate);
             this.GB_Settings.Controls.Add(this.Opt_CpSidName);
             this.GB_Settings.Controls.Add(this.Opt_FrWQbnts);
@@ -277,15 +277,15 @@
             this.Opt_EnableHotKey.UseVisualStyleBackColor = true;
             this.Opt_EnableHotKey.CheckedChanged += new System.EventHandler(this.Opt_EnableHotKey_CheckedChanged);
             // 
-            // Opt_AutoCustDescrR
+            // Opt_UseNewSteamIDFormat
             // 
-            this.Opt_AutoCustDescrR.AutoSize = true;
-            this.Opt_AutoCustDescrR.Location = new System.Drawing.Point(15, 160);
-            this.Opt_AutoCustDescrR.Name = "Opt_AutoCustDescrR";
-            this.Opt_AutoCustDescrR.Size = new System.Drawing.Size(240, 17);
-            this.Opt_AutoCustDescrR.TabIndex = 7;
-            this.Opt_AutoCustDescrR.Text = "Изменять размер шрифта каст. описания";
-            this.Opt_AutoCustDescrR.UseVisualStyleBackColor = true;
+            this.Opt_UseNewSteamIDFormat.AutoSize = true;
+            this.Opt_UseNewSteamIDFormat.Location = new System.Drawing.Point(15, 160);
+            this.Opt_UseNewSteamIDFormat.Name = "Opt_UseNewSteamIDFormat";
+            this.Opt_UseNewSteamIDFormat.Size = new System.Drawing.Size(212, 17);
+            this.Opt_UseNewSteamIDFormat.TabIndex = 7;
+            this.Opt_UseNewSteamIDFormat.Text = "Выводить SteamID в новом формате";
+            this.Opt_UseNewSteamIDFormat.UseVisualStyleBackColor = true;
             // 
             // Opt_AutoUpdate
             // 
@@ -503,7 +503,7 @@
         private System.Windows.Forms.Label L_InpPriToken;
         private System.Windows.Forms.TabPage TC_TP_AdvSettings;
         private System.Windows.Forms.GroupBox GB_Settings;
-        private System.Windows.Forms.CheckBox Opt_AutoCustDescrR;
+        private System.Windows.Forms.CheckBox Opt_UseNewSteamIDFormat;
         private System.Windows.Forms.CheckBox Opt_AutoUpdate;
         private System.Windows.Forms.CheckBox Opt_CpSidName;
         private System.Windows.Forms.CheckBox Opt_FrWQbnts;

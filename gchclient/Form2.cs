@@ -48,8 +48,8 @@ namespace gchclient
             Opt_Hotkey.Text = Properties.Settings.Default.Hotkey.ToString();
             Opt_FrWQbnts.Checked = Properties.Settings.Default.ShowQuickBtns;
             Opt_CpSidName.Checked = Properties.Settings.Default.CopySIDiN;
+            Opt_UseNewSteamIDFormat.Checked = Properties.Settings.Default.UseSteamIDv3;
             Opt_AutoUpdate.Checked = Properties.Settings.Default.EnableAutoUpdate;
-            Opt_AutoCustDescrR.Checked = Properties.Settings.Default.ChkDescFontAuto;
             Opt_ClipbInt.Checked = Properties.Settings.Default.AllowClipbCheck;
             try { Opt_Autorun.Checked = Autorun.CheckStatus("gchclient"); } catch { Opt_Autorun.Checked = false; }
             try { foreach (Object Obj in Properties.Settings.Default.IgnoreList) { Opt_IgnEd.Rows.Add(Obj.ToString()); } } catch { Opt_IgnEd.Rows.Clear(); }
@@ -101,7 +101,7 @@ namespace gchclient
                             Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
                             Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
                             Properties.Settings.Default.AllowClipbCheck = Opt_ClipbInt.Checked;
-                            Properties.Settings.Default.ChkDescFontAuto = Opt_AutoCustDescrR.Checked;
+                            Properties.Settings.Default.UseSteamIDv3 = Opt_UseNewSteamIDFormat.Checked;
                             try { if (Opt_Autorun.Checked) { Autorun.Enable("gchclient"); } else { Autorun.Disable("gchclient"); } } catch { }
                             try
                             {

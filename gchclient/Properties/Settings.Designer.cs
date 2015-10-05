@@ -146,18 +146,6 @@ namespace gchclient.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ChkDescFontAuto {
-            get {
-                return ((bool)(this["ChkDescFontAuto"]));
-            }
-            set {
-                this["ChkDescFontAuto"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool UseSSL {
             get {
                 return ((bool)(this["UseSSL"]));
@@ -201,6 +189,18 @@ namespace gchclient.Properties {
             }
             set {
                 this["IgnoreList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseSteamIDv3 {
+            get {
+                return ((bool)(this["UseSteamIDv3"]));
+            }
+            set {
+                this["UseSteamIDv3"] = value;
             }
         }
     }
