@@ -65,8 +65,8 @@ namespace gchclient
             if (Chk.Result)
             {
                 this.Invoke((MethodInvoker)delegate() { RV_Nick.Text = Chk.Nickname; });
-                this.Invoke((MethodInvoker)delegate() { RV_SteamID.Text = Chk.SteamID; });
-                this.Invoke((MethodInvoker)delegate() { UsrSteamID = Chk.SteamID; });
+                this.Invoke((MethodInvoker)delegate() { RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
+                this.Invoke((MethodInvoker)delegate() { UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
                 if (!(Directory.Exists(AVTDir))) { Directory.CreateDirectory(AVTDir); }
                 AvatarImage = Path.Combine(AVTDir, CoreLib.md5hash(Chk.AvatarURL) + ".jpg");
                 if (!(File.Exists(AvatarImage)))
