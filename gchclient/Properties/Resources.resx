@@ -388,4 +388,7 @@
   <data name="TemplateInvTF2Outpost" xml:space="preserve">
     <value>http://www.tf2outpost.com/backpack/{0}/</value>
   </data>
+  <data name="TemplateInvSteam" xml:space="preserve">
+    <value>http://steamcommunity.com/profiles/{0}/inventory/</value>
+  </data>
 </root>

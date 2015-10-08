@@ -639,6 +639,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://steamcommunity.com/profiles/{0}/inventory/.
+        /// </summary>
+        internal static string TemplateInvSteam {
+            get {
+                return ResourceManager.GetString("TemplateInvSteam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://tf2b.com/tf2/{0}.
         /// </summary>
         internal static string TemplateInvTF2b {

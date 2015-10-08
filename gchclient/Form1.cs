@@ -640,6 +640,8 @@ namespace gchclient
                     break;
                 case 2: InvViewer = Properties.Resources.TemplateInvTF2Outpost;
                     break;
+                case 3: InvViewer = Properties.Resources.TemplateInvSteam;
+                    break;
                 default: InvViewer = Properties.Resources.TemplateInvTF2b;
                     break;
             }

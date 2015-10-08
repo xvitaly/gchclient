@@ -265,7 +265,8 @@
             this.Opt_InvViewer.Items.AddRange(new object[] {
             "TF2b.com",
             "TF2Items.com",
-            "TF2 Outpost"});
+            "TF2 Outpost",
+            "Steam Inventory"});
             this.Opt_InvViewer.Location = new System.Drawing.Point(132, 208);
             this.Opt_InvViewer.Name = "Opt_InvViewer";
             this.Opt_InvViewer.Size = new System.Drawing.Size(145, 21);
