@@ -203,5 +203,17 @@ namespace gchclient.Properties {
                 this["UseSteamIDv3"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int InventoryViewer {
+            get {
+                return ((int)(this["InventoryViewer"]));
+            }
+            set {
+                this["InventoryViewer"] = value;
+            }
+        }
     }
 }
