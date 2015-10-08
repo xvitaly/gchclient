@@ -153,7 +153,7 @@ namespace gchclient
         private void HwIDFld_Click(object sender, EventArgs e)
         {
             string Lb = ((Label)sender).Text;
-            if (String.IsNullOrWhiteSpace(Lb)) { Clipboard.SetText(Lb); }
+            if (!String.IsNullOrWhiteSpace(Lb)) { Clipboard.SetText(Lb); }
         }
 
         private void Opt_IEd_Tb_Cut_Click(object sender, EventArgs e)
