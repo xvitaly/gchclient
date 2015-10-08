@@ -379,13 +379,13 @@
   <data name="TemplateGameBansNo" xml:space="preserve">
     <value>отсутствуют</value>
   </data>
-  <data name="TemplateInvId0" xml:space="preserve">
+  <data name="TemplateInvTF2b" xml:space="preserve">
     <value>https://tf2b.com/tf2/{0}</value>
   </data>
-  <data name="TemplateInvId1" xml:space="preserve">
+  <data name="TemplateInvTF2Items" xml:space="preserve">
     <value>http://www.tf2items.com/profiles/{0}</value>
   </data>
-  <data name="TemplateInvId2" xml:space="preserve">
+  <data name="TemplateInvTF2Outpost" xml:space="preserve">
     <value>http://www.tf2outpost.com/backpack/{0}/</value>
   </data>
 </root>

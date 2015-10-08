@@ -630,14 +630,22 @@ namespace gchclient
 
         private void RV_ViewBackPack_Click(object sender, EventArgs e)
         {
-            try
+            // Выбираем сервис просмотра инвентаря...
+            string InvViewer;
+            switch (Properties.Settings.Default.InventoryViewer)
             {
-                Process.Start(String.Format("http://www.tf2items.com/profiles/{0}", SID64));
+                case 0: InvViewer = Properties.Resources.TemplateInvTF2b;
+                    break;
+                case 1: InvViewer = Properties.Resources.TemplateInvTF2Items;
+                    break;
+                case 2: InvViewer = Properties.Resources.TemplateInvTF2Outpost;
+                    break;
+                default: InvViewer = Properties.Resources.TemplateInvTF2b;
+                    break;
             }
-            catch
-            {
-                MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            // Открываем в браузере по умолчанию...
+            try { Process.Start(String.Format(InvViewer, SID64)); } catch { MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private void CM_Settings_Click(object sender, EventArgs e)
