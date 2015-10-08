@@ -45,7 +45,7 @@
             this.L_InpPriToken = new System.Windows.Forms.Label();
             this.TC_TP_AdvSettings = new System.Windows.Forms.TabPage();
             this.GB_Settings = new System.Windows.Forms.GroupBox();
-            this.InvViewer = new System.Windows.Forms.ComboBox();
+            this.Opt_InvViewer = new System.Windows.Forms.ComboBox();
             this.L_InvViewer = new System.Windows.Forms.Label();
             this.Opt_ClipbInt = new System.Windows.Forms.CheckBox();
             this.Opt_Hotkey = new System.Windows.Forms.ComboBox();
@@ -240,7 +240,7 @@
             // 
             // GB_Settings
             // 
-            this.GB_Settings.Controls.Add(this.InvViewer);
+            this.GB_Settings.Controls.Add(this.Opt_InvViewer);
             this.GB_Settings.Controls.Add(this.L_InvViewer);
             this.GB_Settings.Controls.Add(this.Opt_ClipbInt);
             this.GB_Settings.Controls.Add(this.Opt_Hotkey);
@@ -258,18 +258,18 @@
             this.GB_Settings.TabStop = false;
             this.GB_Settings.Text = "Общие настройки программы";
             // 
-            // InvViewer
+            // Opt_InvViewer
             // 
-            this.InvViewer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InvViewer.FormattingEnabled = true;
-            this.InvViewer.Items.AddRange(new object[] {
+            this.Opt_InvViewer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Opt_InvViewer.FormattingEnabled = true;
+            this.Opt_InvViewer.Items.AddRange(new object[] {
             "TF2b.com",
             "TF2Items.com",
             "TF2 Outpost"});
-            this.InvViewer.Location = new System.Drawing.Point(132, 208);
-            this.InvViewer.Name = "InvViewer";
-            this.InvViewer.Size = new System.Drawing.Size(145, 21);
-            this.InvViewer.TabIndex = 10;
+            this.Opt_InvViewer.Location = new System.Drawing.Point(132, 208);
+            this.Opt_InvViewer.Name = "Opt_InvViewer";
+            this.Opt_InvViewer.Size = new System.Drawing.Size(145, 21);
+            this.Opt_InvViewer.TabIndex = 10;
             // 
             // L_InvViewer
             // 
@@ -569,7 +569,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
         private System.Windows.Forms.GroupBox GB_Hw;
         private System.Windows.Forms.Label HwIDFld;
-        private System.Windows.Forms.ComboBox InvViewer;
+        private System.Windows.Forms.ComboBox Opt_InvViewer;
         private System.Windows.Forms.Label L_InvViewer;
     }
 }
