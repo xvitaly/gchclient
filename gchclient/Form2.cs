@@ -41,6 +41,7 @@ namespace gchclient
             InpSecToken.Text = Properties.Settings.Default.SecKey;
             HwIDFld.Text = Auth.HardwareID;
             Opt_ProtocolType.SelectedIndex = Properties.Settings.Default.UseSSL ? 0 : 1;
+            Opt_InvViewer.SelectedIndex = Properties.Settings.Default.InventoryViewer;
             Opt_FrWOverride.Checked = Properties.Settings.Default.FrWnOverride;
             Opt_FrWHide.Checked = Properties.Settings.Default.FrWnClose;
             Opt_EnableHotKey.Checked = Properties.Settings.Default.AllowGlobKey;
@@ -97,6 +98,7 @@ namespace gchclient
                                 default: Properties.Settings.Default.Hotkey = Keys.F11;
                                     break;
                             }
+                            Properties.Settings.Default.InventoryViewer = Opt_InvViewer.SelectedIndex;
                             Properties.Settings.Default.ShowQuickBtns = Opt_FrWQbnts.Checked;
                             Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
                             Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
