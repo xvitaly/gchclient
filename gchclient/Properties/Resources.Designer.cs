@@ -639,6 +639,33 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://tf2b.com/tf2/{0}.
+        /// </summary>
+        internal static string TemplateInvId0 {
+            get {
+                return ResourceManager.GetString("TemplateInvId0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.tf2items.com/profiles/{0}.
+        /// </summary>
+        internal static string TemplateInvId1 {
+            get {
+                return ResourceManager.GetString("TemplateInvId1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.tf2outpost.com/backpack/{0}/.
+        /// </summary>
+        internal static string TemplateInvId2 {
+            get {
+                return ResourceManager.GetString("TemplateInvId2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус SteamRep: {0}..
         /// </summary>
         internal static string TemplateSteamRep {
