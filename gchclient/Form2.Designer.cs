@@ -45,6 +45,8 @@
             this.L_InpPriToken = new System.Windows.Forms.Label();
             this.TC_TP_AdvSettings = new System.Windows.Forms.TabPage();
             this.GB_Settings = new System.Windows.Forms.GroupBox();
+            this.InvViewer = new System.Windows.Forms.ComboBox();
+            this.L_InvViewer = new System.Windows.Forms.Label();
             this.Opt_ClipbInt = new System.Windows.Forms.CheckBox();
             this.Opt_Hotkey = new System.Windows.Forms.ComboBox();
             this.Opt_EnableHotKey = new System.Windows.Forms.CheckBox();
@@ -238,6 +240,8 @@
             // 
             // GB_Settings
             // 
+            this.GB_Settings.Controls.Add(this.InvViewer);
+            this.GB_Settings.Controls.Add(this.L_InvViewer);
             this.GB_Settings.Controls.Add(this.Opt_ClipbInt);
             this.GB_Settings.Controls.Add(this.Opt_Hotkey);
             this.GB_Settings.Controls.Add(this.Opt_EnableHotKey);
@@ -249,10 +253,31 @@
             this.GB_Settings.Controls.Add(this.Opt_FrWOverride);
             this.GB_Settings.Location = new System.Drawing.Point(6, 6);
             this.GB_Settings.Name = "GB_Settings";
-            this.GB_Settings.Size = new System.Drawing.Size(294, 213);
+            this.GB_Settings.Size = new System.Drawing.Size(294, 243);
             this.GB_Settings.TabIndex = 0;
             this.GB_Settings.TabStop = false;
             this.GB_Settings.Text = "Общие настройки программы";
+            // 
+            // InvViewer
+            // 
+            this.InvViewer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InvViewer.FormattingEnabled = true;
+            this.InvViewer.Items.AddRange(new object[] {
+            "TF2b.com",
+            "TF2Items.com",
+            "TF2 Outpost"});
+            this.InvViewer.Location = new System.Drawing.Point(132, 208);
+            this.InvViewer.Name = "InvViewer";
+            this.InvViewer.Size = new System.Drawing.Size(145, 21);
+            this.InvViewer.TabIndex = 10;
+            // 
+            // L_InvViewer
+            // 
+            this.L_InvViewer.Location = new System.Drawing.Point(12, 211);
+            this.L_InvViewer.Name = "L_InvViewer";
+            this.L_InvViewer.Size = new System.Drawing.Size(121, 18);
+            this.L_InvViewer.TabIndex = 9;
+            this.L_InvViewer.Text = "Просмотр инвентаря:";
             // 
             // Opt_ClipbInt
             // 
@@ -278,14 +303,14 @@
             this.Opt_Hotkey.Location = new System.Drawing.Point(192, 89);
             this.Opt_Hotkey.Name = "Opt_Hotkey";
             this.Opt_Hotkey.Size = new System.Drawing.Size(85, 21);
-            this.Opt_Hotkey.TabIndex = 3;
+            this.Opt_Hotkey.TabIndex = 4;
             // 
             // Opt_EnableHotKey
             // 
             this.Opt_EnableHotKey.Location = new System.Drawing.Point(15, 91);
             this.Opt_EnableHotKey.Name = "Opt_EnableHotKey";
             this.Opt_EnableHotKey.Size = new System.Drawing.Size(176, 17);
-            this.Opt_EnableHotKey.TabIndex = 4;
+            this.Opt_EnableHotKey.TabIndex = 3;
             this.Opt_EnableHotKey.Text = "Включить \"горячую\" клавишу F11";
             this.Opt_EnableHotKey.UseVisualStyleBackColor = true;
             this.Opt_EnableHotKey.CheckedChanged += new System.EventHandler(this.Opt_EnableHotKey_CheckedChanged);
@@ -544,5 +569,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
         private System.Windows.Forms.GroupBox GB_Hw;
         private System.Windows.Forms.Label HwIDFld;
+        private System.Windows.Forms.ComboBox InvViewer;
+        private System.Windows.Forms.Label L_InvViewer;
     }
 }
