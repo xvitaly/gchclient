@@ -32,10 +32,11 @@
             this.SaveNClose = new System.Windows.Forms.Button();
             this.TC_Main = new System.Windows.Forms.TabControl();
             this.TC_TP_MainPage = new System.Windows.Forms.TabPage();
+            this.GB_Hw = new System.Windows.Forms.GroupBox();
+            this.HwIDFld = new System.Windows.Forms.Label();
             this.GB_GenSt = new System.Windows.Forms.GroupBox();
             this.Opt_Autorun = new System.Windows.Forms.CheckBox();
             this.GB_Tokens = new System.Windows.Forms.GroupBox();
-            this.HwIDFld = new System.Windows.Forms.Label();
             this.Opt_ProtocolType = new System.Windows.Forms.ComboBox();
             this.L_Opt_ProtocolType = new System.Windows.Forms.Label();
             this.InpSecToken = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.TC_Main.SuspendLayout();
             this.TC_TP_MainPage.SuspendLayout();
+            this.GB_Hw.SuspendLayout();
             this.GB_GenSt.SuspendLayout();
             this.GB_Tokens.SuspendLayout();
             this.TC_TP_AdvSettings.SuspendLayout();
@@ -79,7 +81,7 @@
             // SaveNClose
             // 
             this.SaveNClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.SaveNClose.Location = new System.Drawing.Point(73, 271);
+            this.SaveNClose.Location = new System.Drawing.Point(73, 298);
             this.SaveNClose.Name = "SaveNClose";
             this.SaveNClose.Size = new System.Drawing.Size(192, 23);
             this.SaveNClose.TabIndex = 1;
@@ -95,28 +97,51 @@
             this.TC_Main.Location = new System.Drawing.Point(12, 12);
             this.TC_Main.Name = "TC_Main";
             this.TC_Main.SelectedIndex = 0;
-            this.TC_Main.Size = new System.Drawing.Size(319, 254);
+            this.TC_Main.Size = new System.Drawing.Size(319, 281);
             this.TC_Main.TabIndex = 0;
             // 
             // TC_TP_MainPage
             // 
+            this.TC_TP_MainPage.Controls.Add(this.GB_Hw);
             this.TC_TP_MainPage.Controls.Add(this.GB_GenSt);
             this.TC_TP_MainPage.Controls.Add(this.GB_Tokens);
             this.TC_TP_MainPage.Location = new System.Drawing.Point(4, 22);
             this.TC_TP_MainPage.Name = "TC_TP_MainPage";
             this.TC_TP_MainPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TC_TP_MainPage.Size = new System.Drawing.Size(311, 228);
+            this.TC_TP_MainPage.Size = new System.Drawing.Size(311, 255);
             this.TC_TP_MainPage.TabIndex = 0;
             this.TC_TP_MainPage.Text = "Основные";
             this.TC_TP_MainPage.UseVisualStyleBackColor = true;
             // 
+            // GB_Hw
+            // 
+            this.GB_Hw.Controls.Add(this.HwIDFld);
+            this.GB_Hw.Location = new System.Drawing.Point(6, 155);
+            this.GB_Hw.Name = "GB_Hw";
+            this.GB_Hw.Size = new System.Drawing.Size(294, 38);
+            this.GB_Hw.TabIndex = 1;
+            this.GB_Hw.TabStop = false;
+            this.GB_Hw.Text = "Аппаратно-зависимый ключ";
+            // 
+            // HwIDFld
+            // 
+            this.HwIDFld.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HwIDFld.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HwIDFld.Location = new System.Drawing.Point(22, 16);
+            this.HwIDFld.Name = "HwIDFld";
+            this.HwIDFld.Size = new System.Drawing.Size(250, 15);
+            this.HwIDFld.TabIndex = 0;
+            this.HwIDFld.Text = "HWID";
+            this.HwIDFld.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HwIDFld.Click += new System.EventHandler(this.HwIDFld_Click);
+            // 
             // GB_GenSt
             // 
             this.GB_GenSt.Controls.Add(this.Opt_Autorun);
-            this.GB_GenSt.Location = new System.Drawing.Point(6, 173);
+            this.GB_GenSt.Location = new System.Drawing.Point(6, 199);
             this.GB_GenSt.Name = "GB_GenSt";
             this.GB_GenSt.Size = new System.Drawing.Size(294, 46);
-            this.GB_GenSt.TabIndex = 1;
+            this.GB_GenSt.TabIndex = 2;
             this.GB_GenSt.TabStop = false;
             this.GB_GenSt.Text = "Настройки автоматического запуска";
             // 
@@ -132,7 +157,6 @@
             // 
             // GB_Tokens
             // 
-            this.GB_Tokens.Controls.Add(this.HwIDFld);
             this.GB_Tokens.Controls.Add(this.Opt_ProtocolType);
             this.GB_Tokens.Controls.Add(this.L_Opt_ProtocolType);
             this.GB_Tokens.Controls.Add(this.InpSecToken);
@@ -141,21 +165,10 @@
             this.GB_Tokens.Controls.Add(this.L_InpPriToken);
             this.GB_Tokens.Location = new System.Drawing.Point(6, 6);
             this.GB_Tokens.Name = "GB_Tokens";
-            this.GB_Tokens.Size = new System.Drawing.Size(294, 161);
+            this.GB_Tokens.Size = new System.Drawing.Size(294, 143);
             this.GB_Tokens.TabIndex = 0;
             this.GB_Tokens.TabStop = false;
             this.GB_Tokens.Text = "Настройки авторизации";
-            // 
-            // HwIDFld
-            // 
-            this.HwIDFld.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HwIDFld.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HwIDFld.Location = new System.Drawing.Point(20, 137);
-            this.HwIDFld.Name = "HwIDFld";
-            this.HwIDFld.Size = new System.Drawing.Size(250, 15);
-            this.HwIDFld.TabIndex = 6;
-            this.HwIDFld.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.HwIDFld.Click += new System.EventHandler(this.HwIDFld_Click);
             // 
             // Opt_ProtocolType
             // 
@@ -218,7 +231,7 @@
             this.TC_TP_AdvSettings.Location = new System.Drawing.Point(4, 22);
             this.TC_TP_AdvSettings.Name = "TC_TP_AdvSettings";
             this.TC_TP_AdvSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TC_TP_AdvSettings.Size = new System.Drawing.Size(311, 228);
+            this.TC_TP_AdvSettings.Size = new System.Drawing.Size(311, 255);
             this.TC_TP_AdvSettings.TabIndex = 1;
             this.TC_TP_AdvSettings.Text = "Расширенные";
             this.TC_TP_AdvSettings.UseVisualStyleBackColor = true;
@@ -265,14 +278,14 @@
             this.Opt_Hotkey.Location = new System.Drawing.Point(192, 89);
             this.Opt_Hotkey.Name = "Opt_Hotkey";
             this.Opt_Hotkey.Size = new System.Drawing.Size(85, 21);
-            this.Opt_Hotkey.TabIndex = 4;
+            this.Opt_Hotkey.TabIndex = 3;
             // 
             // Opt_EnableHotKey
             // 
             this.Opt_EnableHotKey.Location = new System.Drawing.Point(15, 91);
             this.Opt_EnableHotKey.Name = "Opt_EnableHotKey";
             this.Opt_EnableHotKey.Size = new System.Drawing.Size(176, 17);
-            this.Opt_EnableHotKey.TabIndex = 3;
+            this.Opt_EnableHotKey.TabIndex = 4;
             this.Opt_EnableHotKey.Text = "Включить \"горячую\" клавишу F11";
             this.Opt_EnableHotKey.UseVisualStyleBackColor = true;
             this.Opt_EnableHotKey.CheckedChanged += new System.EventHandler(this.Opt_EnableHotKey_CheckedChanged);
@@ -344,7 +357,7 @@
             this.TC_TP_IgnoreEd.Location = new System.Drawing.Point(4, 22);
             this.TC_TP_IgnoreEd.Name = "TC_TP_IgnoreEd";
             this.TC_TP_IgnoreEd.Padding = new System.Windows.Forms.Padding(3);
-            this.TC_TP_IgnoreEd.Size = new System.Drawing.Size(311, 228);
+            this.TC_TP_IgnoreEd.Size = new System.Drawing.Size(311, 255);
             this.TC_TP_IgnoreEd.TabIndex = 2;
             this.TC_TP_IgnoreEd.Text = "Игнорирование";
             this.TC_TP_IgnoreEd.UseVisualStyleBackColor = true;
@@ -460,7 +473,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.SaveNClose;
-            this.ClientSize = new System.Drawing.Size(341, 301);
+            this.ClientSize = new System.Drawing.Size(341, 329);
             this.ControlBox = false;
             this.Controls.Add(this.TC_Main);
             this.Controls.Add(this.SaveNClose);
@@ -475,6 +488,7 @@
             this.Load += new System.EventHandler(this.frmOptions_Load);
             this.TC_Main.ResumeLayout(false);
             this.TC_TP_MainPage.ResumeLayout(false);
+            this.GB_Hw.ResumeLayout(false);
             this.GB_GenSt.ResumeLayout(false);
             this.GB_GenSt.PerformLayout();
             this.GB_Tokens.ResumeLayout(false);
@@ -515,7 +529,6 @@
         private System.Windows.Forms.CheckBox Opt_Autorun;
         private System.Windows.Forms.CheckBox Opt_EnableHotKey;
         private System.Windows.Forms.ComboBox Opt_Hotkey;
-        private System.Windows.Forms.Label HwIDFld;
         private System.Windows.Forms.CheckBox Opt_ClipbInt;
         private System.Windows.Forms.TabPage TC_TP_IgnoreEd;
         private System.Windows.Forms.DataGridView Opt_IgnEd;
@@ -529,5 +542,7 @@
         private System.Windows.Forms.ToolStripButton Opt_IEd_Tb_Paste;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
+        private System.Windows.Forms.GroupBox GB_Hw;
+        private System.Windows.Forms.Label HwIDFld;
     }
 }
