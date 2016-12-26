@@ -1,21 +1,21 @@
-<h1>Краткая информация о проекте</h1>
+Garant Checker Offline [![Build Status](https://travis-ci.org/xvitaly/gchclient.svg?branch=master)](https://travis-ci.org/xvitaly/gchclient)
+=========
 
-<b>Garant Checker Offline</b> (служба проверки пользователей) — клиент, демонстрирующий работу с <a href="http://www.easycoding.org/projects/gchecker/api" target="_blank">API</a> проекта <a href="http://www.easycoding.org/projects/gchecker" target="_blank">PHP Garant Checker</a>. Программа написана исключительно for fun для гарантов и пользователей <a href="http://forum.team-fortress.su/" target="_blank">форума team-fortress.su</a>.
+**Garant Checker Offline** (служба проверки пользователей) — клиент, демонстрирующий работу с [API](http://www.easycoding.org/projects/gchecker/api) проекта [PHP Garant Checker](http://www.easycoding.org/projects/gchecker). Программа написана исключительно for fun для гарантов и пользователей [форума team-fortress.su](http://forum.team-fortress.su/).
 
 Данное приложение предназначено для гарантов и пользователей, которые вынуждены проверять десятки или даже сотни пользовательских профилей Steam на наличие в чёрном/белом списках, гарантах и т.д.
 
-<b>Постоянная ссылка для загрузки</b>: <a href="http://www.team-fortress.su/downloads/gchclient.zip">http://www.team-fortress.su/downloads/gchclient.zip</a>.
+Сообщить об ошибке в программе, а также предложить новую функцию можно здесь: https://github.com/xvitaly/gchclient/issues
 
-Сообщить об ошибке в программе, а также предложить новую функцию можно здесь: <a href="http://bugs.easycoding.org/bug_report_page.php?project_id=2">баг-трекер ECTeam</a> (требуется регистрация).
+**Лицензия**: модифицированная BSD.
 
-<b>Лицензия</b>: модифицированная BSD.
+**Поддерживаемые платформы**: Windows 7 SP1 — 10 (все редакции, кроме Starter).
 
-<b>Поддерживаемые платформы</b>: Windows XP SP3 — 8 (все редакции, кроме Starter).
-
-<b>Зависимости</b>: Microsoft .NET Framework 4 Client Profile (не требуется при запуске в Windows 8).
+**Зависимости**: Microsoft .NET Framework 4 Client Profile и выше (не требуется при запуске в Windows 8+).
 
 
-<h1>Основные функции</h1>
+Основные функции
+=========
  * полностью автоматическая проверка URL на профили Steam из буфера обмена;
  * автоматический резолвинг SteamID и неизменяемых ID с любых Steam URL;
  * вывод аватара, текущего состояния (онлайн, в игре или отключён) и ника проверяемой учётной записи;
