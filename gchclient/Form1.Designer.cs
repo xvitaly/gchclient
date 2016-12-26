@@ -245,12 +245,12 @@
             this.ContextDscrM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CDM_OpenLnk});
             this.ContextDscrM.Name = "ContextDscrM";
-            this.ContextDscrM.Size = new System.Drawing.Size(207, 26);
+            this.ContextDscrM.Size = new System.Drawing.Size(205, 26);
             // 
             // CDM_OpenLnk
             // 
             this.CDM_OpenLnk.Name = "CDM_OpenLnk";
-            this.CDM_OpenLnk.Size = new System.Drawing.Size(206, 22);
+            this.CDM_OpenLnk.Size = new System.Drawing.Size(204, 22);
             this.CDM_OpenLnk.Text = "Обработать все ссылки";
             this.CDM_OpenLnk.Click += new System.EventHandler(this.CDM_OpenLnk_Click);
             // 
@@ -366,26 +366,26 @@
             this.LNK_Copy,
             this.LNK_ValFriends});
             this.LnkMenu.Name = "LnkMenu";
-            this.LnkMenu.Size = new System.Drawing.Size(269, 70);
+            this.LnkMenu.Size = new System.Drawing.Size(275, 70);
             // 
             // LNK_Go
             // 
             this.LNK_Go.Name = "LNK_Go";
-            this.LNK_Go.Size = new System.Drawing.Size(268, 22);
+            this.LNK_Go.Size = new System.Drawing.Size(274, 22);
             this.LNK_Go.Text = "Перейти по ссылке";
             this.LNK_Go.Click += new System.EventHandler(this.LNK_Go_Click);
             // 
             // LNK_Copy
             // 
             this.LNK_Copy.Name = "LNK_Copy";
-            this.LNK_Copy.Size = new System.Drawing.Size(268, 22);
+            this.LNK_Copy.Size = new System.Drawing.Size(274, 22);
             this.LNK_Copy.Text = "Копировать ссылку в буфер обмена";
             this.LNK_Copy.Click += new System.EventHandler(this.LNK_Copy_Click);
             // 
             // LNK_ValFriends
             // 
             this.LNK_ValFriends.Name = "LNK_ValFriends";
-            this.LNK_ValFriends.Size = new System.Drawing.Size(268, 22);
+            this.LNK_ValFriends.Size = new System.Drawing.Size(274, 22);
             this.LNK_ValFriends.Text = "Проверить друзей пользователя";
             this.LNK_ValFriends.Click += new System.EventHandler(this.LNK_ValFriends_Click);
             // 
@@ -454,12 +454,12 @@
             this.CustMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LNK_CustClipB});
             this.CustMenu.Name = "CustMenu";
-            this.CustMenu.Size = new System.Drawing.Size(236, 26);
+            this.CustMenu.Size = new System.Drawing.Size(239, 26);
             // 
             // LNK_CustClipB
             // 
             this.LNK_CustClipB.Name = "LNK_CustClipB";
-            this.LNK_CustClipB.Size = new System.Drawing.Size(235, 22);
+            this.LNK_CustClipB.Size = new System.Drawing.Size(238, 22);
             this.LNK_CustClipB.Text = "Скопировать в буфер обмена";
             this.LNK_CustClipB.Click += new System.EventHandler(this.LNK_CustClipB_Click);
             // 
@@ -469,7 +469,7 @@
             this.L_LegalInfo.Name = "L_LegalInfo";
             this.L_LegalInfo.Size = new System.Drawing.Size(702, 17);
             this.L_LegalInfo.TabIndex = 6;
-            this.L_LegalInfo.Text = "(c) 2005 - 2015 EasyCoding Team и TEAM-FORTRESS.SU. Все права защищены.";
+            this.L_LegalInfo.Text = "(c) 2005 - 2017 EasyCoding Team и TEAM-FORTRESS.SU. Все права защищены.";
             this.L_LegalInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.L_LegalInfo.Click += new System.EventHandler(this.L_LegalInfo_Click);
             // 
