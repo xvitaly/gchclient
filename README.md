@@ -13,6 +13,9 @@ Garant Checker Offline [![Build Status](https://travis-ci.org/xvitaly/gchclient.
 
 **Зависимости**: Microsoft .NET Framework 4 Client Profile и выше (не требуется при запуске в Windows 8+).
 
+Скачать
+=========
+Скачать приложение можно в разделе [Релизы](https://github.com/xvitaly/gchclient/releases), либо с [официального сайта](https://www.easycoding.org/projects/gchclient) проекта.
 
 Основные функции
 =========
