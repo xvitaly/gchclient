@@ -13,16 +13,11 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.IO;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
-using System.Net;
-using System.Web;
-using System.IO;
 
 namespace gchclient
 {

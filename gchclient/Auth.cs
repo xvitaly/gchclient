@@ -12,10 +12,6 @@
  * Официальный блог EasyCoding Team: http://www.easycoding.org/
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Management;
 
 namespace gchclient

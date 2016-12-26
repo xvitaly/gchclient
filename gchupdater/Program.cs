@@ -13,13 +13,11 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
+using System.Linq;
 using System.Net;
+using System.Reflection;
 using Ionic.Zip;
 
 namespace gchupdater

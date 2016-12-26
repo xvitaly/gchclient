@@ -13,12 +13,9 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
+using Microsoft.Win32;
 
 namespace gchclient
 {
