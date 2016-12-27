@@ -18,7 +18,7 @@ using System.Text;
 
 namespace gchclient
 {
-    public sealed class CoreLib
+    public static class CoreLib
     {
         public static string SimpleIntStrWNull(int Numb)
         {
