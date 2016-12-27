@@ -92,7 +92,6 @@ namespace gchclient
                                     ErrMsg = Properties.Resources.ErrNotExists;
                                 }
                             }
-                            XMLFS.Close();
                         }
                         File.Delete(XMLFileName);
                     }
