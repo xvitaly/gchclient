@@ -16,9 +16,9 @@ using System.Management;
 
 namespace gchclient
 {
-    public sealed class Auth
+    public static class Auth
     {
-        public static string HardwareID;
+        public static string HardwareID { get; set; }
         public static string GenerateHWID()
         {
             string Result = "";
