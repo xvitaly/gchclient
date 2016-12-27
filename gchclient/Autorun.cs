@@ -19,7 +19,7 @@ using Microsoft.Win32;
 
 namespace gchclient
 {
-    public sealed class Autorun
+    public static class Autorun
     {
         public static bool CheckStatus(string ValName)
         {
