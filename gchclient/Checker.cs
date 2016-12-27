@@ -22,21 +22,22 @@ namespace gchclient
 {
     public sealed class Checker
     {
-        public bool Result;
-        public string Nickname;
-        public string SteamID;
-        public string SiteStatus;
-        public string AvatarURL;
-        public string Permalink;
-        public string CustomText;
-        public string VCStatus;
-        public string Free2PlaySt;
-        public string ErrMsg;
-        public string TradeStatus;
-        public string SteamID64;
-        public string SteamIDv3;
-        public string SRStatus;
-        public string GameBans;
+        public bool Result { get; private set; }
+        public string Nickname { get; private set; }
+        public string SteamID { get; private set; }
+        public string SiteStatus { get; private set; }
+        public string AvatarURL { get; private set; }
+        public string Permalink { get; private set; }
+        public string CustomText { get; private set; }
+        public string VCStatus { get; private set; }
+        public string Free2PlaySt { get; private set; }
+        public string ErrMsg { get; private set; }
+        public string TradeStatus { get; private set; }
+        public string SteamID64 { get; private set; }
+        public string SteamIDv3 { get; private set; }
+        public string SRStatus { get; private set; }
+        public string GameBans { get; private set; }
+
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
             string XMLFileName = Path.GetTempFileName();
