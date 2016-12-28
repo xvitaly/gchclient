@@ -25,7 +25,14 @@ namespace gchclient
             string Result = String.Empty;
             ManagementObjectSearcher WMISearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
             ManagementObjectCollection MOCollection = WMISearcher.Get();
-            foreach (ManagementObject MObject in MOCollection) { Result = MObject["SerialNumber"].ToString(); }
+            foreach (ManagementObject MObject in MOCollection)
+            {
+                if (MObject["SerialNumber"] != null)
+                {
+                    Result = MObject["SerialNumber"].ToString();
+                    break;
+                }
+            }
             return CoreLib.md5hash(Result);
         }
     }
