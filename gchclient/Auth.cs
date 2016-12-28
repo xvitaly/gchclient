@@ -12,6 +12,7 @@
  * Официальный блог EasyCoding Team: http://www.easycoding.org/
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
+using System;
 using System.Management;
 
 namespace gchclient
@@ -21,7 +22,7 @@ namespace gchclient
         public static string HardwareID { get; set; }
         public static string GenerateHWID()
         {
-            string Result = "";
+            string Result = String.Empty;
             ManagementObjectSearcher WMISearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
             ManagementObjectCollection MOCollection = WMISearcher.Get();
             foreach (ManagementObject MObject in MOCollection) { Result = MObject["SerialNumber"].ToString(); }
