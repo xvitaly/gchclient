@@ -22,9 +22,9 @@ namespace gchclient
         public static string GenerateHWID()
         {
             string Result = "";
-            ManagementObjectSearcher WMISearcher = new ManagementObjectSearcher("Select * From Win32_processor");
+            ManagementObjectSearcher WMISearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
             ManagementObjectCollection MOCollection = WMISearcher.Get();
-            foreach (ManagementObject MObject in MOCollection) { Result = (string)MObject["ProcessorID"]; }
+            foreach (ManagementObject MObject in MOCollection) { Result = MObject["SerialNumber"].ToString(); }
             return CoreLib.md5hash(Result);
         }
     }
