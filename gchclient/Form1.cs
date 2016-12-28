@@ -324,7 +324,7 @@ namespace gchclient
 
         private void BW_HwGet_DoWork(object sender, DoWorkEventArgs e)
         {
-            try { Auth.HardwareID = Auth.GenerateHWID(); } catch { Auth.HardwareID = ""; }
+            try { Auth.HardwareID = Auth.GenerateHWID(); } catch { Auth.HardwareID = String.Empty; }
         }
 
         private void BW_HwGet_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
