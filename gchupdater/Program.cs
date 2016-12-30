@@ -19,20 +19,12 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using Ionic.Zip;
+using gchcore;
 
 namespace gchupdater
 {
     public sealed class Program
     {
-        private static void ProcessTerminate(string ProcessName)
-        {
-            Process[] LocalByName = Process.GetProcessesByName(ProcessName);
-            foreach (Process ResName in LocalByName)
-            {
-                ResName.Kill();
-            }
-        }
-        
         private static void DownloadUpdate(string Url, string Dest, string BinFile)
         {
             // Инициализируем загрузчик...
@@ -153,7 +145,7 @@ namespace gchupdater
                                     // Есть обновление, качаем...
                                     Console.WriteLine(Properties.Resources.ConUpdateAvail);
                                     // Завершим процесс...
-                                    ProcessTerminate(args[0]);
+                                    CoreLib.ProcessTerminate(args[0]);
                                     // Загружаем обновление...
                                     DownloadUpdate(UpdateURI, AppPath, args[0]);
                                 }

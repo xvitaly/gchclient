@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchclient", "gchclient\gchc
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchupdater", "gchupdater\gchupdater.csproj", "{48FD0830-1889-4886-8F6C-329190EA7A0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153} = {FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchcore", "gchcore\gchcore.csproj", "{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}"
 EndProject

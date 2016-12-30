@@ -13,6 +13,7 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -47,6 +48,15 @@ namespace gchcore
         {
             string[] spl = SrcLnk.Split('/');
             return String.Format("http://steamcommunity.com/{0}/{1}/", spl[3], spl[4]);
+        }
+
+        public static void ProcessTerminate(string ProcessName)
+        {
+            Process[] LocalByName = Process.GetProcessesByName(ProcessName);
+            foreach (Process ResName in LocalByName)
+            {
+                ResName.Kill();
+            }
         }
     }
 }
