@@ -29,7 +29,7 @@ namespace gchcore
         
         public static DateTime UnixTime2DateTime(double TimeStamp)
         {
-            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtDateTime = dtDateTime.AddSeconds(TimeStamp).ToLocalTime();
             return dtDateTime;
         }
