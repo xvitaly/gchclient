@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchclient", "gchclient\gchclient.csproj", "{28BA1744-2920-4D31-B87F-FBC648F86BEE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153} = {FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchupdater", "gchupdater\gchupdater.csproj", "{48FD0830-1889-4886-8F6C-329190EA7A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gchcore", "gchcore\gchcore.csproj", "{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48FD0830-1889-4886-8F6C-329190EA7A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC7C553-DFB2-4A0B-8F5B-0BAA4CD8F153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

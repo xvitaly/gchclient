@@ -16,7 +16,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace gchclient
+namespace gchcore
 {
     public static class CoreLib
     {

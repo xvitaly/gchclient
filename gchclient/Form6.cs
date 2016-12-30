@@ -18,6 +18,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using gchcore;
 
 namespace gchclient
 {

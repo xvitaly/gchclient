@@ -14,6 +14,7 @@
 */
 using System;
 using System.Management;
+using gchcore;
 
 namespace gchclient
 {

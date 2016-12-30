@@ -21,6 +21,7 @@ using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using gchcore;
 
 namespace gchclient
 {
