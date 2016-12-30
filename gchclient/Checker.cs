@@ -17,6 +17,7 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Xml;
+using gchcore;
 
 namespace gchclient
 {

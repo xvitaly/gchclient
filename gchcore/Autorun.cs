@@ -17,7 +17,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace gchclient
+namespace gchcore
 {
     public static class Autorun
     {

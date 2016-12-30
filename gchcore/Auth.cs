@@ -14,9 +14,8 @@
 */
 using System;
 using System.Management;
-using gchcore;
 
-namespace gchclient
+namespace gchcore
 {
     public static class Auth
     {
