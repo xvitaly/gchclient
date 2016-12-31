@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.InteropServices;
 
-namespace gchclient
+namespace gchcore
 {
     public sealed class Hotkey : IMessageFilter
     {
