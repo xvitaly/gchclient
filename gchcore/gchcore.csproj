@@ -45,6 +45,7 @@
     <Compile Include="Auth.cs" />
     <Compile Include="Autorun.cs" />
     <Compile Include="CoreLib.cs" />
+    <Compile Include="NativeFn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
