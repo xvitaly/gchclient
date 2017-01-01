@@ -14,6 +14,8 @@
 */
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -84,6 +86,21 @@ namespace gchcore
             {
                 ResName.Kill();
             }
+        }
+
+        /// <summary>
+        /// Получает содержимое текстового файла из внутреннего ресурса приложения.
+        /// </summary>
+        /// <param name="FileName">Внутреннее имя ресурсного файла</param>
+        /// <returns>Содержимое текстового файла</returns>
+        public static string GetTemplateFromResource(string FileName)
+        {
+            string Result = String.Empty;
+            using (StreamReader Reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(FileName)))
+            {
+                Result = Reader.ReadToEnd();
+            }
+            return Result;
         }
     }
 }
