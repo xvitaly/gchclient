@@ -19,22 +19,40 @@ using System.Text;
 
 namespace gchcore
 {
+    /// <summary>
+    /// Класс, предоставляющий методы для общих целей.
+    /// </summary>
     public static class CoreLib
     {
+        /// <summary>
+        /// Добавляет незначащие нули перед числом и возвращает в качестве строки.
+        /// </summary>
+        /// <param name="Numb">Целое, для которого нужно добавить нули</param>
+        /// <returns>Число в строковом представлении с незначащими нулями</returns>
         public static string SimpleIntStrWNull(int Numb)
         {
             string Result;
             if ((Numb >= 0) && (Numb <= 9)) { Result = "0" + Numb.ToString(); } else { Result = Numb.ToString(); }
             return Result;
         }
-        
+
+        /// <summary>
+        /// Преобразует дату/время из формата unixtime в DateTime.
+        /// </summary>
+        /// <param name="TimeStamp">Штамп времени в формате UnixTime</param>
+        /// <returns>Возвращает штамп времени в формате DateTime</returns>
         public static DateTime UnixTime2DateTime(double TimeStamp)
         {
             DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtDateTime = dtDateTime.AddSeconds(TimeStamp).ToLocalTime();
             return dtDateTime;
         }
-        
+
+        /// <summary>
+        /// Рассчитывает MD5-хеш файла.
+        /// </summary>
+        /// <param name="Filename">Имя файла, для которого будем вычислять хеш</param>
+        /// <returns>Хеш в формате MD5</returns>
         public static string md5hash(string Filename)
         {
             MD5 md5h = MD5.Create();
@@ -44,12 +62,21 @@ namespace gchcore
             return SB.ToString();
         }
 
+        /// <summary>
+        /// Переформатирует ссылку в соответствие с шаблоном.
+        /// </summary>
+        /// <param name="SrcLnk">Ссылка для преобразования</param>
+        /// <returns>Форматированная по шаблону ссылка</returns>
         public static string FormatLink(string SrcLnk)
         {
             string[] spl = SrcLnk.Split('/');
             return String.Format("http://steamcommunity.com/{0}/{1}/", spl[3], spl[4]);
         }
 
+        /// <summary>
+        /// Завершает процесс с указанным именем.
+        /// </summary>
+        /// <param name="ProcessName">Имя процесса для завершения</param>
         public static void ProcessTerminate(string ProcessName)
         {
             Process[] LocalByName = Process.GetProcessesByName(ProcessName);
