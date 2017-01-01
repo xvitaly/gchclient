@@ -96,7 +96,7 @@ namespace gchcore
         public static string GetTemplateFromResource(string FileName)
         {
             string Result = String.Empty;
-            using (StreamReader Reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(FileName)))
+            using (StreamReader Reader = new StreamReader(Assembly.GetCallingAssembly().GetManifestResourceStream(FileName)))
             {
                 Result = Reader.ReadToEnd();
             }
