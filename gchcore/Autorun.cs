@@ -19,8 +19,16 @@ using Microsoft.Win32;
 
 namespace gchcore
 {
+    /// <summary>
+    /// Класс управления автозапуском приложения Garant Checker Offline.
+    /// </summary>
     public static class Autorun
     {
+        /// <summary>
+        /// Проверяет статус автоматического запуска программы.
+        /// </summary>
+        /// <param name="ValName">Имя значения в реестре</param>
+        /// <returns>Результат проверки</returns>
         public static bool CheckStatus(string ValName)
         {
             bool Result = false;
@@ -34,6 +42,10 @@ namespace gchcore
             return Result;
         }
 
+        /// <summary>
+        /// Включает автоматический запуск приложения посредством создания ключа реестра.
+        /// </summary>
+        /// <param name="ValName">Имя значения в реестре</param>
         public static void Enable(string ValName)
         {
             RegistryKey ResKey = Registry.CurrentUser.OpenSubKey(Path.Combine("Software", "Microsoft", "Windows", "CurrentVersion", "Run"), true);
@@ -41,6 +53,11 @@ namespace gchcore
             ResKey.Close();
         }
 
+        /// <summary>
+        /// Отключает автоматический запуск приложения посредством удаления созданного
+        /// ранее ключа реестра.
+        /// </summary>
+        /// <param name="ValName">Имя значения в реестре</param>
         public static void Disable(string ValName)
         {
             RegistryKey ResKey = Registry.CurrentUser.OpenSubKey(Path.Combine("Software", "Microsoft", "Windows", "CurrentVersion", "Run"), true);
