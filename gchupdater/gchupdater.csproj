@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gchupw.ico" />
+    <None Include="Resources\Wmsg.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

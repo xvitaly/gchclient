@@ -177,4 +177,8 @@
   <data name="UpdateURL" xml:space="preserve">
     <value>http://www.easycoding.org/files/gchclient.txt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Wmsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wmsg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
 </root>

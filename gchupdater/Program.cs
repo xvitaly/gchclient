@@ -88,16 +88,7 @@ namespace gchupdater
             Console.ForegroundColor = ConsoleColor.Green;
 
             // Выведем приветствие...
-            Console.WriteLine("###########################################################################");
-            Console.WriteLine("#           WELCOME TO TEAM-FORTRESS.SU OFFLINE CHECKER UPDATER           #");
-            Console.WriteLine("# This console program will update offline checker to the latest version. #");
-            Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#        (C) 2005 - 2017 EasyCoding Team. All rights reserved.            #");
-            Console.WriteLine("#            Original author: V1TSK (vitaly@easycoding.org).              #");
-            Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#     Official site: http://www.easycoding.org/projects/gchclient         #");
-            Console.WriteLine("#             Part of offline checker for TEAM-FORTRESS.SU.               #");
-            Console.WriteLine("###########################################################################");
+            
             Console.WriteLine();
 
             // Проверим наличие параметров командной строки...

@@ -239,5 +239,20 @@ namespace gchupdater.Properties {
                 return ResourceManager.GetString("UpdateURL", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ###########################################################################
+        ///#           WELCOME TO TEAM-FORTRESS.SU OFFLINE CHECKER UPDATER           #
+        ///# This console program will update offline checker to the latest version. #
+        ///#                                                                         #
+        ///#        (C) 2005 - 2017 EasyCoding Team. All rights reserved.            #
+        ///#            Original author: V1TSK (vitaly@easycoding.org).              #
+        ///#                                                  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Wmsg {
+            get {
+                return ResourceManager.GetString("Wmsg", resourceCulture);
+            }
+        }
     }
 }
