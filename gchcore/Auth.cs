@@ -17,9 +17,20 @@ using System.Management;
 
 namespace gchcore
 {
+    /// <summary>
+    /// Класс авторизации и расчёта аппаратных ID приложения.
+    /// </summary>
     public static class Auth
     {
+        /// <summary>
+        /// Хранит и возвращает аппаратный ID, сгенерированный приложением.
+        /// </summary>
         public static string HardwareID { get; set; }
+
+        /// <summary>
+        /// Получает аппаратный ID посредством MMC.
+        /// </summary>
+        /// <returns>Аппаратный ID</returns>
         public static string GenerateHWID()
         {
             string Result = String.Empty;
