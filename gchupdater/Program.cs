@@ -88,7 +88,7 @@ namespace gchupdater
             Console.ForegroundColor = ConsoleColor.Green;
 
             // Выведем приветствие...
-            Console.WriteLine(CoreLib.GetTemplateFromResource("gchupdater.Resources.Wmsg.txt"));
+            Console.WriteLine(CoreLib.GetTemplateFromResource(Properties.Resources.WlcMsgResName));
 
             // Проверим наличие параметров командной строки...
             if (args.Count() == 1)

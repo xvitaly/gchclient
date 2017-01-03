@@ -241,6 +241,15 @@ namespace gchupdater.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to gchupdater.Resources.Wmsg.txt.
+        /// </summary>
+        internal static string WlcMsgResName {
+            get {
+                return ResourceManager.GetString("WlcMsgResName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ###########################################################################
         ///#           WELCOME TO TEAM-FORTRESS.SU OFFLINE CHECKER UPDATER           #
         ///# This console program will update offline checker to the latest version. #
