@@ -21,24 +21,93 @@ using gchcore;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс проверки приложения Garant Checker Offline.
+    /// </summary>
     public sealed class Checker
     {
+        /// <summary>
+        /// Хранит результат проверки.
+        /// </summary>
         public bool Result { get; private set; }
+
+        /// <summary>
+        /// Хранит никнейм проверяемого игрока.
+        /// </summary>
         public string Nickname { get; private set; }
+
+        /// <summary>
+        /// Хранит SteamID проверяемого пользователя в формате SteamID32.
+        /// </summary>
         public string SteamID { get; private set; }
+
+        /// <summary>
+        /// Хранит результат проверки по базе данных сайта.
+        /// </summary>
         public string SiteStatus { get; private set; }
+
+        /// <summary>
+        /// Хранит URL аватара проверяемого пользователя.
+        /// </summary>
         public string AvatarURL { get; private set; }
+
+        /// <summary>
+        /// Хранит постоянную ссылку на проверяемый профиль.
+        /// </summary>
         public string Permalink { get; private set; }
+
+        /// <summary>
+        /// Хранит кастомное описание проверяемого пользователя из базы сайта.
+        /// </summary>
         public string CustomText { get; private set; }
+
+        /// <summary>
+        /// Хранит статус VAC-блокировок проверяемого профиля.
+        /// </summary>
         public string VCStatus { get; private set; }
+
+        /// <summary>
+        /// Хранит тип аккаунта проверяемого профиля (есть ли купленные игры).
+        /// </summary>
         public string Free2PlaySt { get; private set; }
+
+        /// <summary>
+        /// Хранит текст ошибки.
+        /// </summary>
         public string ErrMsg { get; private set; }
+
+        /// <summary>
+        /// Хранит статус торговли проверяемого аккаунта.
+        /// </summary>
         public string TradeStatus { get; private set; }
+
+        /// <summary>
+        /// Хранит SteamID проверямого профиля в 64-битном формате.
+        /// </summary>
         public string SteamID64 { get; private set; }
+
+        /// <summary>
+        /// Хранит SteamID проверяемого профиля в формате SteamIDv3.
+        /// </summary>
         public string SteamIDv3 { get; private set; }
+
+        /// <summary>
+        /// Хранит результат проверки профиля по базе SteamRep.
+        /// </summary>
         public string SRStatus { get; private set; }
+
+        /// <summary>
+        /// Хранит количество игровых банов на проверяемом профиле.
+        /// </summary>
         public string GameBans { get; private set; }
 
+        /// <summary>
+        /// Базовый конструктор класса.
+        /// </summary>
+        /// <param name="Uri">URL API чекера</param>
+        /// <param name="Key">API токен</param>
+        /// <param name="Par">Строка для проверки</param>
+        /// <param name="SSL">Использовать ли SSL</param>
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
             string XMLFileName = Path.GetTempFileName();
