@@ -22,13 +22,22 @@ using gchcore;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс формы настроек приложения Garant Checker Offline.
+    /// </summary>
     public partial class frmOptions : Form
     {
+        /// <summary>
+        /// Базовый конструктор класса.
+        /// </summary>
         public frmOptions()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод "загрузка формы".
+        /// </summary>
         private void frmOptions_Load(object sender, EventArgs e)
         {
             // Считаем настройки...
@@ -51,6 +60,9 @@ namespace gchclient
             try { foreach (Object Obj in Properties.Settings.Default.IgnoreList) { Opt_IgnEd.Rows.Add(Obj.ToString()); } } catch { Opt_IgnEd.Rows.Clear(); }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при сохранении изменений.
+        /// </summary>
         private void SaveNClose_Click(object sender, EventArgs e)
         {
             if (!(String.IsNullOrWhiteSpace(InpPriToken.Text)) && !(String.IsNullOrWhiteSpace(InpSecToken.Text)))
@@ -142,16 +154,25 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при клике по "включить горячую клавишу".
+        /// </summary>
         private void Opt_EnableHotKey_CheckedChanged(object sender, EventArgs e)
         {
             Opt_Hotkey.Enabled = ((CheckBox)sender).Checked;
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при клике по полю с HardwareID.
+        /// </summary>
         private void HwIDFld_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(((Label)sender).Text)) { Clipboard.SetText(((Label)sender).Text); }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Вырезать".
+        /// </summary>
         private void Opt_IEd_Tb_Cut_Click(object sender, EventArgs e)
         {
             if (Opt_IgnEd.Rows[Opt_IgnEd.CurrentRow.Index].Cells[Opt_IgnEd.CurrentCell.ColumnIndex].Value != null)
@@ -161,6 +182,9 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Копировать".
+        /// </summary>
         private void Opt_IEd_Tb_Copy_Click(object sender, EventArgs e)
         {
             if (Opt_IgnEd.Rows[Opt_IgnEd.CurrentRow.Index].Cells[Opt_IgnEd.CurrentCell.ColumnIndex].Value != null)
@@ -169,6 +193,9 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Вставить".
+        /// </summary>
         private void Opt_IEd_Tb_Paste_Click(object sender, EventArgs e)
         {
             try
@@ -184,6 +211,9 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Удалить строку".
+        /// </summary>
         private void Opt_IEd_Tb_DelRow_Click(object sender, EventArgs e)
         {
             try
@@ -199,6 +229,9 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Очистить форму".
+        /// </summary>
         private void Opt_IEd_Tb_Clear_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Properties.Resources.AppIgnLDMsg, Properties.Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -207,6 +240,9 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, срабатывающий при нажатии кнопки "Добавить строку".
+        /// </summary>
         private void Opt_IEd_Tb_AddRow_Click(object sender, EventArgs e)
         {
             Opt_IgnEd.Rows.Add("");
