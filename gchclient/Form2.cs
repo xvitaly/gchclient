@@ -86,7 +86,7 @@ namespace gchclient
                         {
                             Properties.Settings.Default.PrimKey = InpPriToken.Text;
                             Properties.Settings.Default.SecKey = InpSecToken.Text;
-                            Properties.Settings.Default.UseSSL = (Opt_ProtocolType.SelectedIndex == 0) ? true : false;
+                            Properties.Settings.Default.UseSSL = Opt_ProtocolType.SelectedIndex == 0;
                             Properties.Settings.Default.FrWnOverride = Opt_FrWOverride.Checked;
                             Properties.Settings.Default.FrWnClose = Opt_FrWHide.Checked;
                             Properties.Settings.Default.AllowGlobKey = Opt_EnableHotKey.Checked;
@@ -134,9 +134,8 @@ namespace gchclient
                             catch { }
                             Properties.Settings.Default.Save();
                             MessageBox.Show(Properties.Resources.AppSettSaved, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            Close();
                         }
-                        XMLFS.Close();
                     }
                     File.Delete(XMLFileName);
                 }
