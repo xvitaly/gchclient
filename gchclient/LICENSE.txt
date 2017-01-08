@@ -1,4 +1,4 @@
-COPYRIGHT (C) 2005 - 2015, EASYCODING TEAM. ALL RIGHTS RESERVED.
+COPYRIGHT (C) 2005 - 2017, EASYCODING TEAM. ALL RIGHTS RESERVED.
 
 ЗАПУСКАЯ ПРОГРАММУ ВЫ ПОЛНОСТЬЮ И БЕЗОГОВОРОЧНО ПРИНИМАЕТЕ НИЖЕСЛЕДУЮЩЕЕ ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ.
 
