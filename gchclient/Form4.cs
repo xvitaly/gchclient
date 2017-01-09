@@ -30,7 +30,7 @@ namespace gchclient
         /// <summary>
         /// Хранит информацию об успешности последней операции.
         /// </summary>
-        private bool LastError = true;
+        private bool LastError { get; set; } = true;
 
         /// <summary>
         /// Базовый конструктор класса.
@@ -54,6 +54,7 @@ namespace gchclient
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
             string XMLFileName = Path.GetTempFileName();
+
             try
             {
                 using (WebClient Downloader = new WebClient())
@@ -62,6 +63,7 @@ namespace gchclient
                     Downloader.Headers.Add("HardwareID", Auth.HardwareID);
                     Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), ""), XMLFileName);
                 }
+
                 using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                 {
                     XmlDocument XMLD = new XmlDocument();
@@ -75,6 +77,7 @@ namespace gchclient
                         Tn_CliVer.Text = XMLD.GetElementsByTagName("mcliversion")[0].InnerText;
                     });
                 }
+
                 File.Delete(XMLFileName);
                 LastError = false;
             }
