@@ -69,27 +69,26 @@ namespace gchclient
             {
                 // Проверим данные токена...
                 string XMLFileName = Path.GetTempFileName();
+
                 try
                 {
+                    // Загружаем XML...
                     using (WebClient Downloader = new WebClient())
                     {
                         Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
                         Downloader.Headers.Add("HardwareID", Auth.HardwareID);
                         Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), ""), XMLFileName);
                     }
-                    XmlDocument XMLD = new XmlDocument();
+
+                    // Разбираем полученный XML...
                     using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                     {
+                        XmlDocument XMLD = new XmlDocument();
                         XMLD.Load(XMLFS);
                         XmlNodeList XMLNList = XMLD.GetElementsByTagName("info");
                         if (XMLD.GetElementsByTagName("result")[0].InnerText == "PASSED")
                         {
-                            Properties.Settings.Default.PrimKey = InpPriToken.Text;
-                            Properties.Settings.Default.SecKey = InpSecToken.Text;
-                            Properties.Settings.Default.UseSSL = Opt_ProtocolType.SelectedIndex == 0;
-                            Properties.Settings.Default.FrWnOverride = Opt_FrWOverride.Checked;
-                            Properties.Settings.Default.FrWnClose = Opt_FrWHide.Checked;
-                            Properties.Settings.Default.AllowGlobKey = Opt_EnableHotKey.Checked;
+                            // Сохраняем настройки "горячей клавиши"...
                             switch (Opt_Hotkey.SelectedIndex)
                             {
                                 case 0: Properties.Settings.Default.Hotkey = Keys.F8;
@@ -105,13 +104,25 @@ namespace gchclient
                                 default: Properties.Settings.Default.Hotkey = Keys.F11;
                                     break;
                             }
+
+                            // Сохраняем все остальные настройки приложения...
+                            Properties.Settings.Default.PrimKey = InpPriToken.Text;
+                            Properties.Settings.Default.SecKey = InpSecToken.Text;
+                            Properties.Settings.Default.UseSSL = Opt_ProtocolType.SelectedIndex == 0;
+                            Properties.Settings.Default.FrWnOverride = Opt_FrWOverride.Checked;
+                            Properties.Settings.Default.FrWnClose = Opt_FrWHide.Checked;
+                            Properties.Settings.Default.AllowGlobKey = Opt_EnableHotKey.Checked;
                             Properties.Settings.Default.InventoryViewer = Opt_InvViewer.SelectedIndex;
                             Properties.Settings.Default.ShowQuickBtns = Opt_FrWQbnts.Checked;
                             Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
                             Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
                             Properties.Settings.Default.AllowClipbCheck = Opt_ClipbInt.Checked;
                             Properties.Settings.Default.UseSteamIDv3 = Opt_UseNewSteamIDFormat.Checked;
+
+                            // Сохраняем настройки автозапуска...
                             try { if (Opt_Autorun.Checked) { Autorun.Enable("gchclient"); } else { Autorun.Disable("gchclient"); } } catch { }
+
+                            // Сохраняем настройки списка игнорирования...
                             try
                             {
                                 Properties.Settings.Default.IgnoreList.Clear();
@@ -132,11 +143,19 @@ namespace gchclient
                                 }
                             }
                             catch { }
+
+                            // Записываем настройки в файл...
                             Properties.Settings.Default.Save();
+
+                            // Выводим сообщение...
                             MessageBox.Show(Properties.Resources.AppSettSaved, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Закрываем форму настроек...
                             Close();
                         }
                     }
+
+                    // Удаляем временный файл...
                     File.Delete(XMLFileName);
                 }
                 catch
@@ -199,10 +218,7 @@ namespace gchclient
         {
             try
             {
-                if (Clipboard.ContainsText())
-                {
-                    Opt_IgnEd.Rows[Opt_IgnEd.CurrentRow.Index].Cells[Opt_IgnEd.CurrentCell.ColumnIndex].Value = Clipboard.GetText();
-                }
+                if (Clipboard.ContainsText()) { Opt_IgnEd.Rows[Opt_IgnEd.CurrentRow.Index].Cells[Opt_IgnEd.CurrentCell.ColumnIndex].Value = Clipboard.GetText(); }
             }
             catch
             {
@@ -217,10 +233,7 @@ namespace gchclient
         {
             try
             {
-                if (Opt_IgnEd.Rows.Count > 1)
-                {
-                    Opt_IgnEd.Rows.Remove(Opt_IgnEd.CurrentRow);
-                }
+                if (Opt_IgnEd.Rows.Count > 1) { Opt_IgnEd.Rows.Remove(Opt_IgnEd.CurrentRow); }
             }
             catch
             {
@@ -233,10 +246,7 @@ namespace gchclient
         /// </summary>
         private void Opt_IEd_Tb_Clear_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Properties.Resources.AppIgnLDMsg, Properties.Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                Opt_IgnEd.Rows.Clear();
-            }
+            if (MessageBox.Show(Properties.Resources.AppIgnLDMsg, Properties.Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) { Opt_IgnEd.Rows.Clear(); }
         }
 
         /// <summary>
