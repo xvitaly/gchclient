@@ -85,7 +85,6 @@ namespace gchclient
                     {
                         XmlDocument XMLD = new XmlDocument();
                         XMLD.Load(XMLFS);
-                        XmlNodeList XMLNList = XMLD.GetElementsByTagName("info");
                         if (XMLD.GetElementsByTagName("result")[0].InnerText == "PASSED")
                         {
                             // Сохраняем настройки "горячей клавиши"...

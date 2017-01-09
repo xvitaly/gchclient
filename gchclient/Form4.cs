@@ -46,12 +46,11 @@ namespace gchclient
                     Downloader.Headers.Add("HardwareID", Auth.HardwareID);
                     Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), ""), XMLFileName);
                 }
-                XmlDocument XMLD = new XmlDocument();
                 using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                 {
+                    XmlDocument XMLD = new XmlDocument();
                     XMLD.Load(XMLFS);
-                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("info");
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         Tn_ExpDate.Text = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("expires")[0].InnerText)).ToString();
                         Tn_Login.Text = XMLD.GetElementsByTagName("nickname")[0].InnerText;
@@ -59,7 +58,6 @@ namespace gchclient
                         Tn_APIVer.Text = XMLD.GetElementsByTagName("apiversion")[0].InnerText;
                         Tn_CliVer.Text = XMLD.GetElementsByTagName("mcliversion")[0].InnerText;
                     });
-                    XMLFS.Close();
                 }
                 File.Delete(XMLFileName);
                 LastError = false;
@@ -73,7 +71,7 @@ namespace gchclient
 
         private void BW_Rcv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (LastError) { this.Close(); }
+            if (LastError) { Close(); }
         }
 
         private void frmTokenInfo_FormClosing(object sender, FormClosingEventArgs e)
