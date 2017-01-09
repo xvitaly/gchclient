@@ -26,9 +26,20 @@ using gchcore;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс формы чекера друзей приложения Garant Checker Offline.
+    /// </summary>
     public partial class frmFrChk : Form
     {
-        private string SteamID;
+        /// <summary>
+        /// Хранит и возвращает SteamID профиля.
+        /// </summary>
+        private string SteamID { get; set; }
+
+        /// <summary>
+        /// Базовый конструктор класса.
+        /// </summary>
+        /// <param name="sid64">SteamID профиля в 64-битном формате</param>
         public frmFrChk(string sid64)
         {
             InitializeComponent();
@@ -37,6 +48,10 @@ namespace gchclient
             DVList.Columns[0].ValueType = typeof(int);
         }
 
+        /// <summary>
+        /// Экспортирует содержимое таблицы в список.
+        /// </summary>
+        /// <returns>Экспортированный список</returns>
         private List<String> ExportDgvToList()
         {
             // Инициализируем массив...
@@ -62,6 +77,10 @@ namespace gchclient
             return Dv;
         }
 
+        /// <summary>
+        /// Экспортирует содержимое таблицы в файл.
+        /// </summary>
+        /// <param name="FileName">Имя файла для экспорта</param>
         private void ExportDgvToFile(string FileName)
         {
             // Проверим существование файла и если он есть, удалим...
@@ -71,6 +90,10 @@ namespace gchclient
             File.WriteAllLines(FileName, ExportDgvToList());
         }
 
+        /// <summary>
+        /// Сравнивает содержимое загруженного файла с таблицей.
+        /// </summary>
+        /// <param name="FileName">Имя файла экспорта</param>
         private void CompareTableWithDump(string FileName)
         {
             // Создаём массив...
@@ -104,38 +127,48 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Событие загрузки формы.
+        /// </summary>
         private void frmFrChk_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок окна формы...
-            this.Text = String.Format(this.Text, SteamID);
+            Text = String.Format(Text, SteamID);
             
             // Задаём параметры окна согласно настройкам приложения...
-            this.MinimizeBox = !Properties.Settings.Default.FrWnOverride;
-            this.ShowInTaskbar = !Properties.Settings.Default.FrWnOverride;
-            this.ShowIcon = !Properties.Settings.Default.FrWnOverride;
+            MinimizeBox = !Properties.Settings.Default.FrWnOverride;
+            ShowInTaskbar = !Properties.Settings.Default.FrWnOverride;
+            ShowIcon = !Properties.Settings.Default.FrWnOverride;
 
             // Запускаем процесс получения списка в отдельном потоке...
             if (!BW_Rcv.IsBusy) { BW_Rcv.RunWorkerAsync(); }
 
             // Устанавливаем фокус...
-            this.Focus();
+            Focus();
         }
 
+        /// <summary>
+        /// Событие нажатия левой кнопкой мыши по ячейке таблицы.
+        /// </summary>
         private void DVList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
                 string Lnk = DVList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                if (Regex.IsMatch(Lnk, "^http://steamcommunity.com/profiles/")) { if (Control.ModifierKeys == Keys.Shift) { Process.Start(Lnk); } else { Clipboard.SetText(Lnk); } if (Properties.Settings.Default.FrWnClose) { this.Close(); } }
+                if (Regex.IsMatch(Lnk, "^http://steamcommunity.com/profiles/")) { if (Control.ModifierKeys == Keys.Shift) { Process.Start(Lnk); } else { Clipboard.SetText(Lnk); } if (Properties.Settings.Default.FrWnClose) { Close(); } }
             }
             catch { }
         }
 
+        /// <summary>
+        /// Асинхронный обработчик. Выполняется в отдельном потоке. Заполняет таблицу.
+        /// </summary>
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                this.Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+
                 string XMLFileName = Path.GetTempFileName();
                 using (WebClient Downloader = new WebClient())
                 {
@@ -143,12 +176,13 @@ namespace gchclient
                     Downloader.Headers.Add("HardwareID", Auth.HardwareID);
                     Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), XMLFileName);
                 }
+
                 try
                 {
-                    this.Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBBuilding; });
-                    XmlDocument XMLD = new XmlDocument();
+                    Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBBuilding; });
                     using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                     {
+                        XmlDocument XMLD = new XmlDocument();
                         XMLD.Load(XMLFS);
                         XmlNodeList XMLNList = XMLD.GetElementsByTagName("friend");
                         for (int i = 0; i < XMLNList.Count; i++)
@@ -174,9 +208,8 @@ namespace gchclient
                                 default: friendlystat = Properties.Resources.ListNoneName;
                                     break;
                             }
-                            this.Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), Properties.Resources.SCUnknown); });
+                            Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), Properties.Resources.SCUnknown); });
                         }
-                        XMLFS.Close();
                     }
                     File.Delete(XMLFileName);
                 }
@@ -191,27 +224,36 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Событие завершения работы асинхронного обработчика.
+        /// </summary>
         private void BW_Rcv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             // Изменяем статус в строке...
-            this.Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
+            Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
 
             // Устанавливаем фокус на окно...
-            this.Focus();
+            Focus();
 
             // Проверяем нашлось ли что-то...
             if (DVList.Rows.Count == 0)
             {
                 MessageBox.Show(Properties.Resources.AppFrErr, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                Close();
             }
         }
 
+        /// <summary>
+        /// Событие "попытка закрытия формы".
+        /// </summary>
         private void frmFrChk_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_Rcv.IsBusy;
         }
 
+        /// <summary>
+        /// Событие "нажатие клавиши".
+        /// </summary>
         private void DVList_KeyDown(object sender, KeyEventArgs e)
         {
             // Нажата комбинация Ctrl+S. Начнём сохранение содержимого таблицы в файл...
