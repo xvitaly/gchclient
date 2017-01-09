@@ -22,19 +22,35 @@ using gchcore;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс формы информации о токенах приложения Garant Checker Offline.
+    /// </summary>
     public partial class frmTokenInfo : Form
     {
+        /// <summary>
+        /// Хранит информацию об успешности последней операции.
+        /// </summary>
         private bool LastError = true;
+
+        /// <summary>
+        /// Базовый конструктор класса.
+        /// </summary>
         public frmTokenInfo()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод события "загрузка формы".
+        /// </summary>
         private void frmTokenInfo_Load(object sender, EventArgs e)
         {
             if (!BW_Rcv.IsBusy) { BW_Rcv.RunWorkerAsync(); }
         }
 
+        /// <summary>
+        /// Метод обработчика, выполняющегося в отдельном потоке асинхронно.
+        /// </summary>
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
             string XMLFileName = Path.GetTempFileName();
@@ -69,11 +85,17 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод асинхронного обработчика, выполняющийся по окончании работы.
+        /// </summary>
         private void BW_Rcv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (LastError) { Close(); }
         }
 
+        /// <summary>
+        /// Метод события "попытка закрытия формы".
+        /// </summary>
         private void frmTokenInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_Rcv.IsBusy;
