@@ -43,8 +43,8 @@ namespace gchclient
         #region Internal Methods
         private void SetAvatar(string AvatarPath)
         {
-            try { this.Invoke((MethodInvoker)delegate() { RV_Avatar.Image = new Bitmap(AvatarPath); }); }
-            catch { this.Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; }); }
+            try { Invoke((MethodInvoker)delegate() { RV_Avatar.Image = new Bitmap(AvatarPath); }); }
+            catch { Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; }); }
         }
 
         private void AvatarDownloader_Completed(object sender, AsyncCompletedEventArgs e)
@@ -60,9 +60,9 @@ namespace gchclient
             LastError = Chk.ErrMsg;
             if (Chk.Result)
             {
-                this.Invoke((MethodInvoker)delegate() { RV_Nick.Text = Chk.Nickname; });
-                this.Invoke((MethodInvoker)delegate() { RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
-                this.Invoke((MethodInvoker)delegate() { UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
+                Invoke((MethodInvoker)delegate() { RV_Nick.Text = Chk.Nickname; });
+                Invoke((MethodInvoker)delegate() { RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
+                Invoke((MethodInvoker)delegate() { UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
                 if (!(Directory.Exists(AVTDir))) { Directory.CreateDirectory(AVTDir); }
                 AvatarImage = Path.Combine(AVTDir, CoreLib.md5hash(Chk.AvatarURL) + ".jpg");
                 if (!(File.Exists(AvatarImage)))
@@ -78,7 +78,7 @@ namespace gchclient
                     }
                     catch
                     {
-                        this.Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; });
+                        Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; });
                     }
                 }
                 else
@@ -89,7 +89,7 @@ namespace gchclient
                 {
                     case "1": // Гарант...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUMiddle);
                                 RV_SiteStatus.ForeColor = Color.Green;
@@ -98,7 +98,7 @@ namespace gchclient
                         break;
                     case "2": // БС...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUWhite);
                                 RV_SiteStatus.ForeColor = Color.Green;
@@ -107,7 +107,7 @@ namespace gchclient
                         break;
                     case "3": // ЧС...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlack);
                                 RV_SiteStatus.ForeColor = Color.Red;
@@ -116,7 +116,7 @@ namespace gchclient
                         break;
                     case "4": // Нейтральный...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUNeutral);
                                 RV_SiteStatus.ForeColor = Color.Black;
@@ -125,7 +125,7 @@ namespace gchclient
                         break;
                     case "5": // ЧС аукциона...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlackAuc);
                                 RV_SiteStatus.ForeColor = Color.Red;
@@ -134,7 +134,7 @@ namespace gchclient
                         break;
                     case "6": // Сотрудник...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUStaff);
                                 RV_SiteStatus.ForeColor = Color.Blue;
@@ -143,7 +143,7 @@ namespace gchclient
                         break;
                     case "7": // Премиум-юзер...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUPrem);
                                 RV_SiteStatus.ForeColor = Color.DarkViolet;
@@ -152,7 +152,7 @@ namespace gchclient
                         break;
                     case "8": // Ненадёжный...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUGray);
                                 RV_SiteStatus.ForeColor = Color.Purple;
@@ -161,7 +161,7 @@ namespace gchclient
                         break;
                     default: // Что-то новое. Наверное API сменился, выдадим заглушку...
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUUnknown);
                                 RV_SiteStatus.ForeColor = Color.Black;
@@ -169,12 +169,11 @@ namespace gchclient
                         }
                         break;
                 }
-                this.Invoke((MethodInvoker)delegate() { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); });
-                this.Invoke((MethodInvoker)delegate() { RV_PermaLink.Text = Chk.Permalink; });
+                Invoke((MethodInvoker)delegate() { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); RV_PermaLink.Text = Chk.Permalink; });
                 SID64 = Chk.SteamID64;
                 if (Chk.VCStatus == "0")
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusNormal);
                         RV_VCStatusA.ForeColor = Color.Black;
@@ -182,7 +181,7 @@ namespace gchclient
                 }
                 else
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusBanned);
                         RV_VCStatusA.ForeColor = Color.Red;
@@ -190,7 +189,7 @@ namespace gchclient
                 }
                 if (Chk.Free2PlaySt == "1")
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_F2P.Text = Properties.Resources.F2PAccTextStatus;
                         RV_F2P.BackColor = Color.Yellow;
@@ -198,18 +197,18 @@ namespace gchclient
                 }
                 else
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_F2P.Text = "";
                         RV_F2P.BackColor = Control.DefaultBackColor;
                     });
                 }
-                this.Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? Chk.CustomText : Properties.Resources.CustInfoNone; });
+                Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? Chk.CustomText : Properties.Resources.CustInfoNone; });
                 switch (Chk.TradeStatus)
                 {
                     case "0":
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeNormal);
                                 RV_TradeStatus.ForeColor = Color.Black;
@@ -218,7 +217,7 @@ namespace gchclient
                         break;
                     case "1":
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeBanned);
                                 RV_TradeStatus.ForeColor = Color.IndianRed;
@@ -227,7 +226,7 @@ namespace gchclient
                         break;
                     case "2":
                         {
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeIsp);
                                 RV_TradeStatus.ForeColor = Color.DarkBlue;
@@ -237,7 +236,7 @@ namespace gchclient
                 }
                 if (Chk.GameBans == "0")
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Properties.Resources.TemplateGameBansNo);
                         RV_GameBans.ForeColor = Color.Black;
@@ -245,7 +244,7 @@ namespace gchclient
                 }
                 else
                 {
-                    this.Invoke((MethodInvoker)delegate()
+                    Invoke((MethodInvoker)delegate()
                     {
                         RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, String.Format(Properties.Resources.TemplateGameBansYes, Chk.GameBans));
                         RV_GameBans.ForeColor = Color.Red;
@@ -266,16 +265,16 @@ namespace gchclient
             ResultView.Visible = LastStatus;
             if (LastStatus)
             {
-                this.Size = new Size(762, 563);
+                Size = new Size(762, 563);
                 L_LegalInfo.Location = new Point(25, 501);
-                this.Show();
+                Show();
                 NativeFn.ActivateWindow(Handle);
             }
             else
             {
-                this.Size = new Size(762, 261);
+                Size = new Size(762, 261);
                 L_LegalInfo.Location = new Point(25, 200);
-                if (this.Visible) { MessageBox.Show(LastError, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, LastError, ToolTipIcon.Warning); }
+                if (Visible) { MessageBox.Show(LastError, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, LastError, ToolTipIcon.Warning); }
             }
         }
 
@@ -293,14 +292,12 @@ namespace gchclient
                         Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
                         Downloader.Headers.Add("HardwareID", Auth.HardwareID);
                         string DnlStr = Downloader.DownloadString(Properties.Resources.UpdateURL);
-                        string NewVersion = DnlStr.Substring(0, DnlStr.IndexOf("!"));
-                        string UpdateURI = DnlStr.Remove(0, DnlStr.IndexOf("!") + 1);
-                        Version NVer = new Version(NewVersion);
+                        Version NVer = new Version(DnlStr.Substring(0, DnlStr.IndexOf("!")));
                         if (NVer > Assembly.GetEntryAssembly().GetName().Version)
                         {
                             // Доступны обновления...
                             UpdateAvailable = true;
-                            this.Invoke((MethodInvoker)delegate()
+                            Invoke((MethodInvoker)delegate()
                             {
                                 // Выводим текст...
                                 L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, NVer);
@@ -362,7 +359,7 @@ namespace gchclient
                 {
                     Hotkey hk = new Hotkey();
                     hk.KeyCode = Properties.Settings.Default.Hotkey;
-                    hk.Pressed += delegate { if (this.Visible) { this.Hide(); } else { this.Show(); NativeFn.ActivateWindow(Handle); } };
+                    hk.Pressed += delegate { if (Visible) { Hide(); } else { Show(); NativeFn.ActivateWindow(Handle); } };
                     hk.Register(this);
                 }
                 catch { }
@@ -382,8 +379,8 @@ namespace gchclient
                 }
             }
             // Управляем размерами формы и текстом заголовка...
-            this.Text = String.Format(this.Text, Assembly.GetEntryAssembly().GetName().Version.ToString());
-            this.Size = new Size(762, 261);
+            Text = String.Format(Text, Assembly.GetEntryAssembly().GetName().Version.ToString());
+            Size = new Size(762, 261);
             L_LegalInfo.Location = new Point(25, 200);
             // Выводим или скрываем кнопки...
             RV_CheckFriends.Visible = Properties.Settings.Default.ShowQuickBtns;
@@ -441,7 +438,7 @@ namespace gchclient
 
         private void frmMain_Resize(object sender, EventArgs e)
         {
-            if (FormWindowState.Minimized == this.WindowState) { this.Hide(); }
+            if (FormWindowState.Minimized == WindowState) { Hide(); }
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -449,19 +446,19 @@ namespace gchclient
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                this.Hide();
+                Hide();
             }
         }
 
         private void TrayIcon_DoubleClick(object sender, EventArgs e)
         {
-            if (this.Visible)
+            if (Visible)
             {
-                this.Hide();
+                Hide();
             }
             else
             {
-                this.Show();
+                Show();
                 NativeFn.ActivateWindow(Handle);
             }
         }
@@ -531,7 +528,7 @@ namespace gchclient
 
         private void frmMain_Activated(object sender, EventArgs e)
         {
-            Timer.Enabled = !BW_HwGet.IsBusy && Properties.Settings.Default.AllowClipbCheck && !this.Focused;
+            Timer.Enabled = !BW_HwGet.IsBusy && Properties.Settings.Default.AllowClipbCheck && !Focused;
         }
 
         private void LNK_Go_Click(object sender, EventArgs e)
