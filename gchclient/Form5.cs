@@ -22,10 +22,24 @@ using System.Windows.Forms;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс формы просмотрщика доказательств приложения Garant Checker Offline.
+    /// </summary>
     public partial class frmViewer : Form
     {
-        private string ImageURL;
-        private string SteamID64;
+        /// <summary>
+        /// Хранит и предоставляет доступ к URL изображения.
+        /// </summary>
+        private string ImageURL { get; set; }
+
+        /// <summary>
+        /// Хранит и предоставляет доступ к SteamID профиля.
+        /// </summary>
+        private string SteamID64 { get; set; }
+
+        /// <summary>
+        /// Базовый конструктор класса.
+        /// </summary>
         public frmViewer(string URL, string SteamID)
         {
             InitializeComponent();
@@ -33,6 +47,13 @@ namespace gchclient
             SteamID64 = SteamID;
         }
 
+        /// <summary>
+        /// Изменяет размер изображения.
+        /// </summary>
+        /// <param name="OriginalImg">Оригинальное изображение</param>
+        /// <param name="nWidth">Новое значение высоты</param>
+        /// <param name="nHeight">Новое значение ширины</param>
+        /// <returns>Масштабированное изображение</returns>
         private Image ResizeImg(Image OriginalImg, int nWidth, int nHeight)
         {
             Image Result = new Bitmap(nWidth, nHeight);
@@ -42,45 +63,54 @@ namespace gchclient
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 g.DrawImage(OriginalImg, 0, 0, nWidth, nHeight);
-                g.Dispose();
             }
             return Result;
         }
 
+        /// <summary>
+        /// Событие "загрузка формы".
+        /// </summary>
         private void frmViewer_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок формы...
-            this.Text = String.Format(this.Text, SteamID64);
+            Text = String.Format(Text, SteamID64);
 
             // Задаём параметры окна согласно настройкам приложения...
-            this.MinimizeBox = !Properties.Settings.Default.FrWnOverride;
-            this.ShowInTaskbar = !Properties.Settings.Default.FrWnOverride;
-            this.ShowIcon = !Properties.Settings.Default.FrWnOverride;
+            MinimizeBox = !Properties.Settings.Default.FrWnOverride;
+            ShowInTaskbar = !Properties.Settings.Default.FrWnOverride;
+            ShowIcon = !Properties.Settings.Default.FrWnOverride;
 
             // Загружаем изображение...
             if (!BW_ImgLoader.IsBusy) { BW_ImgLoader.RunWorkerAsync(); }
         }
 
+        /// <summary>
+        /// Асинхронный обработчик. Выполняется в отдельном потоке.
+        /// </summary>
         private void BW_ImgLoader_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
                 // Изменяем текст строки состояния...
-                this.Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+                
                 // Генерируем временный файл...
                 string ImgFileName = Path.GetTempFileName();
+                
                 // Загружаем файл...
                 using (WebClient Downloader = new WebClient())
                 {
                     Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
                     Downloader.DownloadFile(ImageURL, ImgFileName);
                 }
+
                 // Создаём файловый поток во избежание блокировки файла приложением...
-                FileStream ImgStream = new FileStream(ImgFileName, FileMode.Open, FileAccess.Read);
-                // Загружаем картинку в контрол из потока...
-                this.Invoke((MethodInvoker)delegate() { ImgBoxMain.Image = Image.FromStream(ImgStream); });
-                // Закрываем поток...
-                ImgStream.Close();
+                using (FileStream ImgStream = new FileStream(ImgFileName, FileMode.Open, FileAccess.Read))
+                {
+                    // Загружаем картинку в контрол из потока...
+                    Invoke((MethodInvoker)delegate () { ImgBoxMain.Image = Image.FromStream(ImgStream); });
+                }
+
                 // Удаляем исходный файл...
                 if (File.Exists(ImgFileName)) { File.Delete(ImgFileName); }
             }
@@ -90,11 +120,17 @@ namespace gchclient
             }
         }
 
+        /// <summary>
+        /// Метод, вызываемый по окончании работы асинхронного обработчика.
+        /// </summary>
         private void BW_ImgLoader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
+            Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
         }
 
+        /// <summary>
+        /// Событие "попытка закрытия формы".
+        /// </summary>
         private void frmViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_ImgLoader.IsBusy;
