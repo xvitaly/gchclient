@@ -394,4 +394,7 @@
   <data name="AppCustDescrCleanRegex" xml:space="preserve">
     <value>&lt;(.|\n)*?&gt;</value>
   </data>
+  <data name="AppURLRegex" xml:space="preserve">
+    <value>(?&lt;url&gt;((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*)</value>
+  </data>
 </root>

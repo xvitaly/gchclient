@@ -340,6 +340,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (?&lt;url&gt;((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*).
+        /// </summary>
+        internal static string AppURLRegex {
+            get {
+                return ResourceManager.GetString("AppURLRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7.
         /// </summary>
         internal static string AppUserAgent {
