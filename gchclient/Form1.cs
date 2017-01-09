@@ -388,7 +388,7 @@ namespace gchclient
             RV_ViewBackPack.Visible = Properties.Settings.Default.ShowQuickBtns;
             RV_Report.Visible = Properties.Settings.Default.ShowQuickBtns;
             // Проверим наличие обновлений программы (если разрешено в настройках)...
-            if (Properties.Settings.Default.EnableAutoUpdate && (Properties.Settings.Default.LastUpdateTime != null)) { if (!BW_UpdChk.IsBusy) { BW_UpdChk.RunWorkerAsync(); } }
+            if (Properties.Settings.Default.EnableAutoUpdate) { if (!BW_UpdChk.IsBusy) { BW_UpdChk.RunWorkerAsync(); } }
         }
 
         private void CM_Quit_Click(object sender, EventArgs e)
