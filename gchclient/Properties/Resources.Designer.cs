@@ -106,6 +106,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;(.|\n)*?&gt;.
+        /// </summary>
+        internal static string AppCustDescrCleanRegex {
+            get {
+                return ResourceManager.GetString("AppCustDescrCleanRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка при получении информации о вашем токене доступа. Повторите попытку позднее!.
         /// </summary>
         internal static string AppErrTokenInfo {

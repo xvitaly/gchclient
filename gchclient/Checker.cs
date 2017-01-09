@@ -124,9 +124,9 @@ namespace gchclient
                 {
                     try
                     {
-                        XmlDocument XMLD = new XmlDocument();
                         using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                         {
+                            XmlDocument XMLD = new XmlDocument();
                             XMLD.Load(XMLFS);
                             XmlNodeList XMLNList = XMLD.GetElementsByTagName("userprofile");
                             for (int i = 0; i < XMLNList.Count; i++)
@@ -147,14 +147,7 @@ namespace gchclient
                                     TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
                                     SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
                                     GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
-                                    try
-                                    {
-                                        CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, @"<(.|\n)*?>", " ");
-                                    }
-                                    catch
-                                    {
-                                        CustomText = Properties.Resources.CustInfoNone;
-                                    }
+                                    try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
                                 }
                                 else
                                 {

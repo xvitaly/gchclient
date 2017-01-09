@@ -391,4 +391,7 @@
   <data name="TemplateInvSteam" xml:space="preserve">
     <value>http://steamcommunity.com/profiles/{0}/inventory/</value>
   </data>
+  <data name="AppCustDescrCleanRegex" xml:space="preserve">
+    <value>&lt;(.|\n)*?&gt;</value>
+  </data>
 </root>
