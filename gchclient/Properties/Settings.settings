@@ -27,7 +27,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LastUpdateTime" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2012-04-05</Value>
+      <Value Profile="(Default)">2017-01-01</Value>
     </Setting>
     <Setting Name="EnableAutoUpdate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
