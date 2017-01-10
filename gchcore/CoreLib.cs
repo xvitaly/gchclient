@@ -80,6 +80,7 @@ namespace gchcore
         /// Завершает процесс с указанным именем.
         /// </summary>
         /// <param name="ProcessName">Имя процесса для завершения</param>
+        [EnvironmentPermissionAttribute(SecurityAction.Demand, Unrestricted = true)]
         public static void ProcessTerminate(string ProcessName)
         {
             Process[] LocalByName = Process.GetProcessesByName(ProcessName);
