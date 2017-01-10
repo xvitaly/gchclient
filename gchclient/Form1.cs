@@ -488,7 +488,7 @@ namespace gchclient
         /// </summary>
         private void RV_PermaLink_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(((Label)sender).Text, "^http://steamcommunity.com/profiles/")) { Process.Start(((Label)sender).Text); }
+            if (Regex.IsMatch(((Label)sender).Text, "^http://steamcommunity.com/profiles/")) { CoreLib.OpenWebPage(((Label)sender).Text); }
         }
 
         /// <summary>
@@ -625,7 +625,7 @@ namespace gchclient
         /// </summary>
         private void LNK_Go_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(RV_PermaLink.Text, "^http://steamcommunity.com/profiles/")) { Process.Start(RV_PermaLink.Text); }
+            if (Regex.IsMatch(RV_PermaLink.Text, "^http://steamcommunity.com/profiles/")) { CoreLib.OpenWebPage(RV_PermaLink.Text); }
         }
 
         /// <summary>
@@ -663,7 +663,7 @@ namespace gchclient
                 else
                 {
                     // Ссылка не является картинкой, поэтому попробуем открыть через ShellExecute...
-                    try { Process.Start(MRes.Groups["url"].Value); } catch { MessageBox.Show(Properties.Resources.AppNoURLStr, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                    try { CoreLib.OpenWebPage(MRes.Groups["url"].Value); } catch { MessageBox.Show(Properties.Resources.AppNoURLStr, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
                 }
             }
         }
@@ -707,7 +707,7 @@ namespace gchclient
         /// </summary>
         private void RV_AddFriend_Click(object sender, EventArgs e)
         {
-            try { Process.Start(String.Format("steam://friends/add/{0}", SID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            try { CoreLib.OpenWebPage(String.Format("steam://friends/add/{0}", SID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
@@ -732,7 +732,7 @@ namespace gchclient
             }
 
             // Открываем в браузере по умолчанию...
-            try { Process.Start(String.Format(InvViewer, SID64)); } catch { MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            try { CoreLib.OpenWebPage(String.Format(InvViewer, SID64)); } catch { MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
