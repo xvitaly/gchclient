@@ -155,7 +155,7 @@ namespace gchclient
             try
             {
                 string Lnk = DVList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                if (Regex.IsMatch(Lnk, "^http://steamcommunity.com/profiles/")) { if (Control.ModifierKeys == Keys.Shift) { Process.Start(Lnk); } else { Clipboard.SetText(Lnk); } if (Properties.Settings.Default.FrWnClose) { Close(); } }
+                if (Regex.IsMatch(Lnk, "^http://steamcommunity.com/profiles/")) { if (Control.ModifierKeys == Keys.Shift) { CoreLib.OpenWebPage(Lnk); } else { Clipboard.SetText(Lnk); } if (Properties.Settings.Default.FrWnClose) { Close(); } }
             }
             catch { }
         }
