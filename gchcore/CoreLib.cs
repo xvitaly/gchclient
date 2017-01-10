@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Security.Permissions;
 using System.Text;
 
 namespace gchcore
@@ -101,6 +102,16 @@ namespace gchcore
                 Result = Reader.ReadToEnd();
             }
             return Result;
+        }
+
+        /// <summary>
+        /// Открывает указанный URL в системном браузере по умолчанию.
+        /// </summary>
+        /// <param name="URI">URL для загрузки в браузере</param>
+        [EnvironmentPermissionAttribute(SecurityAction.Demand, Unrestricted = true)]
+        public static void OpenWebPage(string URI)
+        {
+            Process.Start(URI);
         }
     }
 }
