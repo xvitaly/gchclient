@@ -114,13 +114,7 @@ namespace gchclient
             Result = false;
             try
             {
-                using (WebClient Downloader = new WebClient())
-                {
-                    Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                    Downloader.Headers.Add("HardwareID", Auth.HardwareID);
-                    Downloader.DownloadFile(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), XMLFileName);
-                }
-                if (File.Exists(XMLFileName))
+                if (CoreLib.DownloadRemoteFile(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID))
                 {
                     try
                     {
