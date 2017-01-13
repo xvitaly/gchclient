@@ -15,10 +15,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
@@ -167,15 +165,9 @@ namespace gchclient
         {
             try
             {
-                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
-
                 string XMLFileName = Path.GetTempFileName();
-                using (WebClient Downloader = new WebClient())
-                {
-                    Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                    Downloader.Headers.Add("HardwareID", Auth.HardwareID);
-                    Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), XMLFileName);
-                }
+                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
 
                 try
                 {
