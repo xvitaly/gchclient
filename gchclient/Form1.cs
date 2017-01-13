@@ -338,39 +338,34 @@ namespace gchclient
                 if (TS.Days >= 2)
                 {
                     // Требуется проверка обновлений...
-                    using (WebClient Downloader = new WebClient())
+                    string DnlStr = CoreLib.DownloadRemoteString(Properties.Resources.UpdateURL, Properties.Resources.AppUserAgent, Auth.HardwareID);
+                    Version NVer = new Version(DnlStr.Substring(0, DnlStr.IndexOf("!")));
+
+                    // Проверяем версию...
+                    if (NVer > Assembly.GetEntryAssembly().GetName().Version)
                     {
-                        Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                        Downloader.Headers.Add("HardwareID", Auth.HardwareID);
-                        string DnlStr = Downloader.DownloadString(Properties.Resources.UpdateURL);
-                        Version NVer = new Version(DnlStr.Substring(0, DnlStr.IndexOf("!")));
+                        // Доступны обновления...
+                        UpdateAvailable = true;
 
-                        // Проверяем версию...
-                        if (NVer > Assembly.GetEntryAssembly().GetName().Version)
+                        // Выводом сообщения...
+                        Invoke((MethodInvoker)delegate ()
                         {
-                            // Доступны обновления...
-                            UpdateAvailable = true;
+                            // Выводим текст...
+                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, NVer);
 
-                            // Выводом сообщения...
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                // Выводим текст...
-                                L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, NVer);
-                                
-                                // Изменяем цвета и вид курсора...
-                                L_LegalInfo.BackColor = Color.Red;
-                                L_LegalInfo.ForeColor = Color.White;
-                                L_LegalInfo.Cursor = Cursors.Hand;
-                            });
-                        }
-                        else
-                        {
-                            // Обновлений нет...
-                            UpdateAvailable = false;
-                            
-                            // Установим время последней проверки обновлений...
-                            Properties.Settings.Default.LastUpdateTime = DateTime.Now;
-                        }
+                            // Изменяем цвета и вид курсора...
+                            L_LegalInfo.BackColor = Color.Red;
+                            L_LegalInfo.ForeColor = Color.White;
+                            L_LegalInfo.Cursor = Cursors.Hand;
+                        });
+                    }
+                    else
+                    {
+                        // Обновлений нет...
+                        UpdateAvailable = false;
+
+                        // Установим время последней проверки обновлений...
+                        Properties.Settings.Default.LastUpdateTime = DateTime.Now;
                     }
                 }
             }
