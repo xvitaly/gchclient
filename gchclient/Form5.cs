@@ -17,8 +17,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
+using gchcore;
 
 namespace gchclient
 {
@@ -98,11 +98,7 @@ namespace gchclient
                 string ImgFileName = Path.GetTempFileName();
                 
                 // Загружаем файл...
-                using (WebClient Downloader = new WebClient())
-                {
-                    Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                    Downloader.DownloadFile(ImageURL, ImgFileName);
-                }
+                CoreLib.DownloadRemoteFile(ImageURL, ImgFileName, Properties.Resources.AppUserAgent);
 
                 // Создаём файловый поток во избежание блокировки файла приложением...
                 using (FileStream ImgStream = new FileStream(ImgFileName, FileMode.Open, FileAccess.Read))
