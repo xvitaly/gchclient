@@ -15,6 +15,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Permissions;
@@ -113,6 +114,23 @@ namespace gchcore
         public static void OpenWebPage(string URI)
         {
             Process.Start(URI);
+        }
+
+        public static string DownloadRemoteString(string URL, string UserAgent, string HardwareID = "")
+        {
+            // Инициализируем пустую строку...
+            string Result = String.Empty;
+
+            // Загружаем из Интернета...
+            using (WebClient Downloader = new WebClient())
+            {
+                Downloader.Headers.Add("User-Agent", UserAgent);
+                Downloader.Headers.Add("HardwareID", HardwareID);
+                Result = Downloader.DownloadString(URL);
+            }
+
+            // Возвращаем результат...
+            return Result;
         }
     }
 }
