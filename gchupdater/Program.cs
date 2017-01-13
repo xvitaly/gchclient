@@ -16,7 +16,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using Ionic.Zip;
 using gchcore;
@@ -27,53 +26,51 @@ namespace gchupdater
     {
         private static void DownloadUpdate(string Url, string Dest, string BinFile)
         {
-            // Инициализируем загрузчик...
-            using (WebClient Downloader = new WebClient())
+            // Получаем имя файла...
+            string DestFile = Path.GetFileName(Url);
+            Console.WriteLine();
+            Console.Write(Properties.Resources.ConDownFrmServer, DestFile);
+
+            // Загружаем и проверяем загрузился ли он...
+            if (CoreLib.DownloadRemoteFile(Url, Path.Combine(Dest, DestFile), Properties.Resources.AppUserAgent))
             {
-                // Получаем имя файла...
-                string DestFile = Path.GetFileName(Url);
-                Console.WriteLine();
-                Console.Write(Properties.Resources.ConDownFrmServer, DestFile);
-                // Загружаем файл...
-                Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                Downloader.DownloadFile(Url, Path.Combine(Dest, DestFile));
-                // Проверяем загрузился ли файл...
-                if (File.Exists(Path.Combine(Dest, DestFile)))
+                Console.WriteLine(Properties.Resources.ConDone);
+                Console.Write(Properties.Resources.ConUpdatingFiles);
+                
+                // Распаковываем загруженный zip-архив...
+                using (ZipFile zip = ZipFile.Read(Path.Combine(Dest, DestFile)))
                 {
-                    Console.WriteLine(Properties.Resources.ConDone);
-                    Console.Write(Properties.Resources.ConUpdatingFiles);
-                    // Распаковываем загруженный zip-архив...
-                    using (ZipFile zip = ZipFile.Read(Path.Combine(Dest, DestFile)))
+                    foreach (ZipEntry e in zip)
                     {
-                        foreach (ZipEntry e in zip)
+                        try
                         {
-                            try
-                            {
-                                e.ExtractExistingFile = ExtractExistingFileAction.OverwriteSilently;
-                                e.Extract(Dest);
-                            }
-                            catch (Exception Ex)
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine(Properties.Resources.ConExError, Ex.Message);
-                            }
+                            e.ExtractExistingFile = ExtractExistingFileAction.OverwriteSilently;
+                            e.Extract(Dest);
+                        }
+                        catch (Exception Ex)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(Properties.Resources.ConExError, Ex.Message);
                         }
                     }
-                    // Выводим сообщения...
-                    Console.WriteLine(Properties.Resources.ConDone);
-                    Console.WriteLine();
-                    Console.WriteLine(Properties.Resources.ConUpdateFinished);
-                    Console.WriteLine();
-                    // Удаляем временный файл (загруженный архив)...
-                    Console.Write(Properties.Resources.ConRemovingTempFiles);
-                    File.Delete(Path.Combine(Dest, DestFile));
-                    Console.WriteLine(Properties.Resources.ConDone);
-                    try { Process.Start(Path.Combine(Dest, BinFile)); } catch (Exception Ex) { Console.WriteLine(Ex.Message); }
                 }
-                else
-                {
-                    Console.WriteLine(Properties.Resources.ConErrText);
-                }
+                // Выводим сообщения...
+                Console.WriteLine(Properties.Resources.ConDone);
+                Console.WriteLine();
+                Console.WriteLine(Properties.Resources.ConUpdateFinished);
+                Console.WriteLine();
+                
+                // Удаляем временный файл (загруженный архив)...
+                Console.Write(Properties.Resources.ConRemovingTempFiles);
+                File.Delete(Path.Combine(Dest, DestFile));
+                Console.WriteLine(Properties.Resources.ConDone);
+
+                // Запускаем полученный бинарник...
+                try { Process.Start(Path.Combine(Dest, BinFile)); } catch (Exception Ex) { Console.WriteLine(Ex.Message); }
+            }
+            else
+            {
+                Console.WriteLine(Properties.Resources.ConErrText);
             }
         }
 
@@ -117,32 +114,36 @@ namespace gchupdater
                         // Получим текущую версию клиента...
                         FileVersionInfo GchCl = FileVersionInfo.GetVersionInfo(Path.Combine(AppPath, args[0]));
                         Console.WriteLine(Properties.Resources.ConCurrVer, GchCl.FileVersion);
-                        // Получим версию с сервера...
+                        
                         try
                         {
-                            using (WebClient Downloader = new WebClient())
+                            // Получим версию с сервера...
+                            string DnlStr = CoreLib.DownloadRemoteString(Properties.Resources.UpdateURL, Properties.Resources.AppUserAgent);
+
+                            // Разбираем полученную строку...
+                            string NewVersion = DnlStr.Substring(0, DnlStr.IndexOf("!"));
+                            Console.WriteLine(Properties.Resources.ConNewVer, NewVersion);
+                            Console.WriteLine();
+
+                            // Получаем URL новой версии...
+                            string UpdateURI = DnlStr.Remove(0, DnlStr.IndexOf("!") + 1);
+
+                            // Проверяем старую и новую версии...
+                            if (new Version(GchCl.FileVersion) > new Version(NewVersion))
                             {
-                                Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                                string DnlStr = Downloader.DownloadString(Properties.Resources.UpdateURL);
-                                string NewVersion = DnlStr.Substring(0, DnlStr.IndexOf("!"));
-                                Console.WriteLine(Properties.Resources.ConNewVer, NewVersion);
-                                Console.WriteLine();
-                                string UpdateURI = DnlStr.Remove(0, DnlStr.IndexOf("!") + 1);
-                                Version CVer = new Version(GchCl.FileVersion);
-                                Version NVer = new Version(NewVersion);
-                                if (NVer > CVer)
-                                {
-                                    // Есть обновление, качаем...
-                                    Console.WriteLine(Properties.Resources.ConUpdateAvail);
-                                    // Завершим процесс...
-                                    CoreLib.ProcessTerminate(args[0]);
-                                    // Загружаем обновление...
-                                    DownloadUpdate(UpdateURI, AppPath, args[0]);
-                                }
-                                else
-                                {
-                                    Console.WriteLine(Properties.Resources.ConNoUpdatesAvail);
-                                }
+                                // Есть обновление, качаем. Выводим информацию в консоль...
+                                Console.WriteLine(Properties.Resources.ConUpdateAvail);
+                                
+                                // Завершим процесс обновляемого приложения...
+                                CoreLib.ProcessTerminate(args[0]);
+                                
+                                // Загружаем обновление...
+                                DownloadUpdate(UpdateURI, AppPath, args[0]);
+                            }
+                            else
+                            {
+                                // Новых обновлений нет. Выводим информацию об этом...
+                                Console.WriteLine(Properties.Resources.ConNoUpdatesAvail);
                             }
                         }
                         catch (Exception Ex)
