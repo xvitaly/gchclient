@@ -15,7 +15,6 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 using System.Xml;
 using gchcore;
@@ -57,13 +56,7 @@ namespace gchclient
 
             try
             {
-                using (WebClient Downloader = new WebClient())
-                {
-                    Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                    Downloader.Headers.Add("HardwareID", Auth.HardwareID);
-                    Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), ""), XMLFileName);
-                }
-
+                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), ""), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
                 using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                 {
                     XmlDocument XMLD = new XmlDocument();
