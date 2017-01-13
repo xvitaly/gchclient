@@ -147,7 +147,7 @@ namespace gchcore
         /// <param name="FileName">Имя файла для записи скачанного</param>
         /// <param name="UserAgent">Заголовок HTTP UserAgent для запроса</param>
         /// <param name="URL">Заголовок HTTP HardwareID для запроса</param>
-        public static void DownloadRemoteFile(string URL, string FileName, string UserAgent, string HardwareID = "")
+        public static bool DownloadRemoteFile(string URL, string FileName, string UserAgent, string HardwareID = "")
         {
             // Загружаем файл из Интернета...
             using (WebClient Downloader = new WebClient())
@@ -156,6 +156,9 @@ namespace gchcore
                 Downloader.Headers.Add("HardwareID", HardwareID);
                 Downloader.DownloadFile(URL, FileName);
             }
+
+            // Проверяем прошла ли загрузка...
+            return File.Exists(FileName);
         }
     }
 }
