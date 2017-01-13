@@ -116,6 +116,13 @@ namespace gchcore
             Process.Start(URI);
         }
 
+        /// <summary>
+        /// Получает содержимое текстового файла из Интернета по указанному URL.
+        /// </summary>
+        /// <param name="URL">URL для загрузки</param>
+        /// <param name="UserAgent">Заголовок HTTP UserAgent для запроса</param>
+        /// <param name="URL">Заголовок HTTP HardwareID для запроса</param>
+        /// <returns>Содержимое текстового файла из указанного URL</returns>
         public static string DownloadRemoteString(string URL, string UserAgent, string HardwareID = "")
         {
             // Инициализируем пустую строку...
