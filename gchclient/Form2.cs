@@ -14,7 +14,6 @@
 */
 using System;
 using System.IO;
-using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
@@ -73,12 +72,7 @@ namespace gchclient
                 try
                 {
                     // Загружаем XML...
-                    using (WebClient Downloader = new WebClient())
-                    {
-                        Downloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent);
-                        Downloader.Headers.Add("HardwareID", Auth.HardwareID);
-                        Downloader.DownloadFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), ""), XMLFileName);
-                    }
+                    CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), ""), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
 
                     // Разбираем полученный XML...
                     using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
