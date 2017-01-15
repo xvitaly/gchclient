@@ -79,6 +79,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to steam://friends/add/{0}.
+        /// </summary>
+        internal static string AppAddTemplate {
+            get {
+                return ResourceManager.GetString("AppAddTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows..
         /// </summary>
         internal static string AppAlrLaunched {

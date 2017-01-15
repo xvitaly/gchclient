@@ -702,7 +702,7 @@ namespace gchclient
         /// </summary>
         private void RV_AddFriend_Click(object sender, EventArgs e)
         {
-            try { CoreLib.OpenWebPage(String.Format("steam://friends/add/{0}", SID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            try { CoreLib.OpenWebPage(String.Format(Properties.Resources.AppAddTemplate, SID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
