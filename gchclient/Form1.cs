@@ -603,7 +603,7 @@ namespace gchclient
         /// </summary>
         private void LNK_Copy_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(RV_PermaLink.Text, "^http://steamcommunity.com/profiles/")) { Clipboard.SetText(RV_PermaLink.Text); }
+            if (Regex.IsMatch(RV_PermaLink.Text, Properties.Resources.AppProfileRegex)) { Clipboard.SetText(RV_PermaLink.Text); }
             TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Properties.Resources.AppMSGLnkCopClipb, ToolTipIcon.Info);
         }
 
@@ -620,7 +620,7 @@ namespace gchclient
         /// </summary>
         private void LNK_Go_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(RV_PermaLink.Text, "^http://steamcommunity.com/profiles/")) { CoreLib.OpenWebPage(RV_PermaLink.Text); }
+            if (Regex.IsMatch(RV_PermaLink.Text, Properties.Resources.AppProfileRegex)) { CoreLib.OpenWebPage(RV_PermaLink.Text); }
         }
 
         /// <summary>
