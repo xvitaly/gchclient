@@ -491,7 +491,7 @@ namespace gchclient
         /// </summary>
         private void InpStr_DoubleClick(object sender, EventArgs e)
         {
-            ((TextBox)sender).Text = "";
+            ((TextBox)sender).Text = String.Empty;
         }
 
         /// <summary>
