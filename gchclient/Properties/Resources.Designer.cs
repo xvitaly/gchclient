@@ -187,6 +187,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .(png|jpg|jpeg|gif)$.
+        /// </summary>
+        internal static string AppImageRegex {
+            get {
+                return ResourceManager.GetString("AppImageRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.SU..
         /// </summary>
         internal static string AppIncorrectTokens {

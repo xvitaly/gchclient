@@ -403,4 +403,7 @@
   <data name="AppProfileRegex" xml:space="preserve">
     <value>^http://steamcommunity.com/profiles/</value>
   </data>
+  <data name="AppImageRegex" xml:space="preserve">
+    <value>.(png|jpg|jpeg|gif)$</value>
+  </data>
 </root>

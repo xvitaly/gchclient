@@ -649,7 +649,7 @@ namespace gchclient
             foreach (Match MRes in MCol)
             {
                 // Проверим не ссылка ли на картинку в URL. Для картинок используем свой вьювер...
-                if (Regex.IsMatch(MRes.Groups["url"].Value, ".(png|jpg|jpeg|gif)$"))
+                if (Regex.IsMatch(MRes.Groups["url"].Value, Properties.Resources.AppImageRegex))
                 {
                     // Откроем форму с вьювером...
                     frmViewer FView = new frmViewer(MRes.Groups["url"].Value, SID64);
