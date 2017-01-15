@@ -483,7 +483,7 @@ namespace gchclient
         /// </summary>
         private void RV_PermaLink_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(((Label)sender).Text, "^http://steamcommunity.com/profiles/")) { CoreLib.OpenWebPage(((Label)sender).Text); }
+            if (Regex.IsMatch(((Label)sender).Text, Properties.Resources.AppProfileRegex)) { CoreLib.OpenWebPage(((Label)sender).Text); }
         }
 
         /// <summary>

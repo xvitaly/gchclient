@@ -397,4 +397,7 @@
   <data name="AppURLRegex" xml:space="preserve">
     <value>(?&lt;url&gt;((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*)</value>
   </data>
+  <data name="AppProfileRegex" xml:space="preserve">
+    <value>^http://steamcommunity.com/profiles/</value>
+  </data>
 </root>

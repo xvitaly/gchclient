@@ -268,6 +268,15 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^http://steamcommunity.com/profiles/.
+        /// </summary>
+        internal static string AppProfileRegex {
+            get {
+                return ResourceManager.GetString("AppProfileRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Построение списка....
         /// </summary>
         internal static string AppSBBuilding {
