@@ -72,7 +72,7 @@ namespace gchclient
                 try
                 {
                     // Загружаем XML...
-                    CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), ""), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
+                    CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), String.Empty), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
 
                     // Разбираем полученный XML...
                     using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
@@ -247,7 +247,7 @@ namespace gchclient
         /// </summary>
         private void Opt_IEd_Tb_AddRow_Click(object sender, EventArgs e)
         {
-            Opt_IgnEd.Rows.Add("");
+            Opt_IgnEd.Rows.Add(String.Empty);
         }
     }
 }

@@ -180,7 +180,7 @@ namespace gchclient
                         for (int i = 0; i < XMLNList.Count; i++)
                         {
                             DateTime dtfr = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("friend_since")[i].InnerText));
-                            string friendlystat = "";
+                            string friendlystat = String.Empty;
                             switch (XMLD.GetElementsByTagName("sitestatus")[i].InnerText)
                             {
                                 case "1": friendlystat = Properties.Resources.ListGarantName;

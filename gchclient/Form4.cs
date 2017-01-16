@@ -56,7 +56,7 @@ namespace gchclient
 
             try
             {
-                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), ""), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
+                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), String.Empty), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
                 using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                 {
                     XmlDocument XMLD = new XmlDocument();

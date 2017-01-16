@@ -245,7 +245,7 @@ namespace gchclient
                 {
                     Invoke((MethodInvoker)delegate()
                     {
-                        RV_F2P.Text = "";
+                        RV_F2P.Text = String.Empty;
                         RV_F2P.BackColor = Control.DefaultBackColor;
                     });
                 }
