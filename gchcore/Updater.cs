@@ -1,10 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Класс, используемый для проверки обновлений приложения Garant Checker Offline.
+ * 
+ * Copyright 2012 - 2017 EasyCoding Team (ECTeam).
+ * Copyright 2005 - 2017 EasyCoding Team.
+ * 
+ * Лицензия кода: модифицированная лицензия BSD.
+ * Лицензия контента: Creative Commons 3.0 BY.
+ * 
+ * Полный текст лицензии находится в файле LICENSE.TXT.
+ * 
+ * Официальный блог EasyCoding Team: http://www.easycoding.org/
+ * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
+*/
+using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace gchcore

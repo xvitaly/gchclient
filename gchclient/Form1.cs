@@ -337,12 +337,11 @@ namespace gchclient
                 // Проверяем время с момента последней проверки...
                 if (TS.Days >= 2)
                 {
-                    // Требуется проверка обновлений...
-                    string DnlStr = CoreLib.DownloadRemoteString(Properties.Resources.UpdateURL, Properties.Resources.AppUserAgent, Auth.HardwareID);
-                    Version NVer = new Version(DnlStr.Substring(0, DnlStr.IndexOf("!")));
-
+                    // Проверяем наличие обновлений...
+                    Updater UpMan = new Updater(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), Properties.Resources.AppUserAgent);
+                    
                     // Проверяем версию...
-                    if (NVer > Assembly.GetEntryAssembly().GetName().Version)
+                    if (UpMan.CheckAppUpdate())
                     {
                         // Доступны обновления...
                         UpdateAvailable = true;
@@ -351,7 +350,7 @@ namespace gchclient
                         Invoke((MethodInvoker)delegate ()
                         {
                             // Выводим текст...
-                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, NVer);
+                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, UpMan.AppUpdateVersion);
 
                             // Изменяем цвета и вид курсора...
                             L_LegalInfo.BackColor = Color.Red;
