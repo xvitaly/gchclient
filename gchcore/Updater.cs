@@ -32,18 +32,18 @@ namespace gchcore
         /// <summary>
         /// Хранит путь к каталогу приложения для служебных целей.
         /// </summary>
-        private string FullAppPath;
+        private string FullAppPath { get; set; }
 
         /// <summary>
         /// Хранит UserAgent, который будет использоваться в соответствующем
         /// HTTP заголовке запроса.
         /// </summary>
-        private string UserAgent;
+        private string UserAgent { get; set; }
 
         /// <summary>
         /// Хранит загруженный с сервера обновлений XML.
         /// </summary>
-        private string UpdateXML;
+        private string UpdateXML { get; set; }
 
         /// <summary>
         /// Парсит загруженный XML файл. Заполняет поля класса значениями.
