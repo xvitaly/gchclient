@@ -199,6 +199,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="gchclient.ico" />
+    <Content Include="updates.xml" />
     <None Include="Resources\iconReport.png" />
     <None Include="Resources\avatarholder.png" />
     <None Include="Resources\message.png" />
