@@ -118,7 +118,7 @@ namespace gchupdater
                         try
                         {
                             // Получим версию с сервера...
-                            Updater UpMan = new Updater(Properties.Resources.AppUserAgent);
+                            Updater UpMan = new Updater(args[0], Properties.Resources.AppUserAgent);
 
                             // Выводим информацию о доступной версии...
                             Console.WriteLine(Properties.Resources.ConNewVer, UpMan.AppUpdateVersion);
