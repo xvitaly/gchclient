@@ -338,7 +338,7 @@ namespace gchclient
                 if (TS.Days >= 2)
                 {
                     // Проверяем наличие обновлений...
-                    Updater UpMan = new Updater(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), Properties.Resources.AppUserAgent);
+                    Updater UpMan = new Updater(Properties.Resources.AppUserAgent);
                     
                     // Проверяем версию...
                     if (UpMan.CheckAppUpdate())

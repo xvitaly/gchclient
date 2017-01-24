@@ -41,11 +41,6 @@ namespace gchcore
         public string AppUpdateHash { get; private set; }
 
         /// <summary>
-        /// Хранит путь к каталогу приложения для служебных целей.
-        /// </summary>
-        private string FullAppPath { get; set; }
-
-        /// <summary>
         /// Хранит UserAgent, который будет использоваться в соответствующем
         /// HTTP заголовке запроса.
         /// </summary>
@@ -116,12 +111,9 @@ namespace gchcore
         /// <summary>
         /// Конструктор класса. Получает информацию об обновлениях.
         /// </summary>
-        /// <param name="AppPath">Путь к каталогу приложения</param>
         /// <param name="UA">UserAgent приложения</param>
-        public Updater(string AppPath, string UA)
+        public Updater(string UA)
         {
-            // Сохраняем путь...
-            FullAppPath = AppPath;
             UserAgent = UA;
 
             // Загружаем и парсим XML...
