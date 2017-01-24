@@ -15,7 +15,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Xml;
 
 namespace gchcore
@@ -45,6 +44,11 @@ namespace gchcore
         /// HTTP заголовке запроса.
         /// </summary>
         private string UserAgent { get; set; }
+
+        /// <summary>
+        /// Хранит имя главного бинарника приложения.
+        /// </summary>
+        private string BinExecName { get; set; }
 
         /// <summary>
         /// Хранит загруженный с сервера обновлений XML.
@@ -84,7 +88,7 @@ namespace gchcore
         /// <returns>Возвращает булево наличия обновлений</returns>
         public bool CheckAppUpdate()
         {
-            FileVersionInfo GchCl = FileVersionInfo.GetVersionInfo(Path.Combine(Path.GetDirectoryName(Assembly.GetCallingAssembly().Location), Properties.Resources.CheckerExec));
+            FileVersionInfo GchCl = FileVersionInfo.GetVersionInfo(BinExecName);
             return AppUpdateVersion > new Version(GchCl.FileVersion);
         }
 
@@ -111,9 +115,11 @@ namespace gchcore
         /// <summary>
         /// Конструктор класса. Получает информацию об обновлениях.
         /// </summary>
+        /// <param name="ExecBin">Имя главного бинарника</param>
         /// <param name="UA">UserAgent приложения</param>
-        public Updater(string UA)
+        public Updater(string ExecBin, string UA)
         {
+            BinExecName = ExecBin;
             UserAgent = UA;
 
             // Загружаем и парсим XML...
