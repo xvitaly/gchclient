@@ -118,27 +118,23 @@ namespace gchupdater
                         try
                         {
                             // Получим версию с сервера...
-                            string DnlStr = CoreLib.DownloadRemoteString(Properties.Resources.UpdateURL, Properties.Resources.AppUserAgent);
+                            Updater UpMan = new Updater(Properties.Resources.AppUserAgent);
 
-                            // Разбираем полученную строку...
-                            string NewVersion = DnlStr.Substring(0, DnlStr.IndexOf("!"));
-                            Console.WriteLine(Properties.Resources.ConNewVer, NewVersion);
+                            // Выводим информацию о доступной версии...
+                            Console.WriteLine(Properties.Resources.ConNewVer, UpMan.AppUpdateVersion);
                             Console.WriteLine();
 
-                            // Получаем URL новой версии...
-                            string UpdateURI = DnlStr.Remove(0, DnlStr.IndexOf("!") + 1);
-
                             // Проверяем старую и новую версии...
-                            if (new Version(GchCl.FileVersion) > new Version(NewVersion))
+                            if (UpMan.CheckAppUpdate())
                             {
                                 // Есть обновление, качаем. Выводим информацию в консоль...
                                 Console.WriteLine(Properties.Resources.ConUpdateAvail);
-                                
+
                                 // Завершим процесс обновляемого приложения...
                                 CoreLib.ProcessTerminate(args[0]);
-                                
+
                                 // Загружаем обновление...
-                                DownloadUpdate(UpdateURI, AppPath, args[0]);
+                                DownloadUpdate(UpMan.AppUpdateURL, AppPath, args[0]);
                             }
                             else
                             {
