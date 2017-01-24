@@ -174,9 +174,6 @@
   <data name="UpdateFile" xml:space="preserve">
     <value>gchupw.exe</value>
   </data>
-  <data name="UpdateURL" xml:space="preserve">
-    <value>http://www.easycoding.org/files/gchclient.txt</value>
-  </data>
   <data name="WlcMsgResName" xml:space="preserve">
     <value>gchupdater.Resources.Wmsg.txt</value>
   </data>

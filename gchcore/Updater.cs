@@ -13,6 +13,7 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Xml;
@@ -88,7 +89,8 @@ namespace gchcore
         /// <returns>Возвращает булево наличия обновлений</returns>
         public bool CheckAppUpdate()
         {
-            return AppUpdateVersion > Assembly.GetEntryAssembly().GetName().Version;
+            FileVersionInfo GchCl = FileVersionInfo.GetVersionInfo(Path.Combine(Path.GetDirectoryName(Assembly.GetCallingAssembly().Location), Properties.Resources.CheckerExec));
+            return AppUpdateVersion > new Version(GchCl.FileVersion);
         }
 
         /// <summary>

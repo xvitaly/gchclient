@@ -68,5 +68,14 @@ namespace gchcore.Properties {
                 return ResourceManager.GetString("AppUpdateURL", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to gchclient.exe.
+        /// </summary>
+        internal static string CheckerExec {
+            get {
+                return ResourceManager.GetString("CheckerExec", resourceCulture);
+            }
+        }
     }
 }

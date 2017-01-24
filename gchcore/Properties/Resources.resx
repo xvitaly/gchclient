@@ -120,4 +120,7 @@
   <data name="AppUpdateURL" xml:space="preserve">
     <value>https://github.com/xvitaly/gchclient/raw/master/gchclient/updates.xml</value>
   </data>
+  <data name="CheckerExec" xml:space="preserve">
+    <value>gchclient.exe</value>
+  </data>
 </root>
