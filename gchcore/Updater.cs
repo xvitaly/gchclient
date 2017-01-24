@@ -106,14 +106,14 @@ namespace gchcore
         /// </summary>
         /// <param name="AppPath">Путь к каталогу приложения</param>
         /// <param name="UA">UserAgent приложения</param>
-        public Updater(string AppPath, string CheckURL, string UA)
+        public Updater(string AppPath, string UA)
         {
             // Сохраняем путь...
             FullAppPath = AppPath;
             UserAgent = UA;
 
             // Загружаем и парсим XML...
-            UpdateXML = CoreLib.DownloadRemoteString(CheckURL, UA);
+            UpdateXML = CoreLib.DownloadRemoteString(Properties.Resources.AppUpdateURL, UA);
             ParseXML();
         }
     }

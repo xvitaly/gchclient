@@ -897,15 +897,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.easycoding.org/files/gchclient.txt.
-        /// </summary>
-        internal static string UpdateURL {
-            get {
-                return ResourceManager.GetString("UpdateURL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Статус VAC: {0}..
         /// </summary>
         internal static string VCStatusA {

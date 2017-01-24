@@ -247,9 +247,6 @@
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
   </data>
-  <data name="UpdateURL" xml:space="preserve">
-    <value>http://www.easycoding.org/files/gchclient.txt</value>
-  </data>
   <data name="AppName" xml:space="preserve">
     <value>Служба проверки пользователей</value>
   </data>
