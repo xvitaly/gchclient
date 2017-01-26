@@ -67,9 +67,9 @@ namespace gchclient
         private string LastError { get; set; }
 
         /// <summary>
-        /// Хранит и возвращает информацию о наличии или отсутствии обновлений.
+        /// Хранит и возвращает информацию об обновлениях.
         /// </summary>
-        private bool UpdateAvailable { get; set; }
+        private Updater UpdMan { get; set; }
 
         /// <summary>
         /// Хранит и возвращает статус последней проверки.
@@ -338,19 +338,16 @@ namespace gchclient
                 if (TS.Days >= 2)
                 {
                     // Проверяем наличие обновлений...
-                    Updater UpMan = new Updater(Assembly.GetEntryAssembly().Location, Properties.Resources.AppUserAgent);
+                    UpdMan = new Updater(Assembly.GetEntryAssembly().Location, Properties.Resources.AppUserAgent);
                     
                     // Проверяем версию...
-                    if (UpMan.CheckAppUpdate())
+                    if (UpdMan.CheckAppUpdate())
                     {
-                        // Доступны обновления...
-                        UpdateAvailable = true;
-
                         // Выводом сообщения...
                         Invoke((MethodInvoker)delegate ()
                         {
                             // Выводим текст...
-                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, UpMan.AppUpdateVersion);
+                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, UpdMan.AppUpdateVersion);
 
                             // Изменяем цвета и вид курсора...
                             L_LegalInfo.BackColor = Color.Red;
@@ -360,9 +357,6 @@ namespace gchclient
                     }
                     else
                     {
-                        // Обновлений нет...
-                        UpdateAvailable = false;
-
                         // Установим время последней проверки обновлений...
                         Properties.Settings.Default.LastUpdateTime = DateTime.Now;
                     }
@@ -627,9 +621,9 @@ namespace gchclient
         /// </summary>
         private void L_LegalInfo_Click(object sender, EventArgs e)
         {
-            if (UpdateAvailable)
+            if (UpdMan.CheckAppUpdate())
             {
-                try { Process.Start(Path.Combine(AppPath, "gchupdater.exe"), Path.GetFileName(Assembly.GetEntryAssembly().Location)); Application.Exit(); } catch { MessageBox.Show(Properties.Resources.AppNoUpdater, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                //
             }
         }
 
