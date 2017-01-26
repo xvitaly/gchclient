@@ -331,35 +331,23 @@ namespace gchclient
         {
             try
             {
-                // Вычисляем разницу между текущей датой и датой последнего обновления...
-                TimeSpan TS = DateTime.Now - Properties.Settings.Default.LastUpdateTime;
+                // Проверяем наличие обновлений...
+                UpdMan = new Updater(Assembly.GetEntryAssembly().Location, Properties.Resources.AppUserAgent);
 
-                // Проверяем время с момента последней проверки...
-                if (TS.Days >= 2)
+                // Проверяем версию...
+                if (UpdMan.CheckAppUpdate())
                 {
-                    // Проверяем наличие обновлений...
-                    UpdMan = new Updater(Assembly.GetEntryAssembly().Location, Properties.Resources.AppUserAgent);
-                    
-                    // Проверяем версию...
-                    if (UpdMan.CheckAppUpdate())
+                    // Выводом сообщения...
+                    Invoke((MethodInvoker)delegate ()
                     {
-                        // Выводом сообщения...
-                        Invoke((MethodInvoker)delegate ()
-                        {
-                            // Выводим текст...
-                            L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, UpdMan.AppUpdateVersion);
+                        // Выводим текст...
+                        L_LegalInfo.Text = String.Format(Properties.Resources.AppUpdateAvailable, UpdMan.AppUpdateVersion);
 
-                            // Изменяем цвета и вид курсора...
-                            L_LegalInfo.BackColor = Color.Red;
-                            L_LegalInfo.ForeColor = Color.White;
-                            L_LegalInfo.Cursor = Cursors.Hand;
-                        });
-                    }
-                    else
-                    {
-                        // Установим время последней проверки обновлений...
-                        Properties.Settings.Default.LastUpdateTime = DateTime.Now;
-                    }
+                        // Изменяем цвета и вид курсора...
+                        L_LegalInfo.BackColor = Color.Red;
+                        L_LegalInfo.ForeColor = Color.White;
+                        L_LegalInfo.Cursor = Cursors.Hand;
+                    });
                 }
             }
             catch { }

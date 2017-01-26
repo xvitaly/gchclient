@@ -121,18 +121,6 @@ namespace gchclient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-01")]
-        public global::System.DateTime LastUpdateTime {
-            get {
-                return ((global::System.DateTime)(this["LastUpdateTime"]));
-            }
-            set {
-                this["LastUpdateTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableAutoUpdate {
             get {
