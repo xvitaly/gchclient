@@ -609,9 +609,12 @@ namespace gchclient
         /// </summary>
         private void L_LegalInfo_Click(object sender, EventArgs e)
         {
-            if (UpdMan.CheckAppUpdate())
+            if (!BW_UpdChk.IsBusy)
             {
-                //
+                if (UpdMan.CheckAppUpdate())
+                {
+                    //
+                }
             }
         }
 
