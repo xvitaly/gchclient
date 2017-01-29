@@ -608,7 +608,7 @@ namespace gchclient
         /// </summary>
         private void L_LegalInfo_Click(object sender, EventArgs e)
         {
-            if (!BW_UpdChk.IsBusy)
+            if (Properties.Settings.Default.EnableAutoUpdate && !BW_UpdChk.IsBusy)
             {
                 if (UpdMan.CheckAppUpdate())
                 {
