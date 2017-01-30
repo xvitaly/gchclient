@@ -55,10 +55,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 78);
+            this.ClientSize = new System.Drawing.Size(378, 78);
+            this.ControlBox = false;
             this.Controls.Add(this.DN_PrgBr);
             this.Controls.Add(this.DN_WlcMsg);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmDnWrk";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Модуль загрузок";
             this.Load += new System.EventHandler(this.FrmDnWrk_Load);
             this.ResumeLayout(false);
