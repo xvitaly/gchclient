@@ -96,6 +96,48 @@ namespace gchclient
         }
 
         /// <summary>
+        /// Устанавливает обновление в виде отдельного исполняемого файла.
+        /// </summary>
+        private void InstallBinaryUpdate()
+        {
+            // Генерируем имя файла обновления...
+            string UpdateFileName = Updater.GenerateUpdateFileName(Path.Combine(Path.GetTempPath(), Path.GetFileName(UpdMan.AppUpdateURL)));
+
+            // Загружаем файл асинхронно...
+            using (FrmDnWrk FrmDnl = new FrmDnWrk(UpdMan.AppUpdateURL, UpdateFileName))
+            {
+                FrmDnl.ShowDialog();
+            }
+
+            // Выполняем проверки и устанавливаем обновление...
+            if (File.Exists(UpdateFileName))
+            {
+                // Проверяем хеш загруженного файла с эталоном...
+                if (CoreLib.md5hash(UpdateFileName) == UpdMan.AppUpdateHash)
+                {
+                    // Выводим сообщение об успешном окончании загрузки и готовности к установке обновления...
+                    MessageBox.Show(Properties.Resources.UPD_UpdateSuccessful, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Запускаем установку standalone-обновления...
+                    try { CoreLib.OpenWebPage(UpdateFileName); Environment.Exit(9); } catch { MessageBox.Show(Properties.Resources.UPD_UpdateFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                }
+                else
+                {
+                    // Хеш-сумма не совпала, поэтому файл скорее всего повреждён. Удаляем...
+                    try { File.Delete(UpdateFileName); } catch { /* Do nothing. */ }
+
+                    // Выводим сообщение о несовпадении контрольной суммы...
+                    MessageBox.Show(Properties.Resources.UPD_HashFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Не удалось загрузить файл обновления. Выводим сообщение об ошибке...
+                MessageBox.Show(Properties.Resources.UPD_UpdateFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
         /// Запускает проверку пользовательского профиля.
         /// </summary>
         /// <param name="API">URL API чекера</param>
@@ -612,7 +654,7 @@ namespace gchclient
             {
                 if (UpdMan.CheckAppUpdate())
                 {
-                    //
+                    InstallBinaryUpdate();
                 }
             }
         }
