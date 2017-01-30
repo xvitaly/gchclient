@@ -897,6 +897,33 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Контрольная сумма загруженного файла отличается от эталона. Обновление не было установлено!.
+        /// </summary>
+        internal static string UPD_HashFailure {
+            get {
+                return ResourceManager.GetString("UPD_HashFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Произошла ошибка при попытке запуска программы установки новой версии. Программа не была обновлена. Запустите обновление повторно позднее!.
+        /// </summary>
+        internal static string UPD_UpdateFailure {
+            get {
+                return ResourceManager.GetString("UPD_UpdateFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Новая версия была успешно получена с сервера. Сейчас будет произведена её установка!.
+        /// </summary>
+        internal static string UPD_UpdateSuccessful {
+            get {
+                return ResourceManager.GetString("UPD_UpdateSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус VAC: {0}..
         /// </summary>
         internal static string VCStatusA {

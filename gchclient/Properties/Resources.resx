@@ -403,4 +403,13 @@
   <data name="AppImageRegex" xml:space="preserve">
     <value>.(png|jpg|jpeg|gif)$</value>
   </data>
+  <data name="UPD_HashFailure" xml:space="preserve">
+    <value>Контрольная сумма загруженного файла отличается от эталона. Обновление не было установлено!</value>
+  </data>
+  <data name="UPD_UpdateFailure" xml:space="preserve">
+    <value>Произошла ошибка при попытке запуска программы установки новой версии. Программа не была обновлена. Запустите обновление повторно позднее!</value>
+  </data>
+  <data name="UPD_UpdateSuccessful" xml:space="preserve">
+    <value>Новая версия была успешно получена с сервера. Сейчас будет произведена её установка!</value>
+  </data>
 </root>
