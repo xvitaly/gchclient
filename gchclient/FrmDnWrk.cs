@@ -120,7 +120,7 @@ namespace gchclient
         /// <summary>
         /// Метод, срабатывающий при попытке закрытия формы.
         /// </summary>
-        private void frmDnWrk_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmDnWrk_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = IsRunning;
         }

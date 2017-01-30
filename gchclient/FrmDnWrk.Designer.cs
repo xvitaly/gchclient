@@ -66,6 +66,7 @@
             this.Name = "FrmDnWrk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Модуль загрузок";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDnWrk_FormClosing);
             this.Load += new System.EventHandler(this.FrmDnWrk_Load);
             this.ResumeLayout(false);
 
