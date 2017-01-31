@@ -53,14 +53,33 @@ namespace gchcore
         }
 
         /// <summary>
-        /// Рассчитывает MD5-хеш файла.
+        /// Вычисляет MD5 хеш файла.
         /// </summary>
-        /// <param name="Filename">Имя файла, для которого будем вычислять хеш</param>
+        /// <param name="FileName">Имя файла</param>
+        public static string CalculateFileMD5(string FileName)
+        {
+            byte[] RValue;
+            using (FileStream FileP = new FileStream(FileName, FileMode.Open))
+            {
+                using (MD5 MD5Crypt = new MD5CryptoServiceProvider())
+                {
+                    RValue = MD5Crypt.ComputeHash(FileP);
+                }
+            }
+            StringBuilder StrRes = new StringBuilder();
+            for (int i = 0; i < RValue.Length; i++) { StrRes.Append(RValue[i].ToString("x2")); }
+            return StrRes.ToString();
+        }
+
+        /// <summary>
+        /// Рассчитывает MD5-хеш строки.
+        /// </summary>
+        /// <param name="Contents">Строка для расчёта хеша</param>
         /// <returns>Хеш в формате MD5</returns>
-        public static string md5hash(string Filename)
+        public static string md5hash(string Contents)
         {
             MD5 md5h = MD5.Create();
-            byte[] hashsum = md5h.ComputeHash(Encoding.Default.GetBytes(Filename));
+            byte[] hashsum = md5h.ComputeHash(Encoding.Default.GetBytes(Contents));
             StringBuilder SB = new StringBuilder();
             for (int i = 0; i < hashsum.Length; i++) { SB.Append(hashsum[i].ToString("x2")); }
             return SB.ToString();
