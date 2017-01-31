@@ -61,7 +61,7 @@ namespace gchcore.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://github.com/xvitaly/gchclient/raw/master/gchclient/updates.xml.
+        ///   Looks up a localized string similar to https://www.easycoding.org/files/gchclient.xml.
         /// </summary>
         internal static string AppUpdateURL {
             get {
