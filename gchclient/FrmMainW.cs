@@ -113,13 +113,13 @@ namespace gchclient
             if (File.Exists(UpdateFileName))
             {
                 // Проверяем хеш загруженного файла с эталоном...
-                if (CoreLib.md5hash(UpdateFileName) == UpdMan.AppUpdateHash)
+                if (CoreLib.CalculateFileMD5(UpdateFileName) == UpdMan.AppUpdateHash)
                 {
                     // Выводим сообщение об успешном окончании загрузки и готовности к установке обновления...
                     MessageBox.Show(Properties.Resources.UPD_UpdateSuccessful, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Запускаем установку standalone-обновления...
-                    try { CoreLib.OpenWebPage(UpdateFileName); Environment.Exit(9); } catch { MessageBox.Show(Properties.Resources.UPD_UpdateFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    try { CoreLib.OpenWebPage(UpdateFileName); Application.Exit(); } catch { MessageBox.Show(Properties.Resources.UPD_UpdateFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
                 else
                 {
