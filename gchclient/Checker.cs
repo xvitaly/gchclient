@@ -27,11 +27,6 @@ namespace gchclient
     public sealed class Checker
     {
         /// <summary>
-        /// Хранит результат проверки.
-        /// </summary>
-        public bool Result { get; private set; }
-
-        /// <summary>
         /// Хранит никнейм проверяемого игрока.
         /// </summary>
         public string Nickname { get; private set; }
@@ -70,11 +65,6 @@ namespace gchclient
         /// Хранит тип аккаунта проверяемого профиля (есть ли купленные игры).
         /// </summary>
         public string Free2PlaySt { get; private set; }
-
-        /// <summary>
-        /// Хранит текст ошибки.
-        /// </summary>
-        public string ErrMsg { get; private set; }
 
         /// <summary>
         /// Хранит статус торговли проверяемого аккаунта.
