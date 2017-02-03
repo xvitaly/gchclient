@@ -122,7 +122,7 @@ namespace gchclient
         private void CheckUser(string API, string Key1, string Key2, string UID)
         {
             // Получаем информацию...
-            Checker Chk = new Checker(API, CoreLib.md5hash(Key1 + Key2), UID, Properties.Settings.Default.UseSSL);
+            Chk = new Checker(API, CoreLib.md5hash(Key1 + Key2), UID, Properties.Settings.Default.UseSSL);
 
             // Парсим ответ чекера...
             Invoke((MethodInvoker)delegate () { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
