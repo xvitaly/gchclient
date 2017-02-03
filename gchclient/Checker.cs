@@ -98,7 +98,7 @@ namespace gchclient
         /// <summary>
         /// Хранит и возвращает путь к каталогу временного хранения аватаров.
         /// </summary>
-        private string LocalAvatarDir { get; } = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
+        public string LocalAvatarDir { get; } = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
 
         /// <summary>
         /// Базовый конструктор класса.
