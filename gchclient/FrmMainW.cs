@@ -46,19 +46,9 @@ namespace gchclient
         private string PrevURL { get; set; }
 
         /// <summary>
-        /// Хранит и возвращает SteamID последнего проверенного профиля в 32-битном формате.
+        /// Проверяет и хранит результаты проверки профилей.
         /// </summary>
-        private string UsrSteamID { get; set; }
-
-        /// <summary>
-        /// Хранит и возвращает SteamID последнего проверенного профиля в 64-битном формате.
-        /// </summary>
-        private string SID64 { get; set; }
-
-        /// <summary>
-        /// Хранит и возвращает URL аватара последнего проверенного профиля.
-        /// </summary>
-        private string AvatarImage { get; set; }
+        private Checker Chk { get; set; }
 
         /// <summary>
         /// Хранит и возвращает информацию об обновлениях.
