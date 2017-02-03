@@ -101,63 +101,43 @@ namespace gchclient
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
             string XMLFileName = Path.GetTempFileName();
-            Result = false;
-            try
+            if (CoreLib.DownloadRemoteFile(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID))
             {
-                if (CoreLib.DownloadRemoteFile(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID))
+                using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
                 {
-                    try
+                    XmlDocument XMLD = new XmlDocument();
+                    XMLD.Load(XMLFS);
+                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("userprofile");
+                    for (int i = 0; i < XMLNList.Count; i++)
                     {
-                        using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
+                        XmlElement GameID = (XmlElement)XMLD.GetElementsByTagName("userprofile")[i];
+                        if (XMLD.GetElementsByTagName("qstatus")[i].InnerText == "OK")
                         {
-                            XmlDocument XMLD = new XmlDocument();
-                            XMLD.Load(XMLFS);
-                            XmlNodeList XMLNList = XMLD.GetElementsByTagName("userprofile");
-                            for (int i = 0; i < XMLNList.Count; i++)
-                            {
-                                XmlElement GameID = (XmlElement)XMLD.GetElementsByTagName("userprofile")[i];
-                                if (XMLD.GetElementsByTagName("qstatus")[i].InnerText == "OK")
-                                {
-                                    Result = true;
-                                    try { Nickname = XMLD.GetElementsByTagName("nickname")[i].InnerText; if (Nickname.Length > 25) { Nickname = Nickname.Substring(0, 25); } } catch { Nickname = Properties.Resources.AppNicknameUnknown; }
-                                    SteamID = XMLD.GetElementsByTagName("steamID")[i].InnerText;
-                                    SteamIDv3 = XMLD.GetElementsByTagName("steamIDv3")[i].InnerText;
-                                    SteamID64 = XMLD.GetElementsByTagName("steamID64")[i].InnerText;
-                                    AvatarURL = XMLD.GetElementsByTagName("avatar")[i].InnerText;
-                                    SiteStatus = XMLD.GetElementsByTagName("sitestatus")[i].InnerText;
-                                    Permalink = XMLD.GetElementsByTagName("permalink")[i].InnerText;
-                                    VCStatus = XMLD.GetElementsByTagName("isbanned")[i].InnerText;
-                                    Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[i].InnerText;
-                                    TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
-                                    SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
-                                    GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
-                                    try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
-                                }
-                                else
-                                {
-                                    Result = false;
-                                    ErrMsg = Properties.Resources.ErrNotExists;
-                                }
-                            }
+                            try { Nickname = XMLD.GetElementsByTagName("nickname")[i].InnerText; if (Nickname.Length > 25) { Nickname = Nickname.Substring(0, 25); } } catch { Nickname = Properties.Resources.AppNicknameUnknown; }
+                            SteamID = XMLD.GetElementsByTagName("steamID")[i].InnerText;
+                            SteamIDv3 = XMLD.GetElementsByTagName("steamIDv3")[i].InnerText;
+                            SteamID64 = XMLD.GetElementsByTagName("steamID64")[i].InnerText;
+                            AvatarURL = XMLD.GetElementsByTagName("avatar")[i].InnerText;
+                            SiteStatus = XMLD.GetElementsByTagName("sitestatus")[i].InnerText;
+                            Permalink = XMLD.GetElementsByTagName("permalink")[i].InnerText;
+                            VCStatus = XMLD.GetElementsByTagName("isbanned")[i].InnerText;
+                            Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[i].InnerText;
+                            TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
+                            SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
+                            GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
+                            try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
                         }
-                        File.Delete(XMLFileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        Result = false;
-                        ErrMsg = ex.Message;
+                        else
+                        {
+                            throw new ArgumentException(Properties.Resources.ErrNotExists);
+                        }
                     }
                 }
-                else
-                {
-                    Result = false;
-                    ErrMsg = Properties.Resources.ErrXML;
-                }
+                File.Delete(XMLFileName);
             }
-            catch (Exception ex)
+            else
             {
-                Result = false;
-                ErrMsg = ex.Message;
+                throw new FileNotFoundException(Properties.Resources.ErrXML);
             }
         }
     }
