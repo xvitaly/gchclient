@@ -91,6 +91,16 @@ namespace gchclient
         public string GameBans { get; private set; }
 
         /// <summary>
+        /// Хранит путь к файлу аватара на диске.
+        /// </summary>
+        public string LocalAvatarImg { get; private set; }
+
+        /// <summary>
+        /// Хранит и возвращает путь к каталогу временного хранения аватаров.
+        /// </summary>
+        private string LocalAvatarDir { get; } = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
+
+        /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
         /// <param name="Uri">URL API чекера</param>
@@ -124,6 +134,7 @@ namespace gchclient
                             TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
                             SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
                             GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
+                            LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.md5hash(AvatarURL) + ".jpg");
                             try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
                         }
                         else
