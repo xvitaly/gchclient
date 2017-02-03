@@ -31,11 +31,6 @@ namespace gchclient
     {
         #region Internal Properties
         /// <summary>
-        /// Хранит и возвращает путь к каталогу временного хранения аватаров.
-        /// </summary>
-        private string AVTDir { get; } = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
-        
-        /// <summary>
         /// Хранит и возвращает путь к текущему каталогу приложения.
         /// </summary>
         private string AppPath { get; } = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -72,7 +67,7 @@ namespace gchclient
         /// </summary>
         private void AvatarDownloader_Completed(object sender, AsyncCompletedEventArgs e)
         {
-            SetAvatar(AvatarImage);
+            SetAvatar(Chk.LocalAvatarImg);
         }
 
         /// <summary>
@@ -130,12 +125,11 @@ namespace gchclient
             Checker Chk = new Checker(API, CoreLib.md5hash(Key1 + Key2), UID, Properties.Settings.Default.UseSSL);
 
             // Парсим ответ чекера...
-            Invoke((MethodInvoker)delegate () { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
-            if (!(Directory.Exists(AVTDir))) { Directory.CreateDirectory(AVTDir); }
-            AvatarImage = Path.Combine(AVTDir, CoreLib.md5hash(Chk.AvatarURL) + ".jpg");
+            Invoke((MethodInvoker)delegate () { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
+            if (!(Directory.Exists(Chk.LocalAvatarDir))) { Directory.CreateDirectory(Chk.LocalAvatarDir); }
 
             // Загружаем аватар...
-            if (!(File.Exists(AvatarImage))) { try { using (WebClient AvatarDownloader = new WebClient()) { AvatarDownloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent); AvatarDownloader.DownloadFileCompleted += new AsyncCompletedEventHandler(AvatarDownloader_Completed); AvatarDownloader.DownloadFileAsync(new Uri(Chk.AvatarURL), AvatarImage); } } catch { Invoke((MethodInvoker)delegate () { RV_Avatar.Image = Properties.Resources.null_avatar; }); } } else { SetAvatar(AvatarImage); }
+            if (!(File.Exists(Chk.LocalAvatarImg))) { try { using (WebClient AvatarDownloader = new WebClient()) { AvatarDownloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent); AvatarDownloader.DownloadFileCompleted += new AsyncCompletedEventHandler(AvatarDownloader_Completed); AvatarDownloader.DownloadFileAsync(new Uri(Chk.AvatarURL), Chk.LocalAvatarImg); } } catch { Invoke((MethodInvoker)delegate () { RV_Avatar.Image = Properties.Resources.null_avatar; }); } } else { SetAvatar(Chk.LocalAvatarImg); }
 
             // Отображаем статус на сайте...
             switch (Chk.SiteStatus)
@@ -225,9 +219,6 @@ namespace gchclient
 
             // Выводим результат проверки в других системах, а также постоянную ссылку...
             Invoke((MethodInvoker)delegate () { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); RV_PermaLink.Text = Chk.Permalink; });
-
-            // Сохраняем SteamID...
-            SID64 = Chk.SteamID64;
 
             // Выводим статус VAC...
             if (Chk.VCStatus == "0")
@@ -584,8 +575,8 @@ namespace gchclient
         {
             if (Properties.Settings.Default.CopySIDiN)
             {
-                Clipboard.SetText(UsrSteamID);
-                TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, UsrSteamID), ToolTipIcon.Info);
+                Clipboard.SetText(Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID);
+                TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID), ToolTipIcon.Info);
             }
             else
             {
@@ -651,7 +642,7 @@ namespace gchclient
                 if (Regex.IsMatch(MRes.Groups["url"].Value, Properties.Resources.AppImageRegex))
                 {
                     // Откроем форму с вьювером...
-                    frmViewer FView = new frmViewer(MRes.Groups["url"].Value, SID64);
+                    frmViewer FView = new frmViewer(MRes.Groups["url"].Value, Chk.SteamID64);
                     if (Properties.Settings.Default.FrWnOverride) { FView.ShowDialog(); } else { FView.Show(); }
                 }
                 else
@@ -683,7 +674,7 @@ namespace gchclient
         /// </summary>
         private void LNK_ValFriends_Click(object sender, EventArgs e)
         {
-            frmFrChk frmChk = new frmFrChk(SID64);
+            frmFrChk frmChk = new frmFrChk(Chk.SteamID64);
             if (Properties.Settings.Default.FrWnOverride) { frmChk.ShowDialog(); } else { frmChk.Show(); }
         }
 
@@ -692,7 +683,7 @@ namespace gchclient
         /// </summary>
         private void RV_SteamID_Click(object sender, EventArgs e)
         {
-            string Sid = Control.ModifierKeys != Keys.Shift ? UsrSteamID : SID64;
+            string Sid = Control.ModifierKeys != Keys.Shift ? (Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID) : Chk.SteamID64;
             try { Clipboard.SetText(Sid); TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Sid), ToolTipIcon.Info); } catch { }
         }
 
@@ -701,7 +692,7 @@ namespace gchclient
         /// </summary>
         private void RV_AddFriend_Click(object sender, EventArgs e)
         {
-            try { CoreLib.OpenWebPage(String.Format(Properties.Resources.AppAddTemplate, SID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            try { CoreLib.OpenWebPage(String.Format(Properties.Resources.AppAddTemplate, Chk.SteamID64)); } catch { MessageBox.Show(Properties.Resources.AppURIStartFail, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
@@ -726,7 +717,7 @@ namespace gchclient
             }
 
             // Открываем в браузере по умолчанию...
-            try { CoreLib.OpenWebPage(String.Format(InvViewer, SID64)); } catch { MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            try { CoreLib.OpenWebPage(String.Format(InvViewer, Chk.SteamID64)); } catch { MessageBox.Show(Properties.Resources.AppStartFailure, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
