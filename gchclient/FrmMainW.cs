@@ -61,19 +61,9 @@ namespace gchclient
         private string AvatarImage { get; set; }
 
         /// <summary>
-        /// Хранит и возвращает текст последней возникшей ошибки.
-        /// </summary>
-        private string LastError { get; set; }
-
-        /// <summary>
         /// Хранит и возвращает информацию об обновлениях.
         /// </summary>
         private Updater UpdMan { get; set; }
-
-        /// <summary>
-        /// Хранит и возвращает статус последней проверки.
-        /// </summary>
-        private bool LastStatus { get; set; }
         #endregion
 
         #region Internal Methods
@@ -149,200 +139,193 @@ namespace gchclient
             // Получаем информацию...
             Checker Chk = new Checker(API, CoreLib.md5hash(Key1 + Key2), UID, Properties.Settings.Default.UseSSL);
 
-            // Указываем результат операции...
-            LastStatus = Chk.Result;
-            LastError = Chk.ErrMsg;
-
             // Парсим ответ чекера...
-            if (Chk.Result)
+            Invoke((MethodInvoker)delegate () { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
+            if (!(Directory.Exists(AVTDir))) { Directory.CreateDirectory(AVTDir); }
+            AvatarImage = Path.Combine(AVTDir, CoreLib.md5hash(Chk.AvatarURL) + ".jpg");
+
+            // Загружаем аватар...
+            if (!(File.Exists(AvatarImage))) { try { using (WebClient AvatarDownloader = new WebClient()) { AvatarDownloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent); AvatarDownloader.DownloadFileCompleted += new AsyncCompletedEventHandler(AvatarDownloader_Completed); AvatarDownloader.DownloadFileAsync(new Uri(Chk.AvatarURL), AvatarImage); } } catch { Invoke((MethodInvoker)delegate () { RV_Avatar.Image = Properties.Resources.null_avatar; }); } } else { SetAvatar(AvatarImage); }
+
+            // Отображаем статус на сайте...
+            switch (Chk.SiteStatus)
             {
-                Invoke((MethodInvoker)delegate() { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; UsrSteamID = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
-                if (!(Directory.Exists(AVTDir))) { Directory.CreateDirectory(AVTDir); }
-                AvatarImage = Path.Combine(AVTDir, CoreLib.md5hash(Chk.AvatarURL) + ".jpg");
-
-                // Загружаем аватар...
-                if (!(File.Exists(AvatarImage))) { try { using (WebClient AvatarDownloader = new WebClient()) { AvatarDownloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent); AvatarDownloader.DownloadFileCompleted += new AsyncCompletedEventHandler(AvatarDownloader_Completed); AvatarDownloader.DownloadFileAsync(new Uri(Chk.AvatarURL), AvatarImage); } } catch { Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; }); } } else { SetAvatar(AvatarImage); }
-
-                // Отображаем статус на сайте...
-                switch (Chk.SiteStatus)
-                {
-                    case "1": // Гарант...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUMiddle);
-                                RV_SiteStatus.ForeColor = Color.Green;
-                            });
-                        }
-                        break;
-                    case "2": // БС...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUWhite);
-                                RV_SiteStatus.ForeColor = Color.Green;
-                            });
-                        }
-                        break;
-                    case "3": // ЧС...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlack);
-                                RV_SiteStatus.ForeColor = Color.Red;
-                            });
-                        }
-                        break;
-                    case "4": // Нейтральный...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUNeutral);
-                                RV_SiteStatus.ForeColor = Color.Black;
-                            });
-                        }
-                        break;
-                    case "5": // ЧС аукциона...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlackAuc);
-                                RV_SiteStatus.ForeColor = Color.Red;
-                            });
-                        }
-                        break;
-                    case "6": // Сотрудник...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUStaff);
-                                RV_SiteStatus.ForeColor = Color.Blue;
-                            });
-                        }
-                        break;
-                    case "7": // Премиум-юзер...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUPrem);
-                                RV_SiteStatus.ForeColor = Color.DarkViolet;
-                            });
-                        }
-                        break;
-                    case "8": // Ненадёжный...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUGray);
-                                RV_SiteStatus.ForeColor = Color.Purple;
-                            });
-                        }
-                        break;
-                    default: // Что-то новое. Наверное API сменился, выдадим заглушку...
-                        {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUUnknown);
-                                RV_SiteStatus.ForeColor = Color.Black;
-                            });
-                        }
-                        break;
-                }
-
-                // Выводим результат проверки в других системах, а также постоянную ссылку...
-                Invoke((MethodInvoker)delegate() { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); RV_PermaLink.Text = Chk.Permalink; });
-
-                // Сохраняем SteamID...
-                SID64 = Chk.SteamID64;
-
-                // Выводим статус VAC...
-                if (Chk.VCStatus == "0")
-                {
-                    Invoke((MethodInvoker)delegate()
+                case "1": // Гарант...
                     {
-                        RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusNormal);
-                        RV_VCStatusA.ForeColor = Color.Black;
-                    });
-                }
-                else
-                {
-                    Invoke((MethodInvoker)delegate()
-                    {
-                        RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusBanned);
-                        RV_VCStatusA.ForeColor = Color.Red;
-                    });
-                }
-
-                // Выводим статус F2P (наличие или отсутствие купленных игр)...
-                if (Chk.Free2PlaySt == "1")
-                {
-                    Invoke((MethodInvoker)delegate()
-                    {
-                        RV_F2P.Text = Properties.Resources.F2PAccTextStatus;
-                        RV_F2P.BackColor = Color.Yellow;
-                    });
-                }
-                else
-                {
-                    Invoke((MethodInvoker)delegate()
-                    {
-                        RV_F2P.Text = String.Empty;
-                        RV_F2P.BackColor = Control.DefaultBackColor;
-                    });
-                }
-
-                // Выводим кастомное описание...
-                Invoke((MethodInvoker)delegate() { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? Chk.CustomText : Properties.Resources.CustInfoNone; });
-
-                // Выводим статус торговли...
-                switch (Chk.TradeStatus)
-                {
-                    case "0":
+                        Invoke((MethodInvoker)delegate ()
                         {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeNormal);
-                                RV_TradeStatus.ForeColor = Color.Black;
-                            });
-                        }
-                        break;
-                    case "1":
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUMiddle);
+                            RV_SiteStatus.ForeColor = Color.Green;
+                        });
+                    }
+                    break;
+                case "2": // БС...
+                    {
+                        Invoke((MethodInvoker)delegate ()
                         {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeBanned);
-                                RV_TradeStatus.ForeColor = Color.IndianRed;
-                            });
-                        }
-                        break;
-                    case "2":
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUWhite);
+                            RV_SiteStatus.ForeColor = Color.Green;
+                        });
+                    }
+                    break;
+                case "3": // ЧС...
+                    {
+                        Invoke((MethodInvoker)delegate ()
                         {
-                            Invoke((MethodInvoker)delegate()
-                            {
-                                RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeIsp);
-                                RV_TradeStatus.ForeColor = Color.DarkBlue;
-                            });
-                        }
-                        break;
-                }
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlack);
+                            RV_SiteStatus.ForeColor = Color.Red;
+                        });
+                    }
+                    break;
+                case "4": // Нейтральный...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUNeutral);
+                            RV_SiteStatus.ForeColor = Color.Black;
+                        });
+                    }
+                    break;
+                case "5": // ЧС аукциона...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUBlackAuc);
+                            RV_SiteStatus.ForeColor = Color.Red;
+                        });
+                    }
+                    break;
+                case "6": // Сотрудник...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUStaff);
+                            RV_SiteStatus.ForeColor = Color.Blue;
+                        });
+                    }
+                    break;
+                case "7": // Премиум-юзер...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUPrem);
+                            RV_SiteStatus.ForeColor = Color.DarkViolet;
+                        });
+                    }
+                    break;
+                case "8": // Ненадёжный...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUGray);
+                            RV_SiteStatus.ForeColor = Color.Purple;
+                        });
+                    }
+                    break;
+                default: // Что-то новое. Наверное API сменился, выдадим заглушку...
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_SiteStatus.Text = String.Format(Properties.Resources.TemplateInternal, Properties.Resources.TemplateTFSUUnknown);
+                            RV_SiteStatus.ForeColor = Color.Black;
+                        });
+                    }
+                    break;
+            }
 
-                // Выводим статус игровых банов...
-                if (Chk.GameBans == "0")
+            // Выводим результат проверки в других системах, а также постоянную ссылку...
+            Invoke((MethodInvoker)delegate () { RV_AdvStatus.Text = String.Format(Properties.Resources.TemplateSteamRep, Chk.SRStatus); RV_PermaLink.Text = Chk.Permalink; });
+
+            // Сохраняем SteamID...
+            SID64 = Chk.SteamID64;
+
+            // Выводим статус VAC...
+            if (Chk.VCStatus == "0")
+            {
+                Invoke((MethodInvoker)delegate ()
                 {
-                    Invoke((MethodInvoker)delegate()
-                    {
-                        RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Properties.Resources.TemplateGameBansNo);
-                        RV_GameBans.ForeColor = Color.Black;
-                    });
-                }
-                else
+                    RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusNormal);
+                    RV_VCStatusA.ForeColor = Color.Black;
+                });
+            }
+            else
+            {
+                Invoke((MethodInvoker)delegate ()
                 {
-                    Invoke((MethodInvoker)delegate()
+                    RV_VCStatusA.Text = String.Format(Properties.Resources.VCStatusA, Properties.Resources.VCStatusBanned);
+                    RV_VCStatusA.ForeColor = Color.Red;
+                });
+            }
+
+            // Выводим статус F2P (наличие или отсутствие купленных игр)...
+            if (Chk.Free2PlaySt == "1")
+            {
+                Invoke((MethodInvoker)delegate ()
+                {
+                    RV_F2P.Text = Properties.Resources.F2PAccTextStatus;
+                    RV_F2P.BackColor = Color.Yellow;
+                });
+            }
+            else
+            {
+                Invoke((MethodInvoker)delegate ()
+                {
+                    RV_F2P.Text = String.Empty;
+                    RV_F2P.BackColor = Control.DefaultBackColor;
+                });
+            }
+
+            // Выводим кастомное описание...
+            Invoke((MethodInvoker)delegate () { RV_CustDescr.Text = (!String.IsNullOrWhiteSpace(Chk.CustomText) && (Chk.CustomText != Properties.Resources.CustInfoNone)) ? Chk.CustomText : Properties.Resources.CustInfoNone; });
+
+            // Выводим статус торговли...
+            switch (Chk.TradeStatus)
+            {
+                case "0":
                     {
-                        RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, String.Format(Properties.Resources.TemplateGameBansYes, Chk.GameBans));
-                        RV_GameBans.ForeColor = Color.Red;
-                    });
-                }
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeNormal);
+                            RV_TradeStatus.ForeColor = Color.Black;
+                        });
+                    }
+                    break;
+                case "1":
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeBanned);
+                            RV_TradeStatus.ForeColor = Color.IndianRed;
+                        });
+                    }
+                    break;
+                case "2":
+                    {
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            RV_TradeStatus.Text = String.Format(Properties.Resources.TradeST, Properties.Resources.TradeIsp);
+                            RV_TradeStatus.ForeColor = Color.DarkBlue;
+                        });
+                    }
+                    break;
+            }
+
+            // Выводим статус игровых банов...
+            if (Chk.GameBans == "0")
+            {
+                Invoke((MethodInvoker)delegate ()
+                {
+                    RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, Properties.Resources.TemplateGameBansNo);
+                    RV_GameBans.ForeColor = Color.Black;
+                });
+            }
+            else
+            {
+                Invoke((MethodInvoker)delegate ()
+                {
+                    RV_GameBans.Text = String.Format(Properties.Resources.TemplateGameBans, String.Format(Properties.Resources.TemplateGameBansYes, Chk.GameBans));
+                    RV_GameBans.ForeColor = Color.Red;
+                });
             }
         }
         #endregion
@@ -361,8 +344,9 @@ namespace gchclient
         /// </summary>
         private void BW_Chk_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            ResultView.Visible = LastStatus;
-            if (LastStatus) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(LastError, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, LastError, ToolTipIcon.Warning); } }
+            bool res = e.Error == null;
+            ResultView.Visible = res;
+            if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, e.Error.Message, ToolTipIcon.Warning); } }
         }
 
         /// <summary>
