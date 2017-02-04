@@ -207,6 +207,10 @@
       <Link>LICENSE.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\README.txt">
+      <Link>README.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\scripts\gchclient.iss">
       <Link>gchclient.iss</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
