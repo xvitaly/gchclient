@@ -51,7 +51,6 @@ ShcNETFx=Установить Microsoft .NET Framework 4.6
 ShcLocTexts=Информация
 OptNetStatus=Идёт оптимизация MSIL приложения...
 OptNetUninstallStatus=Идёт удаление машинных сборок MSIL...
-ShcNFxUrl=https://www.microsoft.com/ru-RU/download/details.aspx?id=49981
 RepAppErrText=Сообщить об ошибке в программе
 InstDebugInfo=Установить отладочную информацию
 InstAutorun=Автоматический запуск программы
@@ -80,9 +79,9 @@ Name: "{group}\{cm:ShcLocTexts}\{cm:ShcReadme}"; Filename: "{app}\README.txt"
 Name: "{group}\{cm:ShcLocTexts}\{cm:ProgramOnTheWeb,SRC Repair}"; Filename: "https://www.easycoding.org/projects/gchclient"
 Name: "{group}\{cm:UninstallProgram,Garant Checker Offline}"; Filename: "{uninstallexe}"
 Name: "{group}\{cm:RepAppErrText}"; Filename: "https://github.com/xvitaly/gchclient/issues"
+Name: "{group}\{cm:ShcNETFx}"; Filename: "https://www.microsoft.com/ru-RU/download/details.aspx?id=49981"
 Name: "{commondesktop}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: quicklaunchicon
-Name: "{group}\{cm:ShcNETFx}"; Filename: "{cm:ShcNFxUrl}"
 
 [Registry]
 Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "gchclient"; ValueData: """{app}\gchclient.exe"" /hide"; Flags: uninsdeletevalue; Tasks: autorun
