@@ -54,11 +54,13 @@ OptNetUninstallStatus=Идёт удаление машинных сборок MS
 ShcNFxUrl=https://www.microsoft.com/ru-RU/download/details.aspx?id=49981
 RepAppErrText=Сообщить об ошибке в программе
 InstDebugInfo=Установить отладочную информацию
+InstAutorun=Автоматический запуск программы
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "insdebginf"; Description: "{cm:InstDebugInfo}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
+Name: "autorun"; Description: "{cm:InstAutorun}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
 
 [Files]
 Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
@@ -81,6 +83,9 @@ Name: "{group}\{cm:RepAppErrText}"; Filename: "https://github.com/xvitaly/gchcli
 Name: "{commondesktop}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: quicklaunchicon
 Name: "{group}\{cm:ShcNETFx}"; Filename: "{cm:ShcNFxUrl}"
+
+[Registry]
+Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "gchclient"; ValueData: """{app}\gchclient.exe"" /hide"; Flags: uninsdeletevalue; Tasks: autorun
 
 [Run]
 Filename: "{app}\gchclient.exe"; Description: "{cm:LaunchProgram,Garant Checker Offline}"; Flags: nowait postinstall skipifsilent
