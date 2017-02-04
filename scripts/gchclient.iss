@@ -13,7 +13,7 @@
 
 [Setup]
 ; Задаём основные параметры...
-AppId={8388BE2D-6463-4278-98B2-9572D345C67A}
+AppId={{8388BE2D-6463-4278-98B2-9572D345C67A}
 AppName=Garant Checker Offline
 AppVerName=Garant Checker Offline
 AppPublisher=EasyCoding Team
