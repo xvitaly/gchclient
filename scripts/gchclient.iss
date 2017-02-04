@@ -25,6 +25,7 @@ DefaultDirName={code:GetDefRoot}\Garant Checker Offline
 DefaultGroupName=Garant Checker Offline
 AllowNoIcons=yes
 LicenseFile=LICENSE.txt
+InfoBeforeFile=README.txt
 OutputBaseFilename=gchclient_10
 SetupIconFile=gchclient.ico
 UninstallDisplayIcon={app}\gchclient.exe
@@ -40,7 +41,7 @@ VersionInfoCopyright=(c) 2005-2017 EasyCoding Team. All rights reserved.
 VersionInfoCompany=EasyCoding Team
 
 [Languages]
-Name: "russian"; MessagesFile: "compiler:Russian.isl"; InfoBeforeFile: "README.txt"
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
 
 [CustomMessages]
 AdvFeatGroupDesc=Дополнительные возможности:
