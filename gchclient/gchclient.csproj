@@ -215,7 +215,9 @@
       <Link>gchclient.iss</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="gchclient.ico" />
+    <Content Include="gchclient.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\iconReport.png" />
     <None Include="Resources\avatarholder.png" />
     <None Include="Resources\message.png" />
