@@ -76,7 +76,7 @@ Source: "gchclient.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Name: "{group}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"
 Name: "{group}\{cm:ShcLocTexts}\{cm:ShcLicenseAgrr}"; Filename: "{app}\LICENSE.txt"
 Name: "{group}\{cm:ShcLocTexts}\{cm:ShcReadme}"; Filename: "{app}\README.txt"
-Name: "{group}\{cm:ShcLocTexts}\{cm:ProgramOnTheWeb,SRC Repair}"; Filename: "https://www.easycoding.org/projects/gchclient"
+Name: "{group}\{cm:ShcLocTexts}\{cm:ProgramOnTheWeb,Garant Checker Offline}"; Filename: "https://www.easycoding.org/projects/gchclient"
 Name: "{group}\{cm:UninstallProgram,Garant Checker Offline}"; Filename: "{uninstallexe}"
 Name: "{group}\{cm:RepAppErrText}"; Filename: "https://github.com/xvitaly/gchclient/issues"
 Name: "{group}\{cm:ShcNETFx}"; Filename: "https://www.microsoft.com/ru-RU/download/details.aspx?id=49981"
