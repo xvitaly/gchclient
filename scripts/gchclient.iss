@@ -60,7 +60,6 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Name: "insdebginf"; Description: "{cm:InstDebugInfo}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
 
 [Files]
-Source: "isxdl.dll"; DestDir: {tmp}; Flags: dontcopy
 Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "README.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gchcore.dll"; DestDir: "{app}"; Flags: ignoreversion
