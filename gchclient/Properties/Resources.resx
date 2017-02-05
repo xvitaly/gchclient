@@ -145,9 +145,6 @@
   <data name="VCStatusA" xml:space="preserve">
     <value>Статус VAC: {0}.</value>
   </data>
-  <data name="ErrXML" xml:space="preserve">
-    <value>Файл не существует! Проверьте права доступа к временному каталогу.</value>
-  </data>
   <data name="AppChkRegEx" xml:space="preserve">
     <value>^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/</value>
   </data>

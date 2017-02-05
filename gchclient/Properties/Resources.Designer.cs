@@ -422,15 +422,6 @@ namespace gchclient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Файл не существует! Проверьте права доступа к временному каталогу..
-        /// </summary>
-        internal static string ErrXML {
-            get {
-                return ResourceManager.GetString("ErrXML", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Бесплатный аккаунт..
         /// </summary>
         internal static string F2PAccTextStatus {

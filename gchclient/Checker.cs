@@ -109,45 +109,33 @@ namespace gchclient
         /// <param name="SSL">Использовать ли SSL</param>
         public Checker(string Uri, string Key, string Par, bool SSL)
         {
-            string XMLFileName = Path.GetTempFileName();
-            if (CoreLib.DownloadRemoteFile(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID))
+            XmlDocument XMLD = new XmlDocument();
+            XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Uri, (SSL ? "https://" : "http://"), "check", Key, Par), Properties.Resources.AppUserAgent, Auth.HardwareID));
+            XmlNodeList XMLNList = XMLD.GetElementsByTagName("userprofile");
+            for (int i = 0; i < XMLNList.Count; i++)
             {
-                using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
+                XmlElement GameID = (XmlElement)XMLD.GetElementsByTagName("userprofile")[i];
+                if (XMLD.GetElementsByTagName("qstatus")[i].InnerText == "OK")
                 {
-                    XmlDocument XMLD = new XmlDocument();
-                    XMLD.Load(XMLFS);
-                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("userprofile");
-                    for (int i = 0; i < XMLNList.Count; i++)
-                    {
-                        XmlElement GameID = (XmlElement)XMLD.GetElementsByTagName("userprofile")[i];
-                        if (XMLD.GetElementsByTagName("qstatus")[i].InnerText == "OK")
-                        {
-                            try { Nickname = XMLD.GetElementsByTagName("nickname")[i].InnerText; if (Nickname.Length > 25) { Nickname = Nickname.Substring(0, 25); } } catch { Nickname = Properties.Resources.AppNicknameUnknown; }
-                            SteamID = XMLD.GetElementsByTagName("steamID")[i].InnerText;
-                            SteamIDv3 = XMLD.GetElementsByTagName("steamIDv3")[i].InnerText;
-                            SteamID64 = XMLD.GetElementsByTagName("steamID64")[i].InnerText;
-                            AvatarURL = XMLD.GetElementsByTagName("avatar")[i].InnerText;
-                            SiteStatus = XMLD.GetElementsByTagName("sitestatus")[i].InnerText;
-                            Permalink = XMLD.GetElementsByTagName("permalink")[i].InnerText;
-                            VCStatus = XMLD.GetElementsByTagName("isbanned")[i].InnerText;
-                            Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[i].InnerText;
-                            TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
-                            SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
-                            GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
-                            LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.md5hash(AvatarURL) + ".jpg");
-                            try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
-                        }
-                        else
-                        {
-                            throw new ArgumentException(Properties.Resources.ErrNotExists);
-                        }
-                    }
+                    try { Nickname = XMLD.GetElementsByTagName("nickname")[i].InnerText; if (Nickname.Length > 25) { Nickname = Nickname.Substring(0, 25); } } catch { Nickname = Properties.Resources.AppNicknameUnknown; }
+                    SteamID = XMLD.GetElementsByTagName("steamID")[i].InnerText;
+                    SteamIDv3 = XMLD.GetElementsByTagName("steamIDv3")[i].InnerText;
+                    SteamID64 = XMLD.GetElementsByTagName("steamID64")[i].InnerText;
+                    AvatarURL = XMLD.GetElementsByTagName("avatar")[i].InnerText;
+                    SiteStatus = XMLD.GetElementsByTagName("sitestatus")[i].InnerText;
+                    Permalink = XMLD.GetElementsByTagName("permalink")[i].InnerText;
+                    VCStatus = XMLD.GetElementsByTagName("isbanned")[i].InnerText;
+                    Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[i].InnerText;
+                    TradeStatus = XMLD.GetElementsByTagName("istrbanned")[i].InnerText;
+                    SRStatus = XMLD.GetElementsByTagName("steamrep")[i].InnerText;
+                    GameBans = XMLD.GetElementsByTagName("gamebans")[i].InnerText;
+                    LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.md5hash(AvatarURL) + ".jpg");
+                    try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[i].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
                 }
-                File.Delete(XMLFileName);
-            }
-            else
-            {
-                throw new FileNotFoundException(Properties.Resources.ErrXML);
+                else
+                {
+                    throw new ArgumentException(Properties.Resources.ErrNotExists);
+                }
             }
         }
     }
