@@ -66,94 +66,89 @@ namespace gchclient
         {
             if (!(String.IsNullOrWhiteSpace(InpPriToken.Text)) && !(String.IsNullOrWhiteSpace(InpSecToken.Text)))
             {
-                // Проверим данные токена...
-                string XMLFileName = Path.GetTempFileName();
-
                 try
                 {
-                    // Загружаем XML...
-                    CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), String.Empty), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
-
-                    // Разбираем полученный XML...
-                    using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
+                    // Загружаем и разбираем полученный XML...
+                    XmlDocument XMLD = new XmlDocument();
+                    XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
+                    
+                    // Проверяем результат...
+                    if (XMLD.GetElementsByTagName("result")[0].InnerText == "PASSED")
                     {
-                        XmlDocument XMLD = new XmlDocument();
-                        XMLD.Load(XMLFS);
-                        if (XMLD.GetElementsByTagName("result")[0].InnerText == "PASSED")
+                        // Сохраняем настройки "горячей клавиши"...
+                        switch (Opt_Hotkey.SelectedIndex)
                         {
-                            // Сохраняем настройки "горячей клавиши"...
-                            switch (Opt_Hotkey.SelectedIndex)
+                            case 0:
+                                Properties.Settings.Default.Hotkey = Keys.F8;
+                                break;
+                            case 1:
+                                Properties.Settings.Default.Hotkey = Keys.F9;
+                                break;
+                            case 2:
+                                Properties.Settings.Default.Hotkey = Keys.F10;
+                                break;
+                            case 3:
+                                Properties.Settings.Default.Hotkey = Keys.F11;
+                                break;
+                            case 4:
+                                Properties.Settings.Default.Hotkey = Keys.F12;
+                                break;
+                            default:
+                                Properties.Settings.Default.Hotkey = Keys.F11;
+                                break;
+                        }
+
+                        // Сохраняем все остальные настройки приложения...
+                        Properties.Settings.Default.PrimKey = InpPriToken.Text;
+                        Properties.Settings.Default.SecKey = InpSecToken.Text;
+                        Properties.Settings.Default.UseSSL = Opt_ProtocolType.SelectedIndex == 0;
+                        Properties.Settings.Default.FrWnOverride = Opt_FrWOverride.Checked;
+                        Properties.Settings.Default.FrWnClose = Opt_FrWHide.Checked;
+                        Properties.Settings.Default.AllowGlobKey = Opt_EnableHotKey.Checked;
+                        Properties.Settings.Default.InventoryViewer = Opt_InvViewer.SelectedIndex;
+                        Properties.Settings.Default.ShowQuickBtns = Opt_FrWQbnts.Checked;
+                        Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
+                        Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
+                        Properties.Settings.Default.AllowClipbCheck = Opt_ClipbInt.Checked;
+                        Properties.Settings.Default.UseSteamIDv3 = Opt_UseNewSteamIDFormat.Checked;
+
+                        // Сохраняем настройки автозапуска...
+                        try { if (Opt_Autorun.Checked) { Autorun.Enable("gchclient"); } else { Autorun.Disable("gchclient"); } } catch { }
+
+                        // Сохраняем настройки списка игнорирования...
+                        try
+                        {
+                            Properties.Settings.Default.IgnoreList.Clear();
+                            if (Opt_IgnEd.Rows.Count > 1)
                             {
-                                case 0: Properties.Settings.Default.Hotkey = Keys.F8;
-                                    break;
-                                case 1: Properties.Settings.Default.Hotkey = Keys.F9;
-                                    break;
-                                case 2: Properties.Settings.Default.Hotkey = Keys.F10;
-                                    break;
-                                case 3: Properties.Settings.Default.Hotkey = Keys.F11;
-                                    break;
-                                case 4: Properties.Settings.Default.Hotkey = Keys.F12;
-                                    break;
-                                default: Properties.Settings.Default.Hotkey = Keys.F11;
-                                    break;
-                            }
-
-                            // Сохраняем все остальные настройки приложения...
-                            Properties.Settings.Default.PrimKey = InpPriToken.Text;
-                            Properties.Settings.Default.SecKey = InpSecToken.Text;
-                            Properties.Settings.Default.UseSSL = Opt_ProtocolType.SelectedIndex == 0;
-                            Properties.Settings.Default.FrWnOverride = Opt_FrWOverride.Checked;
-                            Properties.Settings.Default.FrWnClose = Opt_FrWHide.Checked;
-                            Properties.Settings.Default.AllowGlobKey = Opt_EnableHotKey.Checked;
-                            Properties.Settings.Default.InventoryViewer = Opt_InvViewer.SelectedIndex;
-                            Properties.Settings.Default.ShowQuickBtns = Opt_FrWQbnts.Checked;
-                            Properties.Settings.Default.CopySIDiN = Opt_CpSidName.Checked;
-                            Properties.Settings.Default.EnableAutoUpdate = Opt_AutoUpdate.Checked;
-                            Properties.Settings.Default.AllowClipbCheck = Opt_ClipbInt.Checked;
-                            Properties.Settings.Default.UseSteamIDv3 = Opt_UseNewSteamIDFormat.Checked;
-
-                            // Сохраняем настройки автозапуска...
-                            try { if (Opt_Autorun.Checked) { Autorun.Enable("gchclient"); } else { Autorun.Disable("gchclient"); } } catch { }
-
-                            // Сохраняем настройки списка игнорирования...
-                            try
-                            {
-                                Properties.Settings.Default.IgnoreList.Clear();
-                                if (Opt_IgnEd.Rows.Count > 1)
+                                for (int i = 0; i < Opt_IgnEd.Rows.Count - 1; i++)
                                 {
-                                    for (int i = 0; i < Opt_IgnEd.Rows.Count - 1; i++)
+                                    string RwStr = Opt_IgnEd.Rows[i].Cells[0].Value.ToString().Trim();
+                                    if (!(String.IsNullOrWhiteSpace(RwStr)))
                                     {
-                                        string RwStr = Opt_IgnEd.Rows[i].Cells[0].Value.ToString().Trim();
-                                        if (!(String.IsNullOrWhiteSpace(RwStr)))
+                                        if (Regex.IsMatch(RwStr, Properties.Resources.AppChkRegEx))
                                         {
-                                            if (Regex.IsMatch(RwStr, Properties.Resources.AppChkRegEx))
-                                            {
-                                                RwStr = CoreLib.FormatLink(RwStr);
-                                                Properties.Settings.Default.IgnoreList.Add(RwStr.ToLower());
-                                            }
+                                            RwStr = CoreLib.FormatLink(RwStr);
+                                            Properties.Settings.Default.IgnoreList.Add(RwStr.ToLower());
                                         }
                                     }
                                 }
                             }
-                            catch { }
-
-                            // Записываем настройки в файл...
-                            Properties.Settings.Default.Save();
-
-                            // Выводим сообщение...
-                            MessageBox.Show(Properties.Resources.AppSettSaved, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Закрываем форму настроек...
-                            Close();
                         }
-                    }
+                        catch { }
 
-                    // Удаляем временный файл...
-                    File.Delete(XMLFileName);
+                        // Записываем настройки в файл...
+                        Properties.Settings.Default.Save();
+
+                        // Выводим сообщение...
+                        MessageBox.Show(Properties.Resources.AppSettSaved, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Закрываем форму настроек...
+                        Close();
+                    }
                 }
                 catch
                 {
-                    if (File.Exists(XMLFileName)) { File.Delete(XMLFileName); }
                     MessageBox.Show(Properties.Resources.AppIncorrectTokens, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Application.Exit();
                 }
