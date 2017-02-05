@@ -14,7 +14,6 @@
 */
 using System;
 using System.ComponentModel;
-using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using gchcore;
@@ -26,11 +25,6 @@ namespace gchclient
     /// </summary>
     public partial class frmTokenInfo : Form
     {
-        /// <summary>
-        /// Хранит информацию об успешности последней операции.
-        /// </summary>
-        private bool LastError { get; set; } = true;
-
         /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
@@ -52,33 +46,16 @@ namespace gchclient
         /// </summary>
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
-            string XMLFileName = Path.GetTempFileName();
-
-            try
+            XmlDocument XMLD = new XmlDocument();
+            XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
+            Invoke((MethodInvoker)delegate()
             {
-                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), String.Empty), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
-                using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
-                {
-                    XmlDocument XMLD = new XmlDocument();
-                    XMLD.Load(XMLFS);
-                    Invoke((MethodInvoker)delegate()
-                    {
-                        Tn_ExpDate.Text = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("expires")[0].InnerText)).ToString();
-                        Tn_Login.Text = XMLD.GetElementsByTagName("nickname")[0].InnerText;
-                        Tn_IP.Text = XMLD.GetElementsByTagName("ip")[0].InnerText;
-                        Tn_APIVer.Text = XMLD.GetElementsByTagName("apiversion")[0].InnerText;
-                        Tn_CliVer.Text = XMLD.GetElementsByTagName("mcliversion")[0].InnerText;
-                    });
-                }
-
-                File.Delete(XMLFileName);
-                LastError = false;
-            }
-            catch
-            {
-                if (File.Exists(XMLFileName)) { File.Delete(XMLFileName); }
-                MessageBox.Show(Properties.Resources.AppErrTokenInfo, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                Tn_ExpDate.Text = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("expires")[0].InnerText)).ToString();
+                Tn_Login.Text = XMLD.GetElementsByTagName("nickname")[0].InnerText;
+                Tn_IP.Text = XMLD.GetElementsByTagName("ip")[0].InnerText;
+                Tn_APIVer.Text = XMLD.GetElementsByTagName("apiversion")[0].InnerText;
+                Tn_CliVer.Text = XMLD.GetElementsByTagName("mcliversion")[0].InnerText;
+            });
         }
 
         /// <summary>
@@ -86,7 +63,11 @@ namespace gchclient
         /// </summary>
         private void BW_Rcv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (LastError) { Close(); }
+            if (e.Error != null)
+            {
+                MessageBox.Show(Properties.Resources.AppErrTokenInfo, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+            }
         }
 
         /// <summary>
