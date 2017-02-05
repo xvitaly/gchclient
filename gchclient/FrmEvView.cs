@@ -89,31 +89,24 @@ namespace gchclient
         /// </summary>
         private void BW_ImgLoader_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                // Изменяем текст строки состояния...
-                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
-                
-                // Генерируем временный файл...
-                string ImgFileName = Path.GetTempFileName();
-                
-                // Загружаем файл...
-                CoreLib.DownloadRemoteFile(ImageURL, ImgFileName, Properties.Resources.AppUserAgent);
+            // Изменяем текст строки состояния...
+            Invoke((MethodInvoker)delegate () { SB_Status.Text = Properties.Resources.AppSBReceiving; });
 
-                // Создаём файловый поток во избежание блокировки файла приложением...
-                using (FileStream ImgStream = new FileStream(ImgFileName, FileMode.Open, FileAccess.Read))
-                {
-                    // Загружаем картинку в контрол из потока...
-                    Invoke((MethodInvoker)delegate () { ImgBoxMain.Image = Image.FromStream(ImgStream); });
-                }
+            // Генерируем временный файл...
+            string ImgFileName = Path.GetTempFileName();
 
-                // Удаляем исходный файл...
-                if (File.Exists(ImgFileName)) { File.Delete(ImgFileName); }
-            }
-            catch (Exception Ex)
+            // Загружаем файл...
+            CoreLib.DownloadRemoteFile(ImageURL, ImgFileName, Properties.Resources.AppUserAgent);
+
+            // Создаём файловый поток во избежание блокировки файла приложением...
+            using (FileStream ImgStream = new FileStream(ImgFileName, FileMode.Open, FileAccess.Read))
             {
-                MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Загружаем картинку в контрол из потока...
+                Invoke((MethodInvoker)delegate () { ImgBoxMain.Image = Image.FromStream(ImgStream); });
             }
+
+            // Удаляем исходный файл...
+            if (File.Exists(ImgFileName)) { File.Delete(ImgFileName); }
         }
 
         /// <summary>
@@ -121,7 +114,7 @@ namespace gchclient
         /// </summary>
         private void BW_ImgLoader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
+            if (e.Error == null) { SB_Status.Text = Properties.Resources.AppSBReady; } else { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         /// <summary>
