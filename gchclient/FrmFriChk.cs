@@ -163,56 +163,47 @@ namespace gchclient
         /// </summary>
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                string XMLFileName = Path.GetTempFileName();
-                Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReceiving; });
-                CoreLib.DownloadRemoteFile(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), XMLFileName, Properties.Resources.AppUserAgent, Auth.HardwareID);
+            // Получаем XML с сервера...
+            Invoke((MethodInvoker)delegate () { SB_Status.Text = Properties.Resources.AppSBReceiving; });
+            string XMLObj = CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), Properties.Resources.AppUserAgent, Auth.HardwareID);
 
-                try
-                {
-                    Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBBuilding; });
-                    using (FileStream XMLFS = new FileStream(XMLFileName, FileMode.Open, FileAccess.Read))
-                    {
-                        XmlDocument XMLD = new XmlDocument();
-                        XMLD.Load(XMLFS);
-                        XmlNodeList XMLNList = XMLD.GetElementsByTagName("friend");
-                        for (int i = 0; i < XMLNList.Count; i++)
-                        {
-                            DateTime dtfr = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("friend_since")[i].InnerText));
-                            string friendlystat = String.Empty;
-                            switch (XMLD.GetElementsByTagName("sitestatus")[i].InnerText)
-                            {
-                                case "1": friendlystat = Properties.Resources.ListGarantName;
-                                    break;
-                                case "2": friendlystat = Properties.Resources.ListWhiteName;
-                                    break;
-                                case "3": friendlystat = Properties.Resources.ListBlackName;
-                                    break;
-                                case "5": friendlystat = Properties.Resources.ListBlAucName;
-                                    break;
-                                case "6": friendlystat = Properties.Resources.ListStaffName;
-                                    break;
-                                case "7": friendlystat = Properties.Resources.ListPremName;
-                                    break;
-                                case "8": friendlystat = Properties.Resources.ListNotTrName;
-                                    break;
-                                default: friendlystat = Properties.Resources.ListNoneName;
-                                    break;
-                            }
-                            Invoke((MethodInvoker)delegate() { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), Properties.Resources.SCUnknown); });
-                        }
-                    }
-                    File.Delete(XMLFileName);
-                }
-                catch
-                {
-                    if (File.Exists(XMLFileName)) { File.Delete(XMLFileName); }
-                }
-            }
-            catch (Exception Ex)
+            // Обходим полученный XML...
+            Invoke((MethodInvoker)delegate () { SB_Status.Text = Properties.Resources.AppSBBuilding; });
+            XmlDocument XMLD = new XmlDocument();
+            XMLD.LoadXml(XMLObj);
+            XmlNodeList XMLNList = XMLD.GetElementsByTagName("friend");
+            for (int i = 0; i < XMLNList.Count; i++)
             {
-                MessageBox.Show(Ex.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DateTime dtfr = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("friend_since")[i].InnerText));
+                string friendlystat = String.Empty;
+                switch (XMLD.GetElementsByTagName("sitestatus")[i].InnerText)
+                {
+                    case "1":
+                        friendlystat = Properties.Resources.ListGarantName;
+                        break;
+                    case "2":
+                        friendlystat = Properties.Resources.ListWhiteName;
+                        break;
+                    case "3":
+                        friendlystat = Properties.Resources.ListBlackName;
+                        break;
+                    case "5":
+                        friendlystat = Properties.Resources.ListBlAucName;
+                        break;
+                    case "6":
+                        friendlystat = Properties.Resources.ListStaffName;
+                        break;
+                    case "7":
+                        friendlystat = Properties.Resources.ListPremName;
+                        break;
+                    case "8":
+                        friendlystat = Properties.Resources.ListNotTrName;
+                        break;
+                    default:
+                        friendlystat = Properties.Resources.ListNoneName;
+                        break;
+                }
+                Invoke((MethodInvoker)delegate () { DVList.Rows.Add(i + 1, XMLD.GetElementsByTagName("lastnick")[i].InnerText, friendlystat, dtfr, String.Format(@"http://steamcommunity.com/profiles/{0}/", XMLD.GetElementsByTagName("steamid64")[i].InnerText), Properties.Resources.SCUnknown); });
             }
         }
 
@@ -224,14 +215,21 @@ namespace gchclient
             // Изменяем статус в строке...
             Invoke((MethodInvoker)delegate() { SB_Status.Text = Properties.Resources.AppSBReady; });
 
-            // Устанавливаем фокус на окно...
-            Focus();
-
-            // Проверяем нашлось ли что-то...
-            if (DVList.Rows.Count == 0)
+            if (e.Error == null)
             {
-                MessageBox.Show(Properties.Resources.AppFrErr, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                // Устанавливаем фокус на окно...
+                Focus();
+
+                // Проверяем нашлось ли что-то...
+                if (DVList.Rows.Count == 0)
+                {
+                    MessageBox.Show(Properties.Resources.AppFrErr, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
