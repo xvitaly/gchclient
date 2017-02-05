@@ -150,6 +150,7 @@ namespace gchcore
             // Загружаем из Интернета...
             using (WebClient Downloader = new WebClient())
             {
+                Downloader.Encoding = Encoding.UTF8;
                 Downloader.Headers.Add("User-Agent", UserAgent);
                 Downloader.Headers.Add("HardwareID", HardwareID);
                 Result = Downloader.DownloadString(URL);
