@@ -74,6 +74,7 @@
             this.BW_Chk = new System.ComponentModel.BackgroundWorker();
             this.BW_UpdChk = new System.ComponentModel.BackgroundWorker();
             this.BW_HwGet = new System.ComponentModel.BackgroundWorker();
+            this.BW_AvFetch = new System.ComponentModel.BackgroundWorker();
             this.TrayMenu.SuspendLayout();
             this.ResultView.SuspendLayout();
             this.ContextDscrM.SuspendLayout();
@@ -492,6 +493,11 @@
             this.BW_HwGet.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_HwGet_DoWork);
             this.BW_HwGet.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_HwGet_RunWorkerCompleted);
             // 
+            // BW_AvFetch
+            // 
+            this.BW_AvFetch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_AvFetch_DoWork);
+            this.BW_AvFetch.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_AvFetch_RunWorkerCompleted);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.SearchBtn;
@@ -576,6 +582,7 @@
         private System.Windows.Forms.ContextMenuStrip ContextDscrM;
         private System.Windows.Forms.ToolStripMenuItem CDM_OpenLnk;
         private System.Windows.Forms.Label RV_GameBans;
+        private System.ComponentModel.BackgroundWorker BW_AvFetch;
     }
 }
 

@@ -374,6 +374,16 @@ namespace gchclient
             // Включаем перехватчик буфера обмена...
             if (Properties.Settings.Default.AllowClipbCheck) { Timer.Start(); } else { Timer.Stop(); Timer.Enabled = false; }
         }
+
+        private void BW_AvFetch_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //
+        }
+
+        private void BW_AvFetch_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //
+        }
         #endregion
 
         #region Form Methods
