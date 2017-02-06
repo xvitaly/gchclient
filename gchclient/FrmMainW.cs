@@ -30,10 +30,6 @@ namespace gchclient
     public partial class frmMain : Form
     {
         #region Internal Properties
-        /// <summary>
-        /// Хранит и возвращает путь к текущему каталогу приложения.
-        /// </summary>
-        private string AppPath { get; } = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
         /// <summary>
         /// Хранит и возвращает последний проверенный приложением URL.
