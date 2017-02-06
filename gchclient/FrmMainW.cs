@@ -49,24 +49,6 @@ namespace gchclient
 
         #region Internal Methods
         /// <summary>
-        /// Загружает из файла и устанавливает аватар пользователя.
-        /// </summary>
-        /// <param name="AvatarPath">Путь к файлу с аватаром пользователя</param>
-        private void SetAvatar(string AvatarPath)
-        {
-            try { Invoke((MethodInvoker)delegate() { RV_Avatar.Image = new Bitmap(AvatarPath); }); }
-            catch { Invoke((MethodInvoker)delegate() { RV_Avatar.Image = Properties.Resources.null_avatar; }); }
-        }
-
-        /// <summary>
-        /// Событие, выполняемое по завершении загрузки аватара из Интернета.
-        /// </summary>
-        private void AvatarDownloader_Completed(object sender, AsyncCompletedEventArgs e)
-        {
-            SetAvatar(Chk.LocalAvatarImg);
-        }
-
-        /// <summary>
         /// Устанавливает обновление в виде отдельного исполняемого файла.
         /// </summary>
         private void InstallBinaryUpdate()
@@ -125,7 +107,7 @@ namespace gchclient
             if (!(Directory.Exists(Chk.LocalAvatarDir))) { Directory.CreateDirectory(Chk.LocalAvatarDir); }
 
             // Загружаем аватар...
-            if (!(File.Exists(Chk.LocalAvatarImg))) { try { using (WebClient AvatarDownloader = new WebClient()) { AvatarDownloader.Headers.Add("User-Agent", Properties.Resources.AppUserAgent); AvatarDownloader.DownloadFileCompleted += new AsyncCompletedEventHandler(AvatarDownloader_Completed); AvatarDownloader.DownloadFileAsync(new Uri(Chk.AvatarURL), Chk.LocalAvatarImg); } } catch { Invoke((MethodInvoker)delegate () { RV_Avatar.Image = Properties.Resources.null_avatar; }); } } else { SetAvatar(Chk.LocalAvatarImg); }
+            if (!BW_AvFetch.IsBusy) { BW_AvFetch.RunWorkerAsync(); }
 
             // Отображаем статус на сайте...
             switch (Chk.SiteStatus)
@@ -375,14 +357,24 @@ namespace gchclient
             if (Properties.Settings.Default.AllowClipbCheck) { Timer.Start(); } else { Timer.Stop(); Timer.Enabled = false; }
         }
 
+        /// <summary>
+        /// Асинхронный обработчик, загружающий аватары из Интернета.
+        /// </summary>
         private void BW_AvFetch_DoWork(object sender, DoWorkEventArgs e)
         {
-            //
+            // Проверим существует ли файл. Если нет, загрузим...
+            if (!(File.Exists(Chk.LocalAvatarImg)))
+            {
+                CoreLib.DownloadRemoteFile(Chk.AvatarURL, Chk.LocalAvatarImg, Properties.Resources.AppUserAgent);
+            }
         }
 
+        /// <summary>
+        /// Событие, выполняемое по завершении загрузки аватара из Интернета.
+        /// </summary>
         private void BW_AvFetch_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //
+            try { RV_Avatar.Image = File.Exists(Chk.LocalAvatarImg) ? new Bitmap(Chk.LocalAvatarImg) : Properties.Resources.null_avatar; } catch { RV_Avatar.Image = Properties.Resources.null_avatar; }
         }
         #endregion
 
