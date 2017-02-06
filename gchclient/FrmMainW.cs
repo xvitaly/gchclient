@@ -104,7 +104,6 @@ namespace gchclient
 
             // Парсим ответ чекера...
             Invoke((MethodInvoker)delegate () { RV_Nick.Text = Chk.Nickname; RV_SteamID.Text = Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID; });
-            if (!(Directory.Exists(Chk.LocalAvatarDir))) { Directory.CreateDirectory(Chk.LocalAvatarDir); }
 
             // Загружаем аватар...
             if (!BW_AvFetch.IsBusy) { BW_AvFetch.RunWorkerAsync(); }
@@ -362,6 +361,9 @@ namespace gchclient
         /// </summary>
         private void BW_AvFetch_DoWork(object sender, DoWorkEventArgs e)
         {
+            // Проверим существует ли каталог для временного хранения загруженных аватаров...
+            if (!(Directory.Exists(Chk.LocalAvatarDir))) { Directory.CreateDirectory(Chk.LocalAvatarDir); }
+            
             // Проверим существует ли файл. Если нет, загрузим...
             if (!(File.Exists(Chk.LocalAvatarImg)))
             {
