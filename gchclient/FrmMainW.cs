@@ -317,7 +317,7 @@ namespace gchclient
         /// </summary>
         private void BW_Chk_DoWork(object sender, DoWorkEventArgs e)
         {
-            Invoke((MethodInvoker)delegate () { Cursor = Cursors.AppStarting; });
+            Invoke((MethodInvoker)delegate () { Cursor = Cursors.AppStarting; SearchBtn.Image = Properties.Resources.clock; });
             CheckUser(Properties.Resources.APIURI, Properties.Settings.Default.PrimKey, Properties.Settings.Default.SecKey, InpStr.Text);
         }
 
@@ -329,6 +329,7 @@ namespace gchclient
             bool res = e.Error == null;
             ResultView.Visible = res;
             Cursor = Cursors.Default;
+            SearchBtn.Image = Properties.Resources.search;
             if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, e.Error.Message, ToolTipIcon.Warning); } }
         }
 
