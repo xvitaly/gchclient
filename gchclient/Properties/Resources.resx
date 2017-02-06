@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ListNotTrName" xml:space="preserve">
-    <value>Ненадёжные</value>
+  <data name="AppImageRegex" xml:space="preserve">
+    <value>.(png|jpg|jpeg|gif)$</value>
+  </data>
+  <data name="SCDeleted" xml:space="preserve">
+    <value>-</value>
   </data>
   <data name="AppIncorrectTokens" xml:space="preserve">
     <value>Вы ввели недействительные токены авторизации. Сервер вернул код ответа 403 - Запрещено. Обратитесь на форум TEAM-FORTRESS.SU.</value>
@@ -126,33 +129,63 @@
   <data name="AppAlrLaunched" xml:space="preserve">
     <value>Внимание! Один экземпляр программы уже запущен. Иконка программы расположена в системном трее, около часов Windows.</value>
   </data>
+  <data name="TemplateTFSUStaff" xml:space="preserve">
+    <value>сотрудник</value>
+  </data>
+  <data name="TemplateTFSUUnknown" xml:space="preserve">
+    <value>НЕВЕРНЫЙКОД</value>
+  </data>
   <data name="TradeIsp" xml:space="preserve">
     <value>испытат. срок</value>
   </data>
   <data name="IncorrectURL" xml:space="preserve">
     <value>В буфере обмена находится неверный URL! Проверка не будет выполнена.</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="srchfr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\srchfr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TemplateTFSUNeutral" xml:space="preserve">
+    <value>нет в базе</value>
   </data>
   <data name="AppIgnLDMsg" xml:space="preserve">
     <value>Очистить окно редактора?</value>
   </data>
-  <data name="iconInventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconInventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TemplateInvTF2b" xml:space="preserve">
+    <value>https://tf2b.com/tf2/{0}</value>
+  </data>
+  <data name="TemplateInvTF2Outpost" xml:space="preserve">
+    <value>http://www.tf2outpost.com/backpack/{0}/</value>
+  </data>
+  <data name="AppAddTemplate" xml:space="preserve">
+    <value>steam://friends/add/{0}</value>
+  </data>
+  <data name="TemplateTFSUMiddle" xml:space="preserve">
+    <value>гарант</value>
   </data>
   <data name="VCStatusA" xml:space="preserve">
     <value>Статус VAC: {0}.</value>
   </data>
-  <data name="AppChkRegEx" xml:space="preserve">
-    <value>^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/</value>
+  <data name="TemplateTFSUWhite" xml:space="preserve">
+    <value>в белом списке</value>
+  </data>
+  <data name="SCAdded" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="TemplateInvSteam" xml:space="preserve">
+    <value>http://steamcommunity.com/profiles/{0}/inventory/</value>
   </data>
   <data name="TFStaff" xml:space="preserve">
     <value>Является сотрудником сайта TEAM-FORTRESS.SU.</value>
   </data>
   <data name="AppURIStartFail" xml:space="preserve">
     <value>Произошла ошибка при вызове обработчика протокола. Убедитесь в корректной установке клиента Steam.</value>
+  </data>
+  <data name="TemplateTFSUPrem" xml:space="preserve">
+    <value>премиум-пользователь</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconInventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconInventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppURLRegex" xml:space="preserve">
+    <value>(?&lt;url&gt;((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*)</value>
   </data>
   <data name="TradeNormal" xml:space="preserve">
     <value>без ограничений</value>
@@ -163,14 +196,26 @@
   <data name="AppStartFailure" xml:space="preserve">
     <value>Произошла ошибка при вызове Интернет-браузера. Переустановите его, либо назначьте браузер по умолчанию!</value>
   </data>
+  <data name="TemplateGameBans" xml:space="preserve">
+    <value>Игровые баны: {0}.</value>
+  </data>
+  <data name="AppCustDescrCleanRegex" xml:space="preserve">
+    <value>&lt;(.|\n)*?&gt;</value>
+  </data>
   <data name="avatarholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avatarholder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="null_avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\null_avatar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AppSettSaved" xml:space="preserve">
-    <value>Настройки успешно сохранены!</value>
+  <data name="TemplateTFSUGray" xml:space="preserve">
+    <value>ненадёжный</value>
+  </data>
+  <data name="RepPostFix" xml:space="preserve">
+    <value>Отправил пользователь оффлайнового чекера с API</value>
+  </data>
+  <data name="SCDelim" xml:space="preserve">
+    <value>@@#</value>
   </data>
   <data name="AppNoTokensErr" xml:space="preserve">
     <value>Не заданы токены авторизации в настройках. Проверка невозможна. Задайте их и повторите попытку!</value>
@@ -181,11 +226,17 @@
   <data name="UnknownGroup" xml:space="preserve">
     <value>Не удалось установить принадлежность этого пользователя. Обновите клиент!</value>
   </data>
-  <data name="AppSBReady" xml:space="preserve">
-    <value>Готов.</value>
+  <data name="AppChkRegEx" xml:space="preserve">
+    <value>^(http|https)://(www.|)(steamcommunity|tf2items|steamrep|tf2b).com/(id|profiles)/</value>
   </data>
-  <data name="ListGarantName" xml:space="preserve">
-    <value>Гаранты</value>
+  <data name="AppName" xml:space="preserve">
+    <value>Служба проверки пользователей</value>
+  </data>
+  <data name="AppIntName" xml:space="preserve">
+    <value>gchk</value>
+  </data>
+  <data name="RepError" xml:space="preserve">
+    <value>Произошла ошибка при отправке сообщения. Повторите попытку позднее!</value>
   </data>
   <data name="AppUserAgent" xml:space="preserve">
     <value>Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7</value>
@@ -199,6 +250,12 @@
   <data name="ListBlAucName" xml:space="preserve">
     <value>ЧС аук</value>
   </data>
+  <data name="TemplateGameBansYes" xml:space="preserve">
+    <value>есть - {0}</value>
+  </data>
+  <data name="TemplateInvTF2Items" xml:space="preserve">
+    <value>http://www.tf2items.com/profiles/{0}</value>
+  </data>
   <data name="AppIgnLDlEx" xml:space="preserve">
     <value>Запрещено удалять элементы, созданные не лично вами!</value>
   </data>
@@ -207,9 +264,6 @@
   </data>
   <data name="AppSBReceiving" xml:space="preserve">
     <value>Получение информации с сервера...</value>
-  </data>
-  <data name="AppHideTray" xml:space="preserve">
-    <value>Программа была свёрнута в трей, но продолжает работу. Дважды щёлкните по значку для восстановления окна. Для выхода нажмите правой кнопкой и Выход.</value>
   </data>
   <data name="TFStaffMsg" xml:space="preserve">
     <value>Дополнительная информация об этом пользователе недоступна!</value>
@@ -220,17 +274,26 @@
   <data name="AppFieldEmpty" xml:space="preserve">
     <value>Вы не ввели ссылку, либо ID для проверки. Проверка невозможна. Введите условие и повторите попытку.</value>
   </data>
+  <data name="iconReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UPD_UpdateFailure" xml:space="preserve">
+    <value>Произошла ошибка при попытке запуска программы установки новой версии. Программа не была обновлена. Запустите обновление повторно позднее!</value>
+  </data>
   <data name="iconAddFriend" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconAddFriend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AppErrTokenInfo" xml:space="preserve">
     <value>Произошла ошибка при получении информации о вашем токене доступа. Повторите попытку позднее!</value>
   </data>
-  <data name="ListNoneName" xml:space="preserve">
-    <value>Нет</value>
+  <data name="TemplateGameBansNo" xml:space="preserve">
+    <value>отсутствуют</value>
   </data>
-  <data name="AppAlrRun" xml:space="preserve">
-    <value>Комбинация клавиш, необходимых для работы программы, уже зарегистрирована в системе. Работа данного экземпляра будет прекращена!</value>
+  <data name="UPD_UpdateSuccessful" xml:space="preserve">
+    <value>Новая версия была успешно получена с сервера. Сейчас будет произведена её установка!</value>
+  </data>
+  <data name="AppHideTray" xml:space="preserve">
+    <value>Программа была свёрнута в трей, но продолжает работу. Дважды щёлкните по значку для восстановления окна. Для выхода нажмите правой кнопкой и Выход.</value>
   </data>
   <data name="AppMSGLnkCopClipb" xml:space="preserve">
     <value>Постоянная ссылка на аккаунт пользователя была успешно скопирована в буфер обмена!</value>
@@ -244,23 +307,41 @@
   <data name="AppMsgNicknClipb" xml:space="preserve">
     <value>Никнейм пользователя был успешно помещён в буфер обмена Windows!</value>
   </data>
-  <data name="AppName" xml:space="preserve">
-    <value>Служба проверки пользователей</value>
+  <data name="AppSettSaved" xml:space="preserve">
+    <value>Настройки успешно сохранены!</value>
+  </data>
+  <data name="ListGarantName" xml:space="preserve">
+    <value>Гаранты</value>
+  </data>
+  <data name="ListNotTrName" xml:space="preserve">
+    <value>Ненадёжные</value>
   </data>
   <data name="AppWorkerBusy" xml:space="preserve">
     <value>Программа уже занята обработкой предыдущего запроса. Пожалуйста, повторите попытку позднее.</value>
   </data>
+  <data name="AppProfileRegex" xml:space="preserve">
+    <value>^http://steamcommunity.com/profiles/</value>
+  </data>
+  <data name="srchfr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\srchfr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AppNoURLStr" xml:space="preserve">
     <value>Ошибка во время перехода по ссылке!</value>
-  </data>
-  <data name="ListWhiteName" xml:space="preserve">
-    <value>БС</value>
   </data>
   <data name="message" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ListWhiteName" xml:space="preserve">
+    <value>БС</value>
+  </data>
+  <data name="AppNicknameUnknown" xml:space="preserve">
+    <value>UNKNOWN</value>
+  </data>
   <data name="AppSettEmptyS" xml:space="preserve">
     <value>Заполните необходимые поля! Если у Вас нет токенов авторизации, обратитесь на форум TEAM-FORTRESS.SU.</value>
+  </data>
+  <data name="APIRepURL" xml:space="preserve">
+    <value>{0}check.team-fortress.su/personal</value>
   </data>
   <data name="ListStaffName" xml:space="preserve">
     <value>Staff</value>
@@ -268,17 +349,32 @@
   <data name="AppIgnClipbErr" xml:space="preserve">
     <value>Ошибка при вставке из буфера обмена!</value>
   </data>
+  <data name="SCEqual" xml:space="preserve">
+    <value>=</value>
+  </data>
   <data name="APIURI" xml:space="preserve">
     <value>{0}check.team-fortress.su/api.php?action={1}&amp;token={2}&amp;id={3}</value>
   </data>
-  <data name="AppNicknameUnknown" xml:space="preserve">
-    <value>UNKNOWN</value>
+  <data name="ListNoneName" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="TemplateInternal" xml:space="preserve">
+    <value>Статус на сайте: {0}.</value>
+  </data>
+  <data name="AppSBReady" xml:space="preserve">
+    <value>Готов.</value>
+  </data>
+  <data name="AppAlrRun" xml:space="preserve">
+    <value>Комбинация клавиш, необходимых для работы программы, уже зарегистрирована в системе. Работа данного экземпляра будет прекращена!</value>
   </data>
   <data name="VCStatusBanned" xml:space="preserve">
     <value>забанен</value>
   </data>
-  <data name="F2PAccTextStatus" xml:space="preserve">
-    <value>Бесплатный аккаунт.</value>
+  <data name="RepEmptyField" xml:space="preserve">
+    <value>Не заполнены требуемые поля. Заполните и повторите попытку!</value>
+  </data>
+  <data name="RepSubmitted" xml:space="preserve">
+    <value>Ваше сообщение было успешно отправлено и будет рассмотрено администраторами в ближайшее время!</value>
   </data>
   <data name="AppNoUpdater" xml:space="preserve">
     <value>Не обнаружен модуль обновления! Возможно, программа установлена не полностью. Загрузите новую версию самостоятельно с официального сайта.</value>
@@ -292,121 +388,28 @@
   <data name="CustInfoNone" xml:space="preserve">
     <value>Кастомное описание и дополнительная информация для этого пользователя отсутствуют.</value>
   </data>
+  <data name="TemplateTFSUBlack" xml:space="preserve">
+    <value>мошенник</value>
+  </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="APIRepURL" xml:space="preserve">
-    <value>{0}check.team-fortress.su/personal</value>
-  </data>
-  <data name="RepError" xml:space="preserve">
-    <value>Произошла ошибка при отправке сообщения. Повторите попытку позднее!</value>
-  </data>
-  <data name="RepSubmitted" xml:space="preserve">
-    <value>Ваше сообщение было успешно отправлено и будет рассмотрено администраторами в ближайшее время!</value>
-  </data>
-  <data name="RepPostFix" xml:space="preserve">
-    <value>Отправил пользователь оффлайнового чекера с API</value>
-  </data>
-  <data name="RepEmptyField" xml:space="preserve">
-    <value>Не заполнены требуемые поля. Заполните и повторите попытку!</value>
-  </data>
-  <data name="AppIntName" xml:space="preserve">
-    <value>gchk</value>
-  </data>
-  <data name="SCAdded" xml:space="preserve">
-    <value>+</value>
-  </data>
-  <data name="SCDeleted" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="SCDelim" xml:space="preserve">
-    <value>@@#</value>
-  </data>
-  <data name="SCEqual" xml:space="preserve">
-    <value>=</value>
-  </data>
-  <data name="SCUnknown" xml:space="preserve">
-    <value>n/a</value>
-  </data>
-  <data name="TemplateInternal" xml:space="preserve">
-    <value>Статус на сайте: {0}.</value>
   </data>
   <data name="TemplateSteamRep" xml:space="preserve">
     <value>Статус SteamRep: {0}.</value>
   </data>
-  <data name="TemplateTFSUBlack" xml:space="preserve">
-    <value>мошенник</value>
+  <data name="SCUnknown" xml:space="preserve">
+    <value>n/a</value>
+  </data>
+  <data name="F2PAccTextStatus" xml:space="preserve">
+    <value>Бесплатный аккаунт.</value>
   </data>
   <data name="TemplateTFSUBlackAuc" xml:space="preserve">
     <value>ЧС аукциона</value>
   </data>
-  <data name="TemplateTFSUGray" xml:space="preserve">
-    <value>ненадёжный</value>
-  </data>
-  <data name="TemplateTFSUMiddle" xml:space="preserve">
-    <value>гарант</value>
-  </data>
-  <data name="TemplateTFSUNeutral" xml:space="preserve">
-    <value>нет в базе</value>
-  </data>
-  <data name="TemplateTFSUPrem" xml:space="preserve">
-    <value>премиум-пользователь</value>
-  </data>
-  <data name="TemplateTFSUStaff" xml:space="preserve">
-    <value>сотрудник</value>
-  </data>
-  <data name="TemplateTFSUUnknown" xml:space="preserve">
-    <value>НЕВЕРНЫЙКОД</value>
-  </data>
-  <data name="TemplateTFSUWhite" xml:space="preserve">
-    <value>в белом списке</value>
-  </data>
-  <data name="TemplateGameBansYes" xml:space="preserve">
-    <value>есть - {0}</value>
-  </data>
-  <data name="TemplateGameBans" xml:space="preserve">
-    <value>Игровые баны: {0}.</value>
-  </data>
-  <data name="TemplateGameBansNo" xml:space="preserve">
-    <value>отсутствуют</value>
-  </data>
-  <data name="TemplateInvTF2b" xml:space="preserve">
-    <value>https://tf2b.com/tf2/{0}</value>
-  </data>
-  <data name="TemplateInvTF2Items" xml:space="preserve">
-    <value>http://www.tf2items.com/profiles/{0}</value>
-  </data>
-  <data name="TemplateInvTF2Outpost" xml:space="preserve">
-    <value>http://www.tf2outpost.com/backpack/{0}/</value>
-  </data>
-  <data name="TemplateInvSteam" xml:space="preserve">
-    <value>http://steamcommunity.com/profiles/{0}/inventory/</value>
-  </data>
-  <data name="AppCustDescrCleanRegex" xml:space="preserve">
-    <value>&lt;(.|\n)*?&gt;</value>
-  </data>
-  <data name="AppURLRegex" xml:space="preserve">
-    <value>(?&lt;url&gt;((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[-]|[?]|[=]|[#]|[~]|[_]|[:])*)</value>
-  </data>
-  <data name="AppAddTemplate" xml:space="preserve">
-    <value>steam://friends/add/{0}</value>
-  </data>
-  <data name="AppProfileRegex" xml:space="preserve">
-    <value>^http://steamcommunity.com/profiles/</value>
-  </data>
-  <data name="AppImageRegex" xml:space="preserve">
-    <value>.(png|jpg|jpeg|gif)$</value>
-  </data>
   <data name="UPD_HashFailure" xml:space="preserve">
     <value>Контрольная сумма загруженного файла отличается от эталона. Обновление не было установлено!</value>
   </data>
-  <data name="UPD_UpdateFailure" xml:space="preserve">
-    <value>Произошла ошибка при попытке запуска программы установки новой версии. Программа не была обновлена. Запустите обновление повторно позднее!</value>
-  </data>
-  <data name="UPD_UpdateSuccessful" xml:space="preserve">
-    <value>Новая версия была успешно получена с сервера. Сейчас будет произведена её установка!</value>
+  <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

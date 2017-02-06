@@ -218,6 +218,7 @@
     <Content Include="gchclient.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\clock.png" />
     <None Include="Resources\iconReport.png" />
     <None Include="Resources\avatarholder.png" />
     <None Include="Resources\message.png" />
