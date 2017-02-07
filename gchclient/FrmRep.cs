@@ -25,7 +25,7 @@ namespace gchclient
     /// <summary>
     /// Класс сообщения о мошеннике Garant Checker Offline.
     /// </summary>
-    public partial class frmReportU : Form
+    public partial class FrmRep : Form
     {
         /// <summary>
         /// Хранит и возвращает SteamID профиля.
@@ -46,7 +46,7 @@ namespace gchclient
         /// Базовый конструктор класса.
         /// </summary>
         /// <param name="Sid32">SteamID профиля в 32-битном формате</param>
-        public frmReportU(string Sid32)
+        public FrmRep(string Sid32)
         {
             InitializeComponent();
             SteamID = Sid32;
@@ -55,7 +55,7 @@ namespace gchclient
         /// <summary>
         /// Событие загрузки формы.
         /// </summary>
-        private void frmReportU_Load(object sender, EventArgs e)
+        private void FrmRep_Load(object sender, EventArgs e)
         {
             W_SteamID.Text = SteamID;
             W_List.SelectedIndex = 0;
@@ -129,6 +129,7 @@ namespace gchclient
                 {
                     HTTPStreamRq.Write(ByteReqC, 0, ByteReqC.Length);
                 }
+                
                 // Получаем ответ от сервера...
                 using (HttpWebResponse HTTPWResp = (HttpWebResponse)WrQ.GetResponse())
                 {

@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmReportU
+    partial class FrmRep
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportU));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRep));
             this.WLabel = new System.Windows.Forms.Label();
             this.L_SteamID = new System.Windows.Forms.Label();
             this.W_SteamID = new System.Windows.Forms.TextBox();
@@ -133,7 +133,7 @@
             this.BW_Main.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_Main_DoWork);
             this.BW_Main.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_Main_RunWorkerCompleted);
             // 
-            // frmReportU
+            // FrmRep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,11 +153,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmReportU";
+            this.Name = "FrmRep";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма сообщения о мошенничестве";
-            this.Load += new System.EventHandler(this.frmReportU_Load);
+            this.Load += new System.EventHandler(this.FrmRep_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

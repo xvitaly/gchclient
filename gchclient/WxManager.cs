@@ -27,7 +27,7 @@ namespace gchclient
         /// <param name="SteamID">SteamID32 профиля</param>
         public static void ShowReportForm(string SteamID)
         {
-            using (frmReportU FrmRep = new frmReportU(SteamID))
+            using (FrmRep FrmRep = new FrmRep(SteamID))
             {
                 FrmRep.ShowDialog();
             }
