@@ -38,7 +38,7 @@ namespace gchclient
         /// </summary>
         public static void ShowTokenForm()
         {
-            using (frmTokenInfo FrmTInfo = new frmTokenInfo())
+            using (FrmTokenInfo FrmTInfo = new FrmTokenInfo())
             {
                 FrmTInfo.ShowDialog();
             }

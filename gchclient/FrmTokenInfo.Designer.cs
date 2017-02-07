@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmTokenInfo
+    partial class FrmTokenInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -158,7 +158,7 @@
             this.BW_Rcv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_Rcv_DoWork);
             this.BW_Rcv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_Rcv_RunWorkerCompleted);
             // 
-            // frmTokenInfo
+            // FrmTokenInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,13 +169,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmTokenInfo";
+            this.Name = "FrmTokenInfo";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Информация о токенах доступа";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTokenInfo_FormClosing);
-            this.Load += new System.EventHandler(this.frmTokenInfo_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTokenInfo_FormClosing);
+            this.Load += new System.EventHandler(this.FrmTokenInfo_Load);
             this.GB1.ResumeLayout(false);
             this.GB2.ResumeLayout(false);
             this.ResumeLayout(false);

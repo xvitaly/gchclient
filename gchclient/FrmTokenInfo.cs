@@ -23,12 +23,12 @@ namespace gchclient
     /// <summary>
     /// Класс формы информации о токенах приложения Garant Checker Offline.
     /// </summary>
-    public partial class frmTokenInfo : Form
+    public partial class FrmTokenInfo : Form
     {
         /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
-        public frmTokenInfo()
+        public FrmTokenInfo()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace gchclient
         /// <summary>
         /// Метод события "загрузка формы".
         /// </summary>
-        private void frmTokenInfo_Load(object sender, EventArgs e)
+        private void FrmTokenInfo_Load(object sender, EventArgs e)
         {
             if (!BW_Rcv.IsBusy) { BW_Rcv.RunWorkerAsync(); }
         }
@@ -73,7 +73,7 @@ namespace gchclient
         /// <summary>
         /// Метод события "попытка закрытия формы".
         /// </summary>
-        private void frmTokenInfo_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmTokenInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_Rcv.IsBusy;
         }
