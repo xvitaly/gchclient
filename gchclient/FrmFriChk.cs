@@ -27,7 +27,7 @@ namespace gchclient
     /// <summary>
     /// Класс формы чекера друзей приложения Garant Checker Offline.
     /// </summary>
-    public partial class frmFrChk : Form
+    public partial class FrmFriChk : Form
     {
         /// <summary>
         /// Хранит и возвращает SteamID профиля.
@@ -38,7 +38,7 @@ namespace gchclient
         /// Базовый конструктор класса.
         /// </summary>
         /// <param name="sid64">SteamID профиля в 64-битном формате</param>
-        public frmFrChk(string sid64)
+        public FrmFriChk(string sid64)
         {
             InitializeComponent();
             SteamID = sid64;
@@ -128,7 +128,7 @@ namespace gchclient
         /// <summary>
         /// Событие загрузки формы.
         /// </summary>
-        private void frmFrChk_Load(object sender, EventArgs e)
+        private void FrmFriChk_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок окна формы...
             Text = String.Format(Text, SteamID);
@@ -236,7 +236,7 @@ namespace gchclient
         /// <summary>
         /// Событие "попытка закрытия формы".
         /// </summary>
-        private void frmFrChk_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmFriChk_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_Rcv.IsBusy;
         }

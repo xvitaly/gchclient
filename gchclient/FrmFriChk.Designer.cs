@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmFrChk
+    partial class FrmFriChk
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFrChk));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFriChk));
             this.DVList = new System.Windows.Forms.DataGridView();
             this.DV_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DV_LastNick = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,7 +155,7 @@
             this.SV_OpenDlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
             this.SV_OpenDlg.Title = "Открытие дампа списка друзей";
             // 
-            // frmFrChk
+            // FrmFriChk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,13 +167,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmFrChk";
+            this.Name = "FrmFriChk";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр друзей пользователя {0}";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFrChk_FormClosing);
-            this.Load += new System.EventHandler(this.frmFrChk_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFriChk_FormClosing);
+            this.Load += new System.EventHandler(this.FrmFriChk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DVList)).EndInit();
             this.SB_Main.ResumeLayout(false);
             this.SB_Main.PerformLayout();

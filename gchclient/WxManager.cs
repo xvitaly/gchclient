@@ -62,7 +62,7 @@ namespace gchclient
         /// <param name="WinType">Включает / отключает блокировку главного окна</param>
         public static void ShowFriendChkForm(string SteamID64, bool WinType)
         {
-            frmFrChk frmChk = new frmFrChk(SteamID64);
+            FrmFriChk frmChk = new FrmFriChk(SteamID64);
             if (WinType) { frmChk.ShowDialog(); } else { frmChk.Show(); }
         }
 
