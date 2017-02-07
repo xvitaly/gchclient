@@ -49,7 +49,7 @@ namespace gchclient
         /// </summary>
         public static void ShowOptionsForm()
         {
-            using (frmOptions FRMOPT = new frmOptions())
+            using (FrmOptions FRMOPT = new FrmOptions())
             {
                 FRMOPT.ShowDialog();
             }

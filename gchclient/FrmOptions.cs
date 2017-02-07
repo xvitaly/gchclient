@@ -23,12 +23,12 @@ namespace gchclient
     /// <summary>
     /// Класс формы настроек приложения Garant Checker Offline.
     /// </summary>
-    public partial class frmOptions : Form
+    public partial class FrmOptions : Form
     {
         /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
-        public frmOptions()
+        public FrmOptions()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace gchclient
         /// <summary>
         /// Метод "загрузка формы".
         /// </summary>
-        private void frmOptions_Load(object sender, EventArgs e)
+        private void FrmOptions_Load(object sender, EventArgs e)
         {
             // Считаем настройки...
             InpPriToken.Text = Properties.Settings.Default.PrimKey;

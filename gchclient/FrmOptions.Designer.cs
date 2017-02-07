@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmOptions
+    partial class FrmOptions
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOptions));
             this.SaveNClose = new System.Windows.Forms.Button();
             this.TC_Main = new System.Windows.Forms.TabControl();
             this.TC_TP_MainPage = new System.Windows.Forms.TabPage();
@@ -493,7 +493,7 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // frmOptions
+            // FrmOptions
             // 
             this.AcceptButton = this.SaveNClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,10 +508,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmOptions";
+            this.Name = "FrmOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки программы";
-            this.Load += new System.EventHandler(this.frmOptions_Load);
+            this.Load += new System.EventHandler(this.FrmOptions_Load);
             this.TC_Main.ResumeLayout(false);
             this.TC_TP_MainPage.ResumeLayout(false);
             this.GB_Hw.ResumeLayout(false);
