@@ -74,7 +74,7 @@ namespace gchclient
         /// <param name="WinType">Включает / отключает блокировку главного окна</param>
         public static void ShowEvidenceViewForm(string URL, string SteamID64, bool WinType)
         {
-            frmViewer FView = new frmViewer(URL, SteamID64);
+            FrmEvView FView = new FrmEvView(URL, SteamID64);
             if (WinType) { FView.ShowDialog(); } else { FView.Show(); }
         }
 

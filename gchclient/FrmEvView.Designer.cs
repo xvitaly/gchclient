@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmViewer
+    partial class FrmEvView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEvView));
             this.SB_Main = new System.Windows.Forms.StatusStrip();
             this.SB_Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.ImgBoxMain = new System.Windows.Forms.PictureBox();
@@ -71,7 +71,7 @@
             this.BW_ImgLoader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_ImgLoader_DoWork);
             this.BW_ImgLoader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_ImgLoader_RunWorkerCompleted);
             // 
-            // frmViewer
+            // FrmEvView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,11 +80,11 @@
             this.Controls.Add(this.SB_Main);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmViewer";
+            this.Name = "FrmEvView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Средство просмотра доказательств - {0}";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmViewer_FormClosing);
-            this.Load += new System.EventHandler(this.frmViewer_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEvView_FormClosing);
+            this.Load += new System.EventHandler(this.FrmEvView_Load);
             this.SB_Main.ResumeLayout(false);
             this.SB_Main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgBoxMain)).EndInit();

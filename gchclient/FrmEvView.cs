@@ -25,7 +25,7 @@ namespace gchclient
     /// <summary>
     /// Класс формы просмотрщика доказательств приложения Garant Checker Offline.
     /// </summary>
-    public partial class frmViewer : Form
+    public partial class FrmEvView : Form
     {
         /// <summary>
         /// Хранит и предоставляет доступ к URL изображения.
@@ -40,7 +40,7 @@ namespace gchclient
         /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
-        public frmViewer(string URL, string SteamID)
+        public FrmEvView(string URL, string SteamID)
         {
             InitializeComponent();
             ImageURL = URL;
@@ -70,7 +70,7 @@ namespace gchclient
         /// <summary>
         /// Событие "загрузка формы".
         /// </summary>
-        private void frmViewer_Load(object sender, EventArgs e)
+        private void FrmEvView_Load(object sender, EventArgs e)
         {
             // Изменяем заголовок формы...
             Text = String.Format(Text, SteamID64);
@@ -120,7 +120,7 @@ namespace gchclient
         /// <summary>
         /// Событие "попытка закрытия формы".
         /// </summary>
-        private void frmViewer_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmEvView_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = (e.CloseReason == CloseReason.UserClosing) && BW_ImgLoader.IsBusy;
         }
