@@ -745,7 +745,7 @@ namespace gchclient
         /// </summary>
         private void RV_Report_Click(object sender, EventArgs e)
         {
-            frmReportU FrmRep = new frmReportU(RV_SteamID.Text);
+            frmReportU FrmRep = new frmReportU(Chk.SteamID);
             FrmRep.ShowDialog();
         }
         #endregion
