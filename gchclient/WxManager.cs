@@ -13,45 +13,70 @@
  * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace gchclient
 {
+    /// <summary>
+    /// Класс для взаимодействия с отдельным формами и расширениями.
+    /// </summary>
     public static class WxManager
     {
+        /// <summary>
+        /// Отображает форму модуля сообщения о мошенничестве.
+        /// </summary>
+        /// <param name="SteamID">SteamID32 профиля</param>
         public static void ShowReportForm(string SteamID)
         {
             frmReportU FrmRep = new frmReportU(SteamID);
             FrmRep.ShowDialog();
         }
 
+        /// <summary>
+        /// Отображает форму с информацией об используемых токенах.
+        /// </summary>
         public static void ShowTokenForm()
         {
             frmTokenInfo FrmTInfo = new frmTokenInfo();
             FrmTInfo.ShowDialog();
         }
 
+        /// <summary>
+        /// Отображает форму настроек программы.
+        /// </summary>
         public static void ShowOptionsForm()
         {
             frmOptions FRMOPT = new frmOptions();
             FRMOPT.ShowDialog();
         }
 
+        /// <summary>
+        /// Отображает форму модуля проверки друзей пользователя.
+        /// </summary>
+        /// <param name="SteamID64">SteamID64 профиля</param>
+        /// <param name="WinType">Включает / отключает блокировку главного окна</param>
         public static void ShowFriendChkForm(string SteamID64, bool WinType)
         {
             frmFrChk frmChk = new frmFrChk(SteamID64);
             if (WinType) { frmChk.ShowDialog(); } else { frmChk.Show(); }
         }
 
+        /// <summary>
+        /// Отображает форму модуля просмотра доказательств.
+        /// </summary>
+        /// <param name="URL">URL изображения</param>
+        /// <param name="SteamID64">SteamID64 профиля</param>
+        /// <param name="WinType">Включает / отключает блокировку главного окна</param>
         public static void ShowEvidenceViewForm(string URL, string SteamID64, bool WinType)
         {
             frmViewer FView = new frmViewer(URL, SteamID64);
             if (WinType) { FView.ShowDialog(); } else { FView.Show(); }
         }
 
+        /// <summary>
+        /// Отображает форму асинхронной загрузки файлов из Интернета.
+        /// </summary>
+        /// <param name="URL">URL файла для загрузки</param>
+        /// <param name="FileName">Имя файла для сохранения</param>
         public static void ShowDownloadForm(string URL, string FileName)
         {
             using (FrmDnWrk FrmDnl = new FrmDnWrk(URL, FileName))
