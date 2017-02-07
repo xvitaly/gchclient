@@ -56,10 +56,7 @@ namespace gchclient
             string UpdateFileName = Updater.GenerateUpdateFileName(Path.Combine(Path.GetTempPath(), Path.GetFileName(UpdMan.AppUpdateURL)));
 
             // Загружаем файл асинхронно...
-            using (FrmDnWrk FrmDnl = new FrmDnWrk(UpdMan.AppUpdateURL, UpdateFileName))
-            {
-                FrmDnl.ShowDialog();
-            }
+            WxManager.ShowDownloadForm(UpdMan.AppUpdateURL, UpdateFileName);
 
             // Выполняем проверки и устанавливаем обновление...
             if (File.Exists(UpdateFileName))
@@ -401,8 +398,7 @@ namespace gchclient
             if (String.IsNullOrWhiteSpace(Properties.Settings.Default.PrimKey) && String.IsNullOrWhiteSpace(Properties.Settings.Default.SecKey))
             {
                 TrayIcon.Visible = false;
-                frmOptions FRMOPT = new frmOptions();
-                FRMOPT.ShowDialog();
+                WxManager.ShowOptionsForm();
                 TrayIcon.Visible = true;
             }
             
@@ -644,8 +640,7 @@ namespace gchclient
                 if (Regex.IsMatch(MRes.Groups["url"].Value, Properties.Resources.AppImageRegex))
                 {
                     // Откроем форму с вьювером...
-                    frmViewer FView = new frmViewer(MRes.Groups["url"].Value, Chk.SteamID64);
-                    if (Properties.Settings.Default.FrWnOverride) { FView.ShowDialog(); } else { FView.Show(); }
+                    WxManager.ShowEvidenceViewForm(MRes.Groups["url"].Value, Chk.SteamID64, Properties.Settings.Default.FrWnOverride);
                 }
                 else
                 {
@@ -676,8 +671,7 @@ namespace gchclient
         /// </summary>
         private void LNK_ValFriends_Click(object sender, EventArgs e)
         {
-            frmFrChk frmChk = new frmFrChk(Chk.SteamID64);
-            if (Properties.Settings.Default.FrWnOverride) { frmChk.ShowDialog(); } else { frmChk.Show(); }
+            WxManager.ShowFriendChkForm(Chk.SteamID64, Properties.Settings.Default.FrWnOverride);
         }
 
         /// <summary>
@@ -727,8 +721,7 @@ namespace gchclient
         /// </summary>
         private void CM_Settings_Click(object sender, EventArgs e)
         {
-            frmOptions FRMOPT = new frmOptions();
-            FRMOPT.ShowDialog();
+            WxManager.ShowOptionsForm();
         }
 
         /// <summary>
@@ -736,8 +729,7 @@ namespace gchclient
         /// </summary>
         private void CM_TokenInfo_Click(object sender, EventArgs e)
         {
-            frmTokenInfo FrmTInfo = new frmTokenInfo();
-            FrmTInfo.ShowDialog();
+            WxManager.ShowTokenForm();
         }
 
         /// <summary>
@@ -745,8 +737,7 @@ namespace gchclient
         /// </summary>
         private void RV_Report_Click(object sender, EventArgs e)
         {
-            frmReportU FrmRep = new frmReportU(Chk.SteamID);
-            FrmRep.ShowDialog();
+            WxManager.ShowReportForm(Chk.SteamID);
         }
         #endregion
     }
