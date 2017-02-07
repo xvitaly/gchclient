@@ -1,6 +1,6 @@
 ﻿namespace gchclient
 {
-    partial class frmMain
+    partial class FrmMainW
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainW));
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TrayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CM_About = new System.Windows.Forms.ToolStripMenuItem();
@@ -498,7 +498,7 @@
             this.BW_AvFetch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_AvFetch_DoWork);
             this.BW_AvFetch.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_AvFetch_RunWorkerCompleted);
             // 
-            // frmMain
+            // FrmMainW
             // 
             this.AcceptButton = this.SearchBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,14 +515,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmMain";
+            this.Name = "FrmMainW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Служба проверки пользователей TEAM-FORTRESS.SU (версия {0})";
-            this.Activated += new System.EventHandler(this.frmMain_Activated);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
-            this.Load += new System.EventHandler(this.frmMain_Load);
-            this.Resize += new System.EventHandler(this.frmMain_Resize);
+            this.Activated += new System.EventHandler(this.FrmMainW_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMainW_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMainW_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMainW_Load);
+            this.Resize += new System.EventHandler(this.FrmMainW_Resize);
             this.TrayMenu.ResumeLayout(false);
             this.ResultView.ResumeLayout(false);
             this.ResultView.PerformLayout();

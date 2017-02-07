@@ -26,7 +26,7 @@ namespace gchclient
     /// <summary>
     /// Класс главной формы приложения Garant Checker Offline.
     /// </summary>
-    public partial class frmMain : Form
+    public partial class FrmMainW : Form
     {
         #region Internal Properties
 
@@ -380,7 +380,7 @@ namespace gchclient
         /// <summary>
         /// Базовый конструктор формы.
         /// </summary>
-        public frmMain()
+        public FrmMainW()
         {
             InitializeComponent();
             
@@ -419,7 +419,7 @@ namespace gchclient
         /// <summary>
         /// Событие "загрузка формы".
         /// </summary>
-        private void frmMain_Load(object sender, EventArgs e)
+        private void FrmMainW_Load(object sender, EventArgs e)
         {
             // Проверим на скрытый запуск...
             string[] CMDLineA = Environment.GetCommandLineArgs();
@@ -482,7 +482,7 @@ namespace gchclient
         /// <summary>
         /// Метод, срабатывающий при попытке изменения размеров формы.
         /// </summary>
-        private void frmMain_Resize(object sender, EventArgs e)
+        private void FrmMainW_Resize(object sender, EventArgs e)
         {
             if (FormWindowState.Minimized == WindowState) { Hide(); }
         }
@@ -490,7 +490,7 @@ namespace gchclient
         /// <summary>
         /// Метод, срабатывающий при попытке закрытия формы.
         /// </summary>
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmMainW_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -595,7 +595,7 @@ namespace gchclient
         /// <summary>
         /// Метод, срабатывающий при активации формы.
         /// </summary>
-        private void frmMain_Activated(object sender, EventArgs e)
+        private void FrmMainW_Activated(object sender, EventArgs e)
         {
             Timer.Enabled = !BW_HwGet.IsBusy && Properties.Settings.Default.AllowClipbCheck && !Focused;
         }
@@ -653,7 +653,7 @@ namespace gchclient
         /// <summary>
         /// Событие "закрытие формы".
         /// </summary>
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmMainW_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.Save();
         }
