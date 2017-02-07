@@ -27,8 +27,10 @@ namespace gchclient
         /// <param name="SteamID">SteamID32 профиля</param>
         public static void ShowReportForm(string SteamID)
         {
-            frmReportU FrmRep = new frmReportU(SteamID);
-            FrmRep.ShowDialog();
+            using (frmReportU FrmRep = new frmReportU(SteamID))
+            {
+                FrmRep.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -36,8 +38,10 @@ namespace gchclient
         /// </summary>
         public static void ShowTokenForm()
         {
-            frmTokenInfo FrmTInfo = new frmTokenInfo();
-            FrmTInfo.ShowDialog();
+            using (frmTokenInfo FrmTInfo = new frmTokenInfo())
+            {
+                FrmTInfo.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -45,8 +49,10 @@ namespace gchclient
         /// </summary>
         public static void ShowOptionsForm()
         {
-            frmOptions FRMOPT = new frmOptions();
-            FRMOPT.ShowDialog();
+            using (frmOptions FRMOPT = new frmOptions())
+            {
+                FRMOPT.ShowDialog();
+            }
         }
 
         /// <summary>
