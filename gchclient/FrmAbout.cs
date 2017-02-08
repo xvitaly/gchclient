@@ -57,7 +57,7 @@ namespace gchclient
         private void FrmAbout_Load(object sender, EventArgs e)
         {
             // Заполняем информацию о версии, копирайте...
-            Text = String.Format("About {0}...", AppProduct);
+            Text = AppProduct;
             labelProductName.Text = AppProduct;
             labelVersion.Text = String.Format("Version: {0}", AppVersion);
             labelCopyright.Text = AppCopyright;

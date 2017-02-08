@@ -133,14 +133,16 @@
     <value>True</value>
   </metadata>
   <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>Author: V1TSK (vitaly@easycoding.org)
+    <value>Автор: V1TSK (vitaly@easycoding.org)
 
-Special thanks to:
- - Grin J - testing, bug reports, feature requests;
- - naym - testing, bug reports;
- - Ctrl+C - testing.
+Авторы не дают никаких гарантий (явных или подразумеваемых). Вы используете программу на свой страх и риск.
 
-Graphics by:
+Особые благодарности:
+ - Grin J - тестирование, сообщение об ошибках, предложение новых функций;
+ - naym - тестирование, сообщение об ошибках;
+ - Ctrl+C - тестирование.
+
+В программе использованы значки следующих авторов:
  - Ahmad Hania;
  - ArtistValley;
  - Asher;

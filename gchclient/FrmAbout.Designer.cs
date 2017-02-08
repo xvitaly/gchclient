@@ -48,7 +48,7 @@
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(122, 33);
             this.labelContent.TabIndex = 13;
-            this.labelContent.Text = "Content license: Creative Commons BY.";
+            this.labelContent.Text = "Лицензия контента: Creative Commons BY.";
             // 
             // okButton
             // 
@@ -78,7 +78,7 @@
             this.labelLicense.Name = "labelLicense";
             this.labelLicense.Size = new System.Drawing.Size(122, 31);
             this.labelLicense.TabIndex = 12;
-            this.labelLicense.Text = "Licensed under the terms of BSD license.";
+            this.labelLicense.Text = "Общая лицензия приложения: BSD.";
             // 
             // textBoxDescription
             // 
