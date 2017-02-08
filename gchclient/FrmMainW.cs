@@ -512,7 +512,7 @@ namespace gchclient
         /// </summary>
         private void CM_About_Click(object sender, EventArgs e)
         {
-            TrayIcon.ShowBalloonTip(1800, Properties.Resources.AppName, "Авторские права: V1TSK (vitaly@easycoding.org).\n\nАвторы не дают никаких гарантий (явных или подразумеваемых). Вы используете программу на свой страх и риск.\n\nЗапустив программу, вы безоговорочно приняли условия лицензии.", ToolTipIcon.Info);
+            WxManager.ShowAboutForm();
         }
 
         /// <summary>
