@@ -123,10 +123,12 @@
             // 
             // iconApp
             // 
+            this.iconApp.Image = global::gchclient.Properties.Resources.task;
             this.iconApp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.iconApp.Location = new System.Drawing.Point(12, 36);
             this.iconApp.Name = "iconApp";
             this.iconApp.Size = new System.Drawing.Size(113, 105);
+            this.iconApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconApp.TabIndex = 9;
             this.iconApp.TabStop = false;
             // 
