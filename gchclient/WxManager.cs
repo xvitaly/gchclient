@@ -90,5 +90,16 @@ namespace gchclient
                 FrmDnl.ShowDialog();
             }
         }
+
+        /// <summary>
+        /// Отображает форму "О программе".
+        /// </summary>
+        public static void ShowAboutForm()
+        {
+            using (FrmAbout AbFrm = new FrmAbout())
+            {
+                AbFrm.ShowDialog();
+            }
+        }
     }
 }
