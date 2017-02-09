@@ -324,7 +324,7 @@ namespace gchclient
             ResultView.Visible = res;
             Cursor = Cursors.Default;
             SearchBtn.Image = Properties.Resources.search;
-            if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { TrayIcon.ShowBalloonTip(800, Properties.Resources.AppName, e.Error.Message, ToolTipIcon.Warning); } }
+            if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { ShowNotification(e.Error.Message, MessageBoxIcon.Warning, ToolTipIcon.Warning); } }
         }
 
         /// <summary>
@@ -595,12 +595,12 @@ namespace gchclient
             if (Properties.Settings.Default.CopySIDiN)
             {
                 Clipboard.SetText(Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID);
-                TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID), ToolTipIcon.Info);
+                ShowNotification(String.Format(Properties.Resources.AppMsgSiDClipb, Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID), MessageBoxIcon.Information, ToolTipIcon.Info);
             }
             else
             {
                 Clipboard.SetText(RV_Nick.Text);
-                TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Properties.Resources.AppMsgNicknClipb, ToolTipIcon.Info);
+                ShowNotification(Properties.Resources.AppMsgNicknClipb, MessageBoxIcon.Information, ToolTipIcon.Info);
             }
         }
 
@@ -610,7 +610,7 @@ namespace gchclient
         private void LNK_Copy_Click(object sender, EventArgs e)
         {
             if (Regex.IsMatch(RV_PermaLink.Text, Properties.Resources.AppProfileRegex)) { Clipboard.SetText(RV_PermaLink.Text); }
-            TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Properties.Resources.AppMSGLnkCopClipb, ToolTipIcon.Info);
+            ShowNotification(Properties.Resources.AppMSGLnkCopClipb, MessageBoxIcon.Information, ToolTipIcon.Info);
         }
 
         /// <summary>
@@ -701,7 +701,7 @@ namespace gchclient
         private void RV_SteamID_Click(object sender, EventArgs e)
         {
             string Sid = Control.ModifierKeys != Keys.Shift ? (Properties.Settings.Default.UseSteamIDv3 ? Chk.SteamIDv3 : Chk.SteamID) : Chk.SteamID64;
-            try { Clipboard.SetText(Sid); TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, String.Format(Properties.Resources.AppMsgSiDClipb, Sid), ToolTipIcon.Info); } catch { }
+            try { Clipboard.SetText(Sid); ShowNotification(String.Format(Properties.Resources.AppMsgSiDClipb, Sid), MessageBoxIcon.Information, ToolTipIcon.Info); } catch { }
         }
 
         /// <summary>
