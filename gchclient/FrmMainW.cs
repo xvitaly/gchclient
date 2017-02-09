@@ -324,7 +324,7 @@ namespace gchclient
             ResultView.Visible = res;
             Cursor = Cursors.Default;
             SearchBtn.Image = Properties.Resources.search;
-            if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeFn.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { ShowNotification(e.Error.Message, MessageBoxIcon.Warning, ToolTipIcon.Warning); } }
+            if (res) { Size = new Size(762, 563); L_LegalInfo.Location = new Point(25, 501); Show(); NativeMethods.ActivateWindow(Handle); } else { Size = new Size(762, 261); L_LegalInfo.Location = new Point(25, 200); if (Visible) { MessageBox.Show(e.Error.Message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning); } else { ShowNotification(e.Error.Message, MessageBoxIcon.Warning, ToolTipIcon.Warning); } }
         }
 
         /// <summary>
@@ -430,7 +430,7 @@ namespace gchclient
                 {
                     Hotkey hk = new Hotkey();
                     hk.KeyCode = Properties.Settings.Default.Hotkey;
-                    hk.Pressed += delegate { if (Visible) { Hide(); } else { Show(); NativeFn.ActivateWindow(Handle); } };
+                    hk.Pressed += delegate { if (Visible) { Hide(); } else { Show(); NativeMethods.ActivateWindow(Handle); } };
                     hk.Register(this);
                 }
                 catch { }
@@ -525,7 +525,7 @@ namespace gchclient
         /// </summary>
         private void TrayIcon_DoubleClick(object sender, EventArgs e)
         {
-            if (Visible) { Hide(); } else { Show(); NativeFn.ActivateWindow(Handle); }
+            if (Visible) { Hide(); } else { Show(); NativeMethods.ActivateWindow(Handle); }
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace gchcore
     /// <summary>
     /// Класс импорта native-функций приложения.
     /// </summary>
-    public sealed class NativeFn
+    public sealed class NativeMethods
     {
         /// <summary>
         /// Enum с кодами, используемыми native-функциями API.
