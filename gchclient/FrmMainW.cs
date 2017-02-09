@@ -287,10 +287,21 @@ namespace gchclient
         /// Выводит сообщение программы в зависимости от платформы.
         /// </summary>
         /// <param name="Msg">Текст сообщения</param>
-        private void ShowNotification(string Msg)
+        /// <param name="MI">Тип значка сообщения MessageBox</param>
+        /// <param name="TI">Тип значка сообщения в трее</param>
+        private void ShowNotification(string Msg, MessageBoxIcon MI, ToolTipIcon TI)
         {
-            // Выводим сообщение в трее...
-            TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Msg, ToolTipIcon.Info);
+            // Проверяем версию ОС. Под W10 всплывающие уведомления не функционируют.
+            if (CoreLib.IsModernOS())
+            {
+                // Выводим сообщение...
+                MessageBox.Show(Msg, Properties.Resources.AppName, MessageBoxButtons.OK, MI);
+            }
+            else
+            {
+                // Выводим сообщение в трее...
+                TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Msg, TI);
+            }
         }
         #endregion
 
