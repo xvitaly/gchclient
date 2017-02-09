@@ -282,6 +282,16 @@ namespace gchclient
                 });
             }
         }
+
+        /// <summary>
+        /// Выводит сообщение программы в зависимости от платформы.
+        /// </summary>
+        /// <param name="Msg">Текст сообщения</param>
+        private void ShowNotification(string Msg)
+        {
+            // Выводим сообщение в трее...
+            TrayIcon.ShowBalloonTip(1000, Properties.Resources.AppName, Msg, ToolTipIcon.Info);
+        }
         #endregion
 
         #region Internal Workers
