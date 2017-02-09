@@ -180,5 +180,13 @@ namespace gchcore
             // Проверяем прошла ли загрузка...
             return File.Exists(FileName);
         }
+
+        /// <summary>
+        /// Определяет запуск под Windows 10.
+        /// </summary>
+        public static bool IsModernOS()
+        {
+            return Environment.OSVersion.Version >= new Version("10.0.0.0");
+        }
     }
 }
