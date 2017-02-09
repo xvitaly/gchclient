@@ -18,7 +18,7 @@ AppName=Garant Checker Offline
 AppVerName=Garant Checker Offline
 AppPublisher=EasyCoding Team
 AppPublisherURL=https://www.easycoding.org/
-AppVersion=1.0.0.888
+AppVersion=2.0.0.900
 AppSupportURL=https://www.easycoding.org/projects/gchclient
 AppUpdatesURL=https://www.easycoding.org/projects/gchclient
 DefaultDirName={code:GetDefRoot}\Garant Checker Offline
@@ -26,7 +26,7 @@ DefaultGroupName=Garant Checker Offline
 AllowNoIcons=yes
 LicenseFile=LICENSE.txt
 InfoBeforeFile=README.txt
-OutputBaseFilename=gchclient_10
+OutputBaseFilename=gchclient_20
 SetupIconFile=gchclient.ico
 UninstallDisplayIcon={app}\gchclient.exe
 Compression=lzma2
@@ -35,7 +35,7 @@ PrivilegesRequired=lowest
 ArchitecturesInstallIn64BitMode=x64
 
 ; Здесь указываем данные, которые будут добавлены в свойства установщика...
-VersionInfoVersion=1.0.0.888
+VersionInfoVersion=2.0.0.900
 VersionInfoDescription=Garant Checker Offline Setup
 VersionInfoCopyright=(c) 2005-2017 EasyCoding Team. All rights reserved.
 VersionInfoCompany=EasyCoding Team
