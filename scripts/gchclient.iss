@@ -88,12 +88,12 @@ Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 
 [Run]
 Filename: "{app}\gchclient.exe"; Description: "{cm:LaunchProgram,Garant Checker Offline}"; Flags: nowait postinstall skipifsilent
-Filename: {code:GetNetInstallPath}ngen.exe; Parameters: "install ""{app}\gchcore.dll"""; StatusMsg: {cm:OptNetStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
-Filename: {code:GetNetInstallPath}ngen.exe; Parameters: "install ""{app}\gchclient.exe"""; StatusMsg: {cm:OptNetStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
+Filename: "{dotnet40}\ngen.exe"; Parameters: "install ""{app}\gchcore.dll"""; StatusMsg: {cm:OptNetStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
+Filename: "{dotnet40}\ngen.exe"; Parameters: "install ""{app}\gchclient.exe"""; StatusMsg: {cm:OptNetStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
 
 [UninstallRun]
-Filename: {code:GetNetInstallPath}ngen.exe; Parameters: "uninstall ""{app}\gchcore.dll"""; StatusMsg: {cm:OptNetUninstallStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
-Filename: {code:GetNetInstallPath}ngen.exe; Parameters: "uninstall ""{app}\gchclient.exe"""; StatusMsg: {cm:OptNetUninstallStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
+Filename: "{dotnet40}\ngen.exe"; Parameters: "uninstall ""{app}\gchcore.dll"""; StatusMsg: {cm:OptNetUninstallStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
+Filename: "{dotnet40}\ngen.exe"; Parameters: "uninstall ""{app}\gchclient.exe"""; StatusMsg: {cm:OptNetUninstallStatus}; Flags: runhidden; Check: IsAdminLoggedOn()
 
 [Code]
 function GetDefRoot(Param: String): String;
@@ -102,12 +102,4 @@ begin
     Result := ExpandConstant('{localappdata}')
   else
     Result := ExpandConstant('{pf}')
-end;
-
-function GetNetInstallPath(Param: String): String;
-var
-  NetPath: String;
-begin
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client', 'InstallPath', NetPath);
-  Result := NetPath;
 end;
