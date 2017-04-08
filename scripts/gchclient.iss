@@ -45,10 +45,6 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
 
 [CustomMessages]
 AdvFeatGroupDesc=Дополнительные возможности:
-ShcLicenseAgrr=Лицензионное соглашение
-ShcReadme=Файл ПрочтиМеня
-ShcNETFx=Установить Microsoft .NET Framework 4.6
-ShcLocTexts=Информация
 OptNetStatus=Идёт оптимизация MSIL приложения...
 OptNetUninstallStatus=Идёт удаление машинных сборок MSIL...
 RepAppErrText=Сообщить об ошибке в программе
@@ -74,12 +70,8 @@ Source: "gchclient.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"
-Name: "{group}\{cm:ShcLocTexts}\{cm:ShcLicenseAgrr}"; Filename: "{app}\LICENSE.txt"
-Name: "{group}\{cm:ShcLocTexts}\{cm:ShcReadme}"; Filename: "{app}\README.txt"
-Name: "{group}\{cm:ShcLocTexts}\{cm:ProgramOnTheWeb,Garant Checker Offline}"; Filename: "https://www.easycoding.org/projects/gchclient"
-Name: "{group}\{cm:UninstallProgram,Garant Checker Offline}"; Filename: "{uninstallexe}"
+Name: "{group}\{cm:ProgramOnTheWeb,Garant Checker Offline}"; Filename: "https://www.easycoding.org/projects/gchclient"
 Name: "{group}\{cm:RepAppErrText}"; Filename: "https://github.com/xvitaly/gchclient/issues"
-Name: "{group}\{cm:ShcNETFx}"; Filename: "https://www.microsoft.com/ru-RU/download/details.aspx?id=49981"
 Name: "{commondesktop}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: quicklaunchicon
 
