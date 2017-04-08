@@ -55,7 +55,7 @@ InstAutorun=Автоматический запуск программы
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "insdebginf"; Description: "{cm:InstDebugInfo}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
-Name: "autorun"; Description: "{cm:InstAutorun}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
+Name: "autorun"; Description: "{cm:InstAutorun}"; GroupDescription: "{cm:AdvFeatGroupDesc}"; Flags: unchecked
 
 [Files]
 Source: "gchcore.dll"; DestDir: "{app}"; Flags: ignoreversion
