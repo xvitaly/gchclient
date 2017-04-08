@@ -58,8 +58,6 @@ Name: "insdebginf"; Description: "{cm:InstDebugInfo}"; GroupDescription: "{cm:Ad
 Name: "autorun"; Description: "{cm:InstAutorun}"; GroupDescription: "{cm:AdvFeatGroupDesc}"
 
 [Files]
-Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "README.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gchcore.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gchcore.dll.sig"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gchcore.pdb"; DestDir: "{app}"; Flags: ignoreversion; Tasks: insdebginf
