@@ -8,8 +8,8 @@
 ; 
 ; Полный текст лицензии находится в файле LICENSE.TXT.
 ; 
-; Официальный блог EasyCoding Team: http://www.easycoding.org/
-; Официальная страница проекта: http://www.easycoding.org/projects/gchclient
+; Официальный блог EasyCoding Team: https://www.easycoding.org/
+; Официальная страница проекта: https://www.easycoding.org/projects/gchclient
 
 [Setup]
 ; Задаём основные параметры...
