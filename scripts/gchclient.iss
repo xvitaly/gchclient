@@ -72,7 +72,7 @@ Source: "gchclient.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Name: "{group}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"
 Name: "{group}\{cm:ProgramOnTheWeb,Garant Checker Offline}"; Filename: "https://www.easycoding.org/projects/gchclient"
 Name: "{group}\{cm:RepAppErrText}"; Filename: "https://github.com/xvitaly/gchclient/issues"
-Name: "{commondesktop}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: desktopicon
+Name: "{userdesktop}\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Garant Checker Offline"; Filename: "{app}\gchclient.exe"; Tasks: quicklaunchicon
 
 [Registry]
