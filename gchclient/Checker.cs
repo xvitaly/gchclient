@@ -22,6 +22,7 @@ using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Web;
 using gchcore;
 
 namespace gchclient
@@ -107,6 +108,17 @@ namespace gchclient
         public string LocalAvatarDir { get; } = Path.Combine(Path.GetTempPath(), Properties.Resources.AppIntName);
 
         /// <summary>
+        /// Занимается очисткой строки от различных специальных символов и ссылок.
+        /// </summary>
+        /// <param name="Str">Строка для очистки</param>
+        /// <param name="Target">Заменитель</param>
+        /// <returns>Исправленная строка</returns>
+        private string CleanHTMLEntities(string Str, string Target = " ")
+        {
+            return Regex.Replace(HttpUtility.HtmlDecode(Str), Properties.Resources.AppCustDescrCleanRegex, Target);
+        }
+
+        /// <summary>
         /// Базовый конструктор класса.
         /// </summary>
         /// <param name="Uri">URL API чекера</param>
@@ -129,10 +141,10 @@ namespace gchclient
                 VCStatus = XMLD.GetElementsByTagName("isbanned")[0].InnerText;
                 Free2PlaySt = XMLD.GetElementsByTagName("isf2p")[0].InnerText;
                 TradeStatus = XMLD.GetElementsByTagName("istrbanned")[0].InnerText;
-                SRStatus = XMLD.GetElementsByTagName("steamrep")[0].InnerText;
+                SRStatus = CleanHTMLEntities(XMLD.GetElementsByTagName("steamrep")[0].InnerText, String.Empty);
                 GameBans = XMLD.GetElementsByTagName("gamebans")[0].InnerText;
                 LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.GetMD5Hash(AvatarURL) + ".jpg");
-                try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[0].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
+                try { CustomText = CleanHTMLEntities(XMLD.GetElementsByTagName("customdescr")[0].InnerText); } catch { CustomText = Properties.Resources.CustInfoNone; }
             }
             else
             {
