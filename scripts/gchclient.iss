@@ -1,15 +1,23 @@
-﻿; Скрипт программы (мастера) установки Garant Checker Offline.
-;  
-; Copyright 2012 - 2017 EasyCoding Team (ECTeam).
-; Copyright 2005 - 2017 EasyCoding Team.
+﻿; 
+; This file is a part of Garant Checker Offline. For more information
+; visit official site: https://www.easycoding.org/projects/gchclient
 ; 
-; Лицензия кода: модифицированная лицензия BSD.
-; Лицензия контента: Creative Commons 3.0 BY.
+; Copyright (c) 2012 - 2017 EasyCoding Team (ECTeam).
+; Copyright (c) 2005 - 2017 EasyCoding Team.
 ; 
-; Полный текст лицензии находится в файле LICENSE.TXT.
+; This program is free software: you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation, either version 3 of the License, or
+; (at your option) any later version.
 ; 
-; Официальный блог EasyCoding Team: https://www.easycoding.org/
-; Официальная страница проекта: https://www.easycoding.org/projects/gchclient
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+; 
+; You should have received a copy of the GNU General Public License
+; along with this program. If not, see <http://www.gnu.org/licenses/>.
+;
 
 [Setup]
 ; Задаём основные параметры...
@@ -18,24 +26,25 @@ AppName=Garant Checker Offline
 AppVerName=Garant Checker Offline
 AppPublisher=EasyCoding Team
 AppPublisherURL=https://www.easycoding.org/
-AppVersion=2.0.0.900
+AppVersion=2.1.0.920
 AppSupportURL=https://www.easycoding.org/projects/gchclient
 AppUpdatesURL=https://www.easycoding.org/projects/gchclient
 DefaultDirName={code:GetDefRoot}\Garant Checker Offline
 DefaultGroupName=Garant Checker Offline
 AllowNoIcons=yes
-LicenseFile=LICENSE.txt
+LicenseFile=COPYING
 InfoBeforeFile=README.txt
-OutputBaseFilename=gchclient_20
+OutputBaseFilename=gchclient_21
 SetupIconFile=gchclient.ico
 UninstallDisplayIcon={app}\gchclient.exe
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=lowest
 ArchitecturesInstallIn64BitMode=x64
+MinVersion=6.1.7601
 
 ; Здесь указываем данные, которые будут добавлены в свойства установщика...
-VersionInfoVersion=2.0.0.900
+VersionInfoVersion=2.1.0.920
 VersionInfoDescription=Garant Checker Offline Setup
 VersionInfoCopyright=(c) 2005-2017 EasyCoding Team. All rights reserved.
 VersionInfoCompany=EasyCoding Team
