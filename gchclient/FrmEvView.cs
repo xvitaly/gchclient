@@ -1,16 +1,22 @@
 ﻿/*
- * Форма просмотрщика доказательств приложения Garant Checker Offline.
+ * This file is a part of Garant Checker Offline. For more information
+ * visit official site: https://www.easycoding.org/projects/gchclient
  * 
- * Copyright 2012 - 2017 EasyCoding Team (ECTeam).
- * Copyright 2005 - 2017 EasyCoding Team.
+ * Copyright (c) 2012 - 2017 EasyCoding Team (ECTeam).
+ * Copyright (c) 2005 - 2017 EasyCoding Team.
  * 
- * Лицензия кода: модифицированная лицензия BSD.
- * Лицензия контента: Creative Commons 3.0 BY.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  * 
- * Полный текст лицензии находится в файле LICENSE.TXT.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  * 
- * Официальный блог EasyCoding Team: http://www.easycoding.org/
- * Официальная страница проекта: http://www.easycoding.org/projects/gchclient
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 using System;
 using System.ComponentModel;
