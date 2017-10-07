@@ -124,7 +124,7 @@ namespace gchclient
                 WrQ.Timeout = 250000;
                 
                 // Кодируем POST-запрос в UTF8...
-                byte[] ByteReqC = Encoding.UTF8.GetBytes(String.Format("hrfff=1&steam={0}&dblist={1}&advtext={2}", SteamID, ListID, String.Format("{0}.\r\n\r\n{1}: {2}", UserText, Properties.Resources.RepPostFix, CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey))));
+                byte[] ByteReqC = Encoding.UTF8.GetBytes(String.Format("hrfff=1&steam={0}&dblist={1}&advtext={2}", SteamID, ListID, String.Format("{0}.\r\n\r\n{1}: {2}", UserText, Properties.Resources.RepPostFix, CoreLib.GetMD5Hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey))));
                 
                 // Указываем тип отправляемых данных [форма] и длину запроса...
                 WrQ.ContentType = "application/x-www-form-urlencoded";

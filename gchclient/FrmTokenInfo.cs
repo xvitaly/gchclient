@@ -53,7 +53,7 @@ namespace gchclient
         private void BW_Rcv_DoWork(object sender, DoWorkEventArgs e)
         {
             XmlDocument XMLD = new XmlDocument();
-            XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
+            XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "info", CoreLib.GetMD5Hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
             Invoke((MethodInvoker)delegate()
             {
                 Tn_ExpDate.Text = CoreLib.UnixTime2DateTime(Convert.ToDouble(XMLD.GetElementsByTagName("expires")[0].InnerText)).ToString();

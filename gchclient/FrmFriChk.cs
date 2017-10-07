@@ -171,7 +171,7 @@ namespace gchclient
         {
             // Получаем XML с сервера...
             Invoke((MethodInvoker)delegate () { SB_Status.Text = Properties.Resources.AppSBReceiving; });
-            string XMLObj = CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.md5hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), Properties.Resources.AppUserAgent, Auth.HardwareID);
+            string XMLObj = CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "friends", CoreLib.GetMD5Hash(Properties.Settings.Default.PrimKey + Properties.Settings.Default.SecKey), SteamID), Properties.Resources.AppUserAgent, Auth.HardwareID);
 
             // Обходим полученный XML...
             Invoke((MethodInvoker)delegate () { SB_Status.Text = Properties.Resources.AppSBBuilding; });

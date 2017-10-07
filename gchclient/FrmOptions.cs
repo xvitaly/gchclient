@@ -75,7 +75,7 @@ namespace gchclient
                 {
                     // Загружаем и разбираем полученный XML...
                     XmlDocument XMLD = new XmlDocument();
-                    XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.md5hash(InpPriToken.Text + InpSecToken.Text), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
+                    XMLD.LoadXml(CoreLib.DownloadRemoteString(String.Format(Properties.Resources.APIURI, (Properties.Settings.Default.UseSSL ? "https://" : "http://"), "test", CoreLib.GetMD5Hash(InpPriToken.Text + InpSecToken.Text), String.Empty), Properties.Resources.AppUserAgent, Auth.HardwareID));
                     
                     // Проверяем результат...
                     if (XMLD.GetElementsByTagName("result")[0].InnerText == "PASSED")

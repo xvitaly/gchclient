@@ -82,7 +82,7 @@ namespace gchcore
         /// </summary>
         /// <param name="Contents">Строка для расчёта хеша</param>
         /// <returns>Хеш в формате MD5</returns>
-        public static string md5hash(string Contents)
+        public static string GetMD5Hash(string Contents)
         {
             MD5 md5h = MD5.Create();
             byte[] hashsum = md5h.ComputeHash(Encoding.Default.GetBytes(Contents));

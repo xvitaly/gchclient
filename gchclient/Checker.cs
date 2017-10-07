@@ -131,7 +131,7 @@ namespace gchclient
                 TradeStatus = XMLD.GetElementsByTagName("istrbanned")[0].InnerText;
                 SRStatus = XMLD.GetElementsByTagName("steamrep")[0].InnerText;
                 GameBans = XMLD.GetElementsByTagName("gamebans")[0].InnerText;
-                LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.md5hash(AvatarURL) + ".jpg");
+                LocalAvatarImg = Path.Combine(LocalAvatarDir, CoreLib.GetMD5Hash(AvatarURL) + ".jpg");
                 try { CustomText = Regex.Replace(XMLD.GetElementsByTagName("customdescr")[0].InnerText, Properties.Resources.AppCustDescrCleanRegex, " "); } catch { CustomText = Properties.Resources.CustInfoNone; }
             }
             else

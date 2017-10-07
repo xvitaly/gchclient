@@ -50,7 +50,7 @@ namespace gchcore
                     break;
                 }
             }
-            return CoreLib.md5hash(Result);
+            return CoreLib.GetMD5Hash(Result);
         }
     }
 }
