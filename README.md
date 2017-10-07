@@ -7,11 +7,11 @@ Garant Checker Offline [![Build Status](https://travis-ci.org/xvitaly/gchclient.
 
 Сообщить об ошибке в программе, а также предложить новую функцию можно здесь: https://github.com/xvitaly/gchclient/issues
 
-**Лицензия**: модифицированная BSD.
+**Лицензия**: GNU General Public License версии 3.
 
 **Поддерживаемые платформы**: Windows 7 SP1 — 10 (все редакции, кроме Starter).
 
-**Зависимости**: Microsoft .NET Framework 4 Client Profile и выше (не требуется при запуске в Windows 8+).
+**Зависимости**: [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/ru-RU/download/details.aspx?id=49981) и выше (не требуется при запуске в Windows 8+).
 
 Скачать
 =========
