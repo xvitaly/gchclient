@@ -64,16 +64,16 @@ namespace gchclient
         {
             // Заполняем информацию о версии, копирайте...
             Text = AppProduct;
-            labelProductName.Text = AppProduct;
-            labelVersion.Text = String.Format("Version: {0}", AppVersion);
-            labelCopyright.Text = AppCopyright;
-            labelCompanyName.Text = AppCompany;
+            LabelProductName.Text = AppProduct;
+            LabelVersion.Text = String.Format("Version: {0}", AppVersion);
+            LabelCopyright.Text = AppCopyright;
+            LabelCompanyName.Text = AppCompany;
         }
 
         /// <summary>
         /// Метод, срабатывающий при нажатии на кнопку "OK".
         /// </summary>
-        private void okButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             Close();
         }
