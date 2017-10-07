@@ -346,7 +346,7 @@
   <data name="AppIgnClipbErr" xml:space="preserve">
     <value>Ошибка при вставке из буфера обмена!</value>
   </data>
-  <data name="AppCustDescrCleanRegex" xml:space="preserve">
+  <data name="AppEntCleanRegex" xml:space="preserve">
     <value>&lt;(.|\n)*?&gt;</value>
   </data>
   <data name="APIURI" xml:space="preserve">

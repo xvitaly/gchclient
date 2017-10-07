@@ -115,7 +115,7 @@ namespace gchclient
         /// <returns>Исправленная строка</returns>
         private string CleanHTMLEntities(string Str, string Target = " ")
         {
-            return Regex.Replace(HttpUtility.HtmlDecode(Str), Properties.Resources.AppCustDescrCleanRegex, Target);
+            return Regex.Replace(HttpUtility.HtmlDecode(Str), Properties.Resources.AppEntCleanRegex, Target);
         }
 
         /// <summary>
